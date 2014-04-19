@@ -1,7 +1,7 @@
 <?php
 
 	include_once 'Utilisateur.php';
-	include_once 'check_utilisateur_db.php';
+	include_once 'inscription_check_utilisateur_db.php';
 
 	$pseudo = $_GET['pseudo'];
 	$mot_de_passe = $_GET['mot_de_passe'];
