@@ -16,7 +16,7 @@
 	die('Erreur : '.$e->getMessage());
 	}
 
-	$res = "";
+	$res = '';
 
 	if(utilisateur_existant($pseudo))
 	{
