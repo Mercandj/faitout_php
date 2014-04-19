@@ -5,6 +5,7 @@
 
 	$pseudo = $_GET['pseudo'];
 	$mot_de_passe = $_GET['mot_de_passe'];
+	$sexe = $_GET['sexe'];
 
 	// Connexion à la base de données
 	try
@@ -24,7 +25,7 @@
 	}
 	else
 	{
-	  $us = new Utilisateur($pseudo, $mot_de_passe);
+	  $us = new Utilisateur($pseudo, $mot_de_passe, $sexe);
 
 	  $req = $bdd->prepare($us->getinsert());
 	  $req->execute($us->getarray());

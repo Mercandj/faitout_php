@@ -11,15 +11,17 @@
     private $sexe;
     private $grade;
 
-    public function __construct($ppseudo, $pmot_de_passe) {
+    public function __construct($ppseudo, $pmot_de_passe, $psexe) {
       $this->pseudo = $ppseudo;
       $this->mot_de_passe = $pmot_de_passe;
+      $this->sexe = $psexe;
     }
 
     public function getarray() {
       return array(
         'pseudo' => $this->pseudo,
         'mot_de_passe' => $this->mot_de_passe
+        'sexe' => $this->sexe;
       );
     }
 
@@ -27,10 +29,12 @@
       return 
         'INSERT INTO utilisateur(
           pseudo,
-          mot_de_passe
+          mot_de_passe,
+          sexe
         ) VALUES(
           :pseudo,
-          :mot_de_passe
+          :mot_de_passe,
+          :sexe
         )';
     }
 
