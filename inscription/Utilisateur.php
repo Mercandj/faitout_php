@@ -20,8 +20,8 @@
     public function getarray() {
       return array(
         'pseudo' => $this->pseudo,
-        'mot_de_passe' => $this->mot_de_passe
-        'sexe' => $this->sexe;
+        'mot_de_passe' => $this->mot_de_passe,
+        'sexe' => $this->sexe
       );
     }
 
