@@ -38,9 +38,14 @@ CREATE TABLE IF NOT EXISTS `Utilisateur` (
   `age` VARCHAR(100) NULL,
   `sexe` VARCHAR(100) NULL,
   `grade` VARCHAR(100) NULL,
+  `admin` VARCHAR(100) NULL,
+  `xp` VARCHAR(100) NULL,
   `Groupe_nom_cree` VARCHAR(100) NOT NULL,
   `Groupe_nom_inscrit` VARCHAR(100) NULL,
-  PRIMARY KEY (`pseudo`))
+  `Utilisateur_pseudo` VARCHAR(100) NOT NULL,
+  `Utilisateur_pseudo1` VARCHAR(100) NOT NULL,
+  `Utilisateur_Utilisateur_pseudo` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`pseudo`, `Utilisateur_pseudo`, `Utilisateur_pseudo1`, `Utilisateur_Utilisateur_pseudo`))
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
@@ -55,7 +60,23 @@ CREATE TABLE IF NOT EXISTS `Message` (
   `date` DATETIME NOT NULL,
   `Utilisateur_pseudo` VARCHAR(100) NOT NULL,
   `message` VARCHAR(9999) NULL,
+  `destinataire` VARCHAR(200) NULL,
   PRIMARY KEY (`date`, `Utilisateur_pseudo`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Amis`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Amis` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `Amis` (
+  `date_de_creation` DATETIME NULL,
+  `Utilisateur_pseudo` VARCHAR(100) NOT NULL,
+  `pseudo_ami` VARCHAR(100) NULL,
+  PRIMARY KEY (`Utilisateur_pseudo`))
 ENGINE = InnoDB;
 
 SHOW WARNINGS;

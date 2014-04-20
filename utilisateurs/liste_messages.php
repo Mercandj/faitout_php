@@ -14,7 +14,8 @@
 	while($donnees = $req->fetch()) {
 		$res.='{';
 		$res.='"Utilisateur_pseudo": "'.$donnees['Utilisateur_pseudo'].'", ';
-		$res.='"message": "'.$donnees['message'].'"';
+		$res.='"message": "'.$donnees['message'].'", ';
+		$res.='"destinataire": "'.$donnees['destinataire'].'"';
 		$res.='},';
 	}
 

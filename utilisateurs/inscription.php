@@ -8,23 +8,19 @@
 	$sexe = $_GET['sexe'];
 
 	// Connexion à la base de données
-	try
-	{
+	try {
 		$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
 	}
-	catch(Exception $e)
-	{
-	die('Erreur : '.$e->getMessage());
+	catch(Exception $e) {
+		die('Erreur : '.$e->getMessage());
 	}
 
 	$res = '';
 
-	if(utilisateur_existant($pseudo))
-	{
+	if(utilisateur_existant($pseudo)) {
 		$res.='Ce nom d\'utilisateur est deja pris.';
 	}
-	else
-	{
+	else {
 	  $us = new Utilisateur($pseudo, $mot_de_passe, $sexe);
 
 	  $req = $bdd->prepare($us->getinsert());

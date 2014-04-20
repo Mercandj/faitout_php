@@ -6,18 +6,21 @@
     private $Utilisateur_pseudo;
     private $date;
     private $message;
+    private $destinataire;
 
-    public function __construct($pUtilisateur_pseudo, $pdate, $pmessage) {
+    public function __construct($pUtilisateur_pseudo, $pdate, $pmessage, $pdestinataire) {
       $this->Utilisateur_pseudo = $pUtilisateur_pseudo;
       $this->date = $pdate;
       $this->message = $pmessage;
+      $this->destinataire = $pdestinataire;
     }
 
     public function getarray() {
       return array(
         'Utilisateur_pseudo' => $this->Utilisateur_pseudo,
         'date' => $this->date,
-        'message' => $this->message
+        'message' => $this->message,
+        'destinataire' => $this->destinataire
       );
     }
 
@@ -26,11 +29,13 @@
         'INSERT INTO message(
           Utilisateur_pseudo,
           date,
-          message
+          message,
+          destinataire
         ) VALUES(
           :Utilisateur_pseudo,
           :date,
-          :message
+          :message,
+          :destinataire
         )';
     }
 

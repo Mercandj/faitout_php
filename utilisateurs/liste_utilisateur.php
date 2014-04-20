@@ -1,5 +1,7 @@
 <?php
-	// Connexion à la base de données
+
+	$pseudo = $_GET['pseudo'];
+
 	try {
 		$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
 	}
@@ -7,18 +9,18 @@
 		die('Erreur : '.$e->getMessage());
 	}
 
-	$res = '{ "utilisateurs" : [';
+	$res = '{ "utilisateur" : [';
 
-	$req = $bdd->prepare('SELECT * FROM `utilisateur`');
-	$req->execute();
-	while($donnees = $req->fetch()) {
+	$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+	$req->execute(array($pseudo));
+	if($donnees = $req->fetch()) {
 		$res.='{';
 		$res.='"pseudo": "'.$donnees['pseudo'].'", ';
 		$res.='"mot_de_passe": "'.$donnees['mot_de_passe'].'", ';
 		$res.='"sexe":"'.$donnees['sexe'].'", ';
 		$res.='"xp":"'.$donnees['xp'].'", ';
 		$res.='"admin":"'.$donnees['admin'].'"';
-		$res.='},';
+		$res.='}';
 	}
 
 	echo $res.']}';

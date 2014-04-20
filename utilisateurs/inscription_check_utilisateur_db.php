@@ -1,6 +1,6 @@
 
 <?php
-	function utilisateur_existant($user) {
+	function utilisateur_existant($pseudo) {
 		try {
 			$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
 		}
@@ -9,7 +9,7 @@
 		}
 
 		$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
-		$req->execute(array($user));
+		$req->execute(array($pseudo));
 		if($donnees = $req->fetch()) {
 			return true;
 		}

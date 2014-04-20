@@ -4,6 +4,7 @@
 
 	$pseudo = $_GET['pseudo'];
 	$message = $_GET['message'];
+	$destinataire = $_GET['destinataire'];
 
 	// Connexion à la base de données
 	try {
@@ -18,7 +19,7 @@
 	$date = date('Y-m-d H:i:s');
 
 
-	$mess = new Message($pseudo, $date, $message);
+	$mess = new Message($pseudo, $date, $message, $destinataire);
 
 	$req = $bdd->prepare($mess->getinsert());
 	$req->execute($mess->getarray());

@@ -10,18 +10,24 @@
     private $mot_de_passe;
     private $sexe;
     private $grade;
+    private $xp;
+    private $admin;
 
     public function __construct($ppseudo, $pmot_de_passe, $psexe) {
       $this->pseudo = $ppseudo;
       $this->mot_de_passe = $pmot_de_passe;
       $this->sexe = $psexe;
+      $this->xp = '0';
+      $this->admin = 'non';
     }
 
     public function getarray() {
       return array(
         'pseudo' => $this->pseudo,
         'mot_de_passe' => $this->mot_de_passe,
-        'sexe' => $this->sexe
+        'sexe' => $this->sexe,
+        'xp' => $this->xp,
+        'admin' => $this->admin
       );
     }
 
@@ -30,16 +36,28 @@
         'INSERT INTO utilisateur(
           pseudo,
           mot_de_passe,
-          sexe
+          sexe,
+          xp,
+          admin
         ) VALUES(
           :pseudo,
           :mot_de_passe,
-          :sexe
+          :sexe,
+          :xp,
+          :admin
         )';
     }
 
-    public function getnom() {
-      return $this->nom;
+    public function getPseudo() {
+      return $this->pseudo;
+    }
+
+    public function getXp() {
+      return $this->xp;
+    }
+
+    public function setXp($var) {
+      $this->xp = $var;
     }
   }
 ?>
