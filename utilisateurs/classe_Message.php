@@ -23,7 +23,7 @@
 
     public function getinsert() {
       return 
-        'INSERT INTO utilisateur(
+        'INSERT INTO message(
           Utilisateur_pseudo,
           date,
           message

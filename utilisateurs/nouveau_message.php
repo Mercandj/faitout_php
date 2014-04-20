@@ -15,8 +15,8 @@
 
 	$res = '';
 
-	$date = date("Y-d-m");
-	$mess = new Message($pseudo, $message, $date);
+	$date = date("Y-d-m h:i:s");
+	$mess = new Message($pseudo, $date, $message);
 
 	$req = $bdd->prepare($mess->getinsert());
 	$req->execute($mess->getarray());
