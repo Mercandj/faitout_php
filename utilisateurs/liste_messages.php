@@ -13,7 +13,7 @@
 	$req->execute();
 	while($donnees = $req->fetch()) {
 		$res.='message = {';
-		$res.='"pseudo":"'.$donnees['pseudo'].'", ';
+		$res.='"Utilisateur_pseudo":"'.$donnees['Utilisateur_pseudo'].'", ';
 		$res.='"message":"'.$donnees['message'].'"';
 		$res.='}';
 	}
