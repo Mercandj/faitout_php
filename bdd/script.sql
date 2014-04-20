@@ -51,7 +51,7 @@ DROP TABLE IF EXISTS `Message` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `Message` (
-  `date` DATE NOT NULL,
+  `date` DATETIME NOT NULL,
   `Utilisateur_pseudo` VARCHAR(100) NOT NULL,
   `message` VARCHAR(9999) NULL,
   PRIMARY KEY (`date`, `Utilisateur_pseudo`))
