@@ -18,7 +18,6 @@
 
 	$date = date('Y-m-d H:i:s');
 
-
 	$mess = new Message($pseudo, $date, $message, $destinataire);
 
 	$req = $bdd->prepare($mess->getinsert());
