@@ -16,6 +16,7 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `Groupe` (
   `nom` VARCHAR(100) NOT NULL,
   `Utilisateur_pseudo_admin` VARCHAR(100) NOT NULL,
+  `date_de_creation` DATETIME NULL,
   PRIMARY KEY (`nom`, `Utilisateur_pseudo_admin`))
 ENGINE = InnoDB;
 
@@ -33,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `Utilisateur` (
   `nom` VARCHAR(100) NULL,
   `email` VARCHAR(100) NULL,
   `mot_de_passe` VARCHAR(100) NULL,
-  `date_inscription` DATE NULL,
+  `date_inscription` DATETIME NULL,
   `age` VARCHAR(100) NULL,
   `sexe` VARCHAR(100) NULL,
   `grade` VARCHAR(100) NULL,
