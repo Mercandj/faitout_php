@@ -7,16 +7,16 @@
 		die('Erreur : '.$e->getMessage());
 	}
 
-	$res = '{';
+	$res = '{ "messages" : [';
 
 	$req = $bdd->prepare('SELECT * FROM `message`');
 	$req->execute();
 	while($donnees = $req->fetch()) {
-		$res.='message = {';
-		$res.='"Utilisateur_pseudo":"'.$donnees['Utilisateur_pseudo'].'", ';
-		$res.='"message":"'.$donnees['message'].'"';
-		$res.='}';
+		$res.='{';
+		$res.='"Utilisateur_pseudo": "'.$donnees['Utilisateur_pseudo'].'", ';
+		$res.='"message": "'.$donnees['message'].'"';
+		$res.='},';
 	}
 
-	echo $res.'}';
+	echo $res.']}';
 ?>
