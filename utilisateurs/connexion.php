@@ -1,6 +1,6 @@
 <?php
 
-	include_once 'Utilisateur.php';
+	include_once 'classe_Utilisateur.php';
 	include_once 'connexion_check_utilisateur_db.php';
 
 	$pseudo = $_GET['pseudo'];

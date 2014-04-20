@@ -44,6 +44,21 @@ ENGINE = InnoDB;
 
 SHOW WARNINGS;
 
+-- -----------------------------------------------------
+-- Table `Message`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Message` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `Message` (
+  `date` DATE NOT NULL,
+  `Utilisateur_pseudo` VARCHAR(100) NOT NULL,
+  `message` VARCHAR(9999) NULL,
+  PRIMARY KEY (`date`, `Utilisateur_pseudo`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

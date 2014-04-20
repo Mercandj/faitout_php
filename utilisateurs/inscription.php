@@ -1,6 +1,6 @@
 <?php
 
-	include_once 'Utilisateur.php';
+	include_once 'classe_Utilisateur.php';
 	include_once 'inscription_check_utilisateur_db.php';
 
 	$pseudo = $_GET['pseudo'];
@@ -21,7 +21,7 @@
 
 	if(utilisateur_existant($pseudo))
 	{
-		$res.='Ce nom d\'utilisateur est deja pris';
+		$res.='Ce nom d\'utilisateur est deja pris.';
 	}
 	else
 	{
@@ -29,7 +29,7 @@
 
 	  $req = $bdd->prepare($us->getinsert());
 	  $req->execute($us->getarray());
-	  $res.='Felicitations, vous avez bien ete enregistre: vous pouvez desormais vous connecter avec votre username et votre password';
+	  $res.='Felicitations, vous pouvez desormais vous connecter avec votre pseudo et votre mot de passe.';
 
 	}
 

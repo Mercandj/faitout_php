@@ -12,7 +12,7 @@
 	$req = $bdd->prepare('SELECT * FROM `utilisateur`');
 	$req->execute();
 	while($donnees = $req->fetch()) {
-		$res.='user:{';
+		$res.='user = {';
 		$res.='"pseudo":"'.$donnees['pseudo'].'", ';
 		$res.='"mot_de_passe":"'.$donnees['mot_de_passe'].'", ';
 		$res.='"sexe":"'.$donnees['sexe'].'"';

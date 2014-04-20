@@ -1,0 +1,26 @@
+<?php
+
+	include_once 'classe_Message.php';
+
+	$pseudo = $_GET['pseudo'];
+	$message = $_GET['message'];
+
+	// Connexion à la base de données
+	try {
+		$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
+	}
+	catch(Exception $e) {
+		die('Erreur : '.$e->getMessage());
+	}
+
+	$res = '';
+
+	$date = date("Y-d-m");
+	$mess = new Message($pseudo, $message, $date);
+
+	$req = $bdd->prepare($mess->getinsert());
+	$req->execute($mess->getarray());
+	$res.='Felicitations, vous avez bien envoye un message.';
+
+	echo $res;
+?>
