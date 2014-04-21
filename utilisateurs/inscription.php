@@ -25,7 +25,7 @@
 
 	  $req = $bdd->prepare($us->getinsert());
 	  $req->execute($us->getarray());
-	  $res.='Felicitations, vous pouvez desormais vous connecter avec votre pseudo et votre mot de passe.';
+	  $res.='OK';
 
 	}
 
