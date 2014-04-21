@@ -5,10 +5,18 @@
 	$pseudo = $_GET['pseudo'];
 	$mot_de_passe = $_GET['mot_de_passe'];
 
+	// Connexion à la base de données
+	try {
+		$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
+	}
+	catch(Exception $e) {
+		die('Erreur : '.$e->getMessage());
+	}
+
 	$res = '{ "utilisateur" : [';
 
-	$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
-	$req->execute(array($pseudo));
+	$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ? AND `mot_de_passe` = ?');
+	$req->execute(array($pseudo, $mot_de_passe));
 	if($donnees = $req->fetch()) {
 		$res.='{';
 		$res.='"pseudo": "'.$donnees['pseudo'].'", ';
@@ -21,7 +29,7 @@
 		echo $res;
 	}
 	else {
-		$res.='KO';
+		$res='KO';
 		echo $res;
 	}
 ?>
