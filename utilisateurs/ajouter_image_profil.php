@@ -47,7 +47,7 @@
 			catch(Exception $e) {
 				die('Erreur : '.$e->getMessage());
 			}
-
+			
 			$url = "http://mercandalli.com/faitout/faitout_php/images/".$pseudo.'/'.$date_heure.'_'.$_FILES['image']['name'];
 
 			// Création d'une image
