@@ -30,11 +30,11 @@
 			// Créer un dossier
       		@mkdir('./images/'.$pseudo.'/', 0777, true);
      
-     		$date_heure = date('Y-m-d H:i:s');
+     		$date_heure = date('Y-m-d-H-i-s');
 
 			// Enregistre le fichier image
 			$url = "./images/".$pseudo.'/'.$date_heure.'_'.$_FILES['image']['name']/*.".{$extension_upload}"*/;
-			$resultat = move_uploaded_file($_FILES['image']['name'], $url);
+			$resultat = move_uploaded_file($_FILES['image']['tmp_name'], $url);
 
       		// Création des attributs de l'image
       		$date = date('Y-m-d H:i:s');
