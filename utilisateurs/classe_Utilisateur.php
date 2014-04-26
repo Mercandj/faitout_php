@@ -12,6 +12,7 @@
     private $grade;
     private $xp;
     private $admin;
+    private $url_image_profil;
 
     public function __construct($ppseudo, $pmot_de_passe, $psexe) {
       $this->pseudo = $ppseudo;

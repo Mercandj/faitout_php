@@ -42,10 +42,24 @@ CREATE TABLE IF NOT EXISTS `Utilisateur` (
   `xp` VARCHAR(100) NULL,
   `Groupe_nom_cree` VARCHAR(100) NOT NULL,
   `Groupe_nom_inscrit` VARCHAR(100) NULL,
+  `url_image_profil` VARCHAR(999) NULL,
+  PRIMARY KEY (`pseudo`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Image`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Image` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `Image` (
+  `url` VARCHAR(999) NOT NULL,
   `Utilisateur_pseudo` VARCHAR(100) NOT NULL,
-  `Utilisateur_pseudo1` VARCHAR(100) NOT NULL,
-  `Utilisateur_Utilisateur_pseudo` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`pseudo`, `Utilisateur_pseudo`, `Utilisateur_pseudo1`, `Utilisateur_Utilisateur_pseudo`))
+  `titre` VARCHAR(999) NULL,
+  `date` DATETIME NULL,
+  PRIMARY KEY (`url`))
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
@@ -61,7 +75,8 @@ CREATE TABLE IF NOT EXISTS `Message` (
   `Utilisateur_pseudo` VARCHAR(100) NOT NULL,
   `message` VARCHAR(9999) NULL,
   `destinataire` VARCHAR(200) NULL,
-  PRIMARY KEY (`date`, `Utilisateur_pseudo`))
+  `Image_url` VARCHAR(999) NOT NULL,
+  PRIMARY KEY (`date`, `Utilisateur_pseudo`, `Image_url`))
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
