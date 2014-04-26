@@ -36,11 +36,26 @@
 		$diff_temps_sec = abs(strtotime($date) - strtotime(date($donnees['date'])));
 
 		if( $diff_temps_sec < 60) {
-		    $date_relative = 'il y a '.$diff_temps_sec.'s';
+		    $date_relative = 'il y a '.($diff_temps_sec - floor($diff_temps_min)).'s';
 		}
 		else {
 			$diff_temps_min = $diff_temps_sec / 60;
-			$date_relative = 'il y a '.$diff_temps_min.'mn';
+
+			if($diff_temps_min < 60) {
+				$date_relative = 'il y a '.($diff_temps_min - floor($diff_temps_min)).'mn';
+			}
+			else {
+				$diff_temps_h = $diff_temps_min / 60;
+
+				if($diff_temps_h < 24) {
+					$date_relative = 'il y a '.($diff_temps_h - floor($diff_temps_h)).'h';
+				}
+				else {
+					$diff_temps_j = $diff_temps_h / 24;
+
+					$date_relative = 'il y a '.($diff_temps_j - floor($diff_temps_j)).'j';
+				}
+			}
 		}
 		$res.='"date": "'.$date_relative.'", ';
 		$res.='"destinataire": "'.$donnees['destinataire'].'"';
