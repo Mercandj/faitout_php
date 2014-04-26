@@ -48,7 +48,7 @@
 				$diff_temps_h = round($diff_temps_min / 60);
 
 				if($diff_temps_h < 24) {
-					$date_relative = 'il y a '.$diff_temps_h.'h';
+					$date_relative = 'il y a '.$diff_temps_h.'h'.($diff_temps_min-$diff_temps_h*60);
 				}
 				else {
 					$diff_temps_j = round($diff_temps_h / 24);
