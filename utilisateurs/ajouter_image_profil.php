@@ -33,8 +33,8 @@
      		$date_heure = date('Y-m-d-H-i-s');
 
 			// Enregistre le fichier image
-			$url = "./../images/".$pseudo.'/'.$date_heure.'_'.$_FILES['image']['name']/*.".{$extension_upload}"*/;
-			$resultat = move_uploaded_file($_FILES['image']['tmp_name'], $url);
+			$url_file = "./../images/".$pseudo.'/'.$date_heure.'_'.$_FILES['image']['name']/*.".{$extension_upload}"*/;
+			$resultat = move_uploaded_file($_FILES['image']['tmp_name'], $url_file);
 
       		// Création des attributs de l'image
       		$date = date('Y-m-d H:i:s');
@@ -48,6 +48,8 @@
 				die('Erreur : '.$e->getMessage());
 			}
 
+			$url = "http://mercandalli.com/faitout/faitout_php/images/".$pseudo.'/'.$date_heure.'_'.$_FILES['image']['name'];
+
 			// Création d'une image
 			$im = new Image(
 				$url,
@@ -59,8 +61,6 @@
 			// INSERT de l'image dans la base de données
 			$req = $bdd->prepare($im->getinsert());
 			$req->execute($im->getarray());
-
-			
 
 			$req = $bdd->prepare('UPDATE `utilisateur` SET `url_image_profil` = ? WHERE `pseudo` = ?');
 			$req->execute(array($url, $pseudo));
