@@ -26,7 +26,7 @@
 
     public function getinsert() {
       return 
-        'INSERT INTO url(
+        'INSERT INTO image(
           Utilisateur_pseudo,
           date,
           url,
