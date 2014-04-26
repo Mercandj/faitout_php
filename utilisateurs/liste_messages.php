@@ -34,7 +34,7 @@
 
 
 		$date = date('Y-m-d H:i:s');
-		$diff_temps_sec = abs(strtotime($date) - strtotime($donnees['date']));
+		$diff_temps_sec = abs(strtotime($date) - strtotime(date($donnees['date']));
 
 		$date_relative
 		if( $diff_temps_sec < 60) {
