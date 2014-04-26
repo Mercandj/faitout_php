@@ -31,6 +31,20 @@
 		$res.='"Utilisateur_pseudo": "'.$donnees['Utilisateur_pseudo'].'", ';
 		$res.='"message": "'.$donnees['message'].'", ';
 		$res.='"Image_url": "'.$donnees['Image_url'].'", ';
+
+
+		$date = date('Y-m-d H:i:s');
+		$diff_temps_sec = abs(strtotime($date) - strtotime($donnees['date']));
+
+		$date_relative
+		if( $diff_temps_sec < 60) {
+		    $date_relative = 'il y a '.$diff_temps_sec.'s';
+		}
+		else {
+			$diff_temps_min = $diff_temps_sec / 60;
+			$date_relative = 'il y a '.$diff_temps_min.'mn';
+		}
+		$res.='"date": "'.$date_relative.'", ';
 		$res.='"destinataire": "'.$donnees['destinataire'].'"';
 		$res.='},';
 	}
