@@ -3,6 +3,8 @@
 	include_once 'classe_Image.php';
 
 	$res = '';
+	$maxwidth = 200000;
+	$maxheight = 200000;
 
 	$pseudo = $_POST['pseudo'];
 
