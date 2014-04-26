@@ -39,31 +39,31 @@
 		    $date_relative = 'il y a '.$diff_temps_sec.'s';
 		}
 		else {
-			$diff_temps_min = round($diff_temps_sec / 60);
+			$diff_temps_min = intval($diff_temps_sec / 60);
 
 			if($diff_temps_min < 60) {
 				$date_relative = 'il y a '.$diff_temps_min.'mn';
 			}
 			else {
-				$diff_temps_h = round($diff_temps_min / 60);
+				$diff_temps_h = intval($diff_temps_min / 60);
 
 				if($diff_temps_h < 24) {
 					$date_relative = 'il y a '.$diff_temps_h.'h'.($diff_temps_min-$diff_temps_h*60);
 				}
 				else {
-					$diff_temps_j = round($diff_temps_h / 24);
+					$diff_temps_j = intval($diff_temps_h / 24);
 
 					if($diff_temps_h < 30) {
 						$date_relative = 'il y a '.$diff_temps_j.'j';
 					}
 					else {
-						$diff_temps_mois = round($diff_temps_j / 30);
+						$diff_temps_mois = intval($diff_temps_j / 30);
 
 						if($diff_temps_mois < 12) {
 							$date_relative = 'il y a '.$diff_temps_mois.' mois';
 						}
 						else {
-							$diff_temps_ans = round($diff_temps_mois / 12);
+							$diff_temps_ans = intval($diff_temps_mois / 12);
 
 							if($diff_temps_ans==1) {
 								$date_relative = 'il y a '.$diff_temps_ans.' an';
