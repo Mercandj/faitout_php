@@ -6,7 +6,7 @@
     private $Utilisateur_pseudo;
     private $date;
     private $url;
-    private $date;
+    private $titre;
 
     public function __construct($purl, $ptitre, $pUtilisateur_pseudo, $pdate) {
       $this->Utilisateur_pseudo = $pUtilisateur_pseudo;
