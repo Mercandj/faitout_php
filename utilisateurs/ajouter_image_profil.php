@@ -6,7 +6,7 @@
 	$maxwidth = 200000;
 	$maxheight = 200000;
 
-	$pseudo = $_POST['pseudo'];
+	$pseudo = $_GET['pseudo'];
 
 	if ($_FILES['image']['error'] > 0) {
 		$erreur = "Erreur lors du transfert";
@@ -34,11 +34,11 @@
 
 			// Enregistre le fichier image
 			$url = "./images/".$pseudo.'/'.$date_heure.'_'.$_FILES['image']['name']/*.".{$extension_upload}"*/;
-			$resultat = move_uploaded_file($_FILES['image']['tmp_name'], './.'.$url);
+			$resultat = move_uploaded_file($_FILES['image']['tmp_name'], $url);
 
       		// Création des attributs de l'image
       		$date = date('Y-m-d H:i:s');
-      		$titre = $_POST['titre'];
+      		$titre = $_GET['titre'];
 
 			// Connexion à la base de données
 			try {
