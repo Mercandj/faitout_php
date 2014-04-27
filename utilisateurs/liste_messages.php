@@ -22,10 +22,7 @@
 
 		$req2 = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
 		$req2->execute(array($donnees['Utilisateur_pseudo']));
-		$y = 0;
 		if($donnees2 = $req2->fetch()) {
-			if($y!=0)
-				$res.=', ';
 			$res.='"utilisateur": {';
 			$res.='"pseudo": "'.$donnees2['pseudo'].'", ';
 			$res.='"mot_de_passe": "'.$donnees2['mot_de_passe'].'", ';
@@ -33,8 +30,7 @@
 			$res.='"xp":"'.$donnees2['xp'].'", ';
 			$res.='"url_image_profil":"'.$donnees2['url_image_profil'].'", ';
 			$res.='"admin":"'.$donnees2['admin'].'"';
-			$res.='} ';
-			$y += 1;
+			$res.='}, ';
 		}
 
 		$res.='"Utilisateur_pseudo": "'.$donnees['Utilisateur_pseudo'].'", ';
