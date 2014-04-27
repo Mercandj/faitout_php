@@ -76,6 +76,7 @@ CREATE TABLE IF NOT EXISTS `Message` (
   `message` VARCHAR(9999) NULL,
   `destinataire` VARCHAR(200) NULL,
   `Image_url` VARCHAR(100) NOT NULL,
+  `visible` VARCHAR(100) NULL,
   PRIMARY KEY (`date`, `Utilisateur_pseudo`, `Image_url`))
 ENGINE = InnoDB;
 

@@ -7,12 +7,16 @@
     private $date;
     private $message;
     private $destinataire;
+    private $Image_url;
+    private $visible;
 
-    public function __construct($pUtilisateur_pseudo, $pdate, $pmessage, $pdestinataire) {
+    public function __construct($pUtilisateur_pseudo, $pdate, $pmessage, $pdestinataire, $pImage_url) {
       $this->Utilisateur_pseudo = $pUtilisateur_pseudo;
       $this->date = $pdate;
       $this->message = $pmessage;
       $this->destinataire = $pdestinataire;
+      $this->Image_url = $pImage_url;
+      $this->visible = 'true';
     }
 
     public function getarray() {
@@ -20,7 +24,9 @@
         'Utilisateur_pseudo' => $this->Utilisateur_pseudo,
         'date' => $this->date,
         'message' => $this->message,
-        'destinataire' => $this->destinataire
+        'destinataire' => $this->destinataire,
+        'Image_url' => $this->Image_url,
+        'visible' => $this->visible
       );
     }
 
@@ -30,12 +36,16 @@
           Utilisateur_pseudo,
           date,
           message,
-          destinataire
+          destinataire,
+          Image_url,
+          visible
         ) VALUES(
           :Utilisateur_pseudo,
           :date,
           :message,
-          :destinataire
+          :destinataire,
+          :Image_url,
+          :visible
         )';
     }
 
