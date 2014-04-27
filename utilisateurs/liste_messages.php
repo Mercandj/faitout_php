@@ -9,7 +9,7 @@
 
 	$res = '{ "messages" : [';
 
-	$req = $bdd->prepare('SELECT * FROM `message`');
+	$req = $bdd->prepare('SELECT * FROM `message` ORDER BY date DESC');
 	$req->execute();
 
 	$x = 0;
