@@ -54,14 +54,6 @@
 		      		$date = date('Y-m-d H:i:s');
 		      		$titre = $message;
 
-					// Connexion à la base de données
-					try {
-						$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
-					}
-					catch(Exception $e) {
-						die('Erreur : '.$e->getMessage());
-					}
-
 					$url = "http://mercandalli.com/faitout/images/".$pseudo.'/'.$date_heure.'_'.$_FILES['image']['name'];
 
 					// Création d'une image
