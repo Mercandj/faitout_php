@@ -58,7 +58,7 @@
 				else {
 					$diff_temps_j = intval($diff_temps_h / 24);
 
-					if($diff_temps_h < 30) {
+					if($diff_temps_j < 30) {
 						$date_relative = 'il y a '.$diff_temps_j.'j';
 					}
 					else {
@@ -76,9 +76,7 @@
 							else {
 								$date_relative = 'il y a '.$diff_temps_ans.' ans';
 							}
-
 						}
-
 					}
 				}
 			}
