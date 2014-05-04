@@ -17,6 +17,7 @@
 		$res.='"mot_de_passe": "'.$donnees['mot_de_passe'].'", ';
 		$res.='"sexe":"'.$donnees['sexe'].'", ';
 		$res.='"xp":"'.$donnees['xp'].'", ';
+		$res.='"url_image_profil":"'.$donnees2['url_image_profil'].'", ';
 		$res.='"admin":"'.$donnees['admin'].'"';
 		$res.='},';
 	}
