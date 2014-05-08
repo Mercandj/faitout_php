@@ -17,7 +17,7 @@
 
 	$date = date('Y-m-d H:i:s');
 
-	$us = new DemandeAmi($pseudo, $pseudo_ami, $date);
+	$us = new DemandeAmi($pseudo, $date, $pseudo_ami);
 
 	$req = $bdd->prepare($us->getinsert());
 	$req->execute($us->getarray());
