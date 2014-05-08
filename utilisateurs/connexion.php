@@ -31,7 +31,7 @@
 		$id = 0;
 		while($donnees2 = $req2->fetch()) {
 			if($id == 0) {
-				$res.=', "demandeami" : [{';
+				$res.=', "demandeami": [{';
 			}
 			else {
 				$res.=', {';
