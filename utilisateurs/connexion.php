@@ -36,8 +36,8 @@
 			else {
 				$res.=', {';
 			}
-			$res.='"Utilisateur_pseudo": "'.$donnees['Utilisateur_pseudo'].'", ';
-			$res.='"date_de_creation": "'.$donnees['date_de_creation'].'"';		
+			$res.='"Utilisateur_pseudo": "'.$donnees2['Utilisateur_pseudo'].'", ';
+			$res.='"date_de_creation": "'.$donnees2['date_de_creation'].'"';		
 			$res.='}';
 			$id += 1;
 		}
