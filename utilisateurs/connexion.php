@@ -25,6 +25,26 @@
 		$res.='"xp":"'.$donnees['xp'].'", ';
 		$res.='"url_image_profil":"'.$donnees['url_image_profil'].'", ';
 		$res.='"admin":"'.$donnees['admin'].'"';
+
+		$req2 = $bdd->prepare('SELECT * FROM `demandeami` WHERE `pseudo_ami` = ?');
+		$req2->execute(array($pseudo));
+		$id = 0;
+		while($donnees2 = $req2->fetch()) {
+			if($id == 0) {
+				$res.='", demandeami" : [{';
+			}
+			else {
+				$res.=', {';
+			}
+			$res.='"Utilisateur_pseudo": "'.$donnees['Utilisateur_pseudo'].'", ';
+			$res.='"date_de_creation": "'.$donnees['date_de_creation'].'"';		
+			$res.='}';
+			$id += 1;
+		}
+		if($id!=0) {
+			$res.=']';
+		}
+
 		$res.='}';
 		$res.=']}';
 		echo $res;

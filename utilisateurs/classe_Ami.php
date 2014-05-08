@@ -1,7 +1,7 @@
 
 <?php 
 
-  class Amis {
+  class Ami {
 
     private $Utilisateur_pseudo;
     private $date_de_creation;
@@ -23,7 +23,7 @@
 
     public function getinsert() {
       return 
-        'INSERT INTO amis(
+        'INSERT INTO ami(
           Utilisateur_pseudo,
           date_de_creation,
           pseudo_ami

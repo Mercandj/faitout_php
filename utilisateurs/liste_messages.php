@@ -38,7 +38,7 @@
 		$res.='"Image_url": "'.$donnees['Image_url'].'", ';
 
 		$date = date('Y-m-d H:i:s');
-		$diff_temps_sec = abs(strtotime($date) - strtotime(date($donnees['date'])));
+		$diff_temps_sec = abs(strtotime($date) - strtotime(date($donnees['date_de_creation'])));
 
 		if( $diff_temps_sec < 60) {
 		    $date_relative = 'il y a '.$diff_temps_sec.'s';
