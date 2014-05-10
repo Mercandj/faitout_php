@@ -26,7 +26,7 @@
 		if($donnees['Utilisateur_pseudo'] != $pseudo) {
 			$req2 = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
 			$req2->execute(array($donnees['Utilisateur_pseudo']));
-			if($donnees2 = $req->fetch()) {
+			if($donnees2 = $req2->fetch()) {
 				$res.='{';
 				$res.='"pseudo": "'.$donnees2['pseudo'].'", ';
 				$res.='"mot_de_passe": "'.$donnees2['mot_de_passe'].'", ';
@@ -39,7 +39,7 @@
 		else if($donnees['pseudo_ami'] != $pseudo) {
 			$req2 = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
 			$req2->execute(array($donnees['pseudo_ami']));
-			if($donnees2 = $req->fetch()) {
+			if($donnees2 = $req2->fetch()) {
 				$res.='{';
 				$res.='"pseudo": "'.$donnees2['pseudo'].'", ';
 				$res.='"mot_de_passe": "'.$donnees2['mot_de_passe'].'", ';
