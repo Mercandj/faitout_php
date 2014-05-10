@@ -12,8 +12,8 @@
 
 	$res = '{ "amis" : [';
 
-	$req = $bdd->prepare('SELECT * FROM `amis` WHERE `Utilisateur_pseudo` = ?');
-	$req->execute(array($pseudo));
+	$req = $bdd->prepare('SELECT * FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?');
+	$req->execute(array($pseudo, $pseudo));
 	while($donnees = $req->fetch()) {
 		$res.='{';
 		$res.='"pseudo": "'.$donnees['pseudo'].'", ';
