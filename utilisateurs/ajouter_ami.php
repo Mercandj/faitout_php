@@ -1,6 +1,6 @@
 <?php
 
-	include_once 'classe_Amis.php';
+	include_once 'classe_Ami.php';
 
 	$pseudo = $_GET['pseudo'];
 	$pseudo_ami = $_GET['pseudo_ami'];
