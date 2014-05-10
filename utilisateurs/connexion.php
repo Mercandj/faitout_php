@@ -37,6 +37,21 @@
 				$res.=', {';
 			}
 			$res.='"Utilisateur_pseudo": "'.$donnees2['Utilisateur_pseudo'].'", ';
+
+			$res. = '"utilisateur" : ';
+			$req3 = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+			$req3->execute(array($donnees2['Utilisateur_pseudo']));
+			if($donnees3 = $req3->fetch()) {
+				$res.='{';
+				$res.='"pseudo": "'.$donnees3['pseudo'].'", ';
+				$res.='"mot_de_passe": "'.$donnees3['mot_de_passe'].'", ';
+				$res.='"sexe":"'.$donnees3['sexe'].'", ';
+				$res.='"xp":"'.$donnees3['xp'].'", ';
+				$res.='"url_image_profil":"'.$donnees3['url_image_profil'].'", ';
+				$res.='"admin":"'.$donnees3['admin'].'"';
+				$res.='},';
+			}
+
 			$res.='"date_de_creation": "'.$donnees2['date_de_creation'].'"';		
 			$res.='}';
 			$id += 1;
