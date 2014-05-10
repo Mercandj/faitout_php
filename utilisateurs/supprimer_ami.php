@@ -13,7 +13,7 @@
 	$res = '';
 
 	$req = $bdd->prepare('DELETE * FROM `ami` WHERE ( `Utilisateur_pseudo` = ? AND `pseudo_ami` = ? ) OR ( `Utilisateur_pseudo` = ? AND `pseudo_ami` = ? )');
-	$req->execute(array($pseudo_ami, $pseudo));
+	$req->execute(array($pseudo_ami, $pseudo, $pseudo, $pseudo_ami));
 
 	$res .= 'Ami supprimé.';
 
