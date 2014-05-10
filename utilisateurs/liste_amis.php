@@ -32,6 +32,7 @@
 				$res.='"mot_de_passe": "'.$donnees2['mot_de_passe'].'", ';
 				$res.='"sexe":"'.$donnees2['sexe'].'", ';
 				$res.='"xp":"'.$donnees2['xp'].'", ';
+				$res.='"url_image_profil":"'.$donnees2['url_image_profil'].'", ';
 				$res.='"admin":"'.$donnees2['admin'].'"';
 				$res.='}';
 			}
@@ -45,6 +46,7 @@
 				$res.='"mot_de_passe": "'.$donnees2['mot_de_passe'].'", ';
 				$res.='"sexe":"'.$donnees2['sexe'].'", ';
 				$res.='"xp":"'.$donnees2['xp'].'", ';
+				$res.='"url_image_profil":"'.$donnees2['url_image_profil'].'", ';
 				$res.='"admin":"'.$donnees2['admin'].'"';
 				$res.='}';
 			}
