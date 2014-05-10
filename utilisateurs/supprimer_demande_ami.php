@@ -12,7 +12,7 @@
 
 	$res = '';
 
-	$req = $bdd->prepare('DELETE * FROM `demandeami` WHERE `pseudo_ami` = ? AND `Utilisateur_pseudo` = ?');
+	$req = $bdd->prepare('DELETE FROM `demandeami` WHERE `pseudo_ami` = ? AND `Utilisateur_pseudo` = ?');
 	$req->execute(array($pseudo_ami, $pseudo));
 
 	$res .= 'Demande supprimée.';
