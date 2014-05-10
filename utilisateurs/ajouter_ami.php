@@ -15,13 +15,18 @@
 
 	$res = '';
 
-	$date = date('Y-m-d H:i:s');
+	if($pseudo!=$pseudo_ami) {
+		$date = date('Y-m-d H:i:s');
 
-	$us = new Ami($pseudo, $date, $pseudo_ami);
+		$us = new Ami($pseudo, $date, $pseudo_ami);
 
-	$req = $bdd->prepare($us->getinsert());
-	$req->execute($us->getarray());
-	$res.='Felicitations, ami(e) ajouté(e).';
+		$req = $bdd->prepare($us->getinsert());
+		$req->execute($us->getarray());
+		$res.='Felicitations, ami(e) ajouté(e).';
+	}
+	else {
+		$res.='KO';
+	}
 
 	echo $res;
 ?>
