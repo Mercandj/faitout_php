@@ -38,7 +38,7 @@
 			}
 			$res.='"Utilisateur_pseudo": "'.$donnees2['Utilisateur_pseudo'].'", ';
 
-			$res. = '"utilisateur" : ';
+			$res.= '"utilisateur" : ';
 			$req3 = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
 			$req3->execute(array($donnees2['Utilisateur_pseudo']));
 			if($donnees3 = $req3->fetch()) {
