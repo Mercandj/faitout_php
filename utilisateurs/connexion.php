@@ -43,7 +43,7 @@
 			$res.='"nombre_messages":"'.$donnees5['total'].'", ';
 		}
 
-		$req6 = $bdd->prepare('SELECT * FROM ( SELECT `Utilisateur_pseudo`, COUNT(`Utilisateur_pseudo`) AS rang FROM `message` GROUP BY `Utilisateur_pseudo` ORDER BY rang ) WHERE `Utilisateur_pseudo` = ?');
+		$req6 = $bdd->prepare('SELECT `Utilisateur_pseudo`, COUNT(`Utilisateur_pseudo`) AS rang FROM `message` GROUP BY `Utilisateur_pseudo` ORDER BY rang WHERE `Utilisateur_pseudo` = ?');
 		$req6->execute(array($pseudo));
 		if($donnees6 = $req6->fetch()) {
 			$res.='"chat_rang":"'.$donnees6['rang'].'", ';
