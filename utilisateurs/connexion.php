@@ -24,6 +24,7 @@
 		$res.='"sexe":"'.$donnees['sexe'].'", ';
 		$res.='"xp":"'.$donnees['xp'].'", ';
 		$res.='"url_image_profil":"'.$donnees['url_image_profil'].'", ';
+		$res.='"description":"'.$donnees['description'].'", ';
 
 		$req3 = $bdd->prepare('SELECT COUNT(*) as total FROM `utilisateur`');
 		$req3->execute(array());
