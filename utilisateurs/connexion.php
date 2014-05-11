@@ -51,7 +51,7 @@
 		*/
 		$req6->execute(array($pseudo));
 		while($donnees6 = $req6->fetch()) {
-			$res.='"chat_rang":"'.$donnees6['Utilisateur_pseudo'].' '.$donnees6['nb_message'].'", ';
+			$res.='"chat_rang":"'.$donnees6['Utilisateur_pseudo'].' '.$donnees6['nb_message'].' '.$donnees6['rownum'].'", ';
 		}
 
 		$res.='"admin":"'.$donnees['admin'].'"';
