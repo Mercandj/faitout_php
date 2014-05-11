@@ -27,9 +27,26 @@
 
 		$req3 = $bdd->prepare('SELECT COUNT(*) as total FROM `utilisateur`');
 		$req3->execute(array());
-		$id = 0;
 		if($donnees3 = $req3->fetch()) {
 			$res.='"nombre_utilisateurs":"'.$donnees3['total'].'", ';
+		}
+
+		$req4 = $bdd->prepare('SELECT COUNT(*) as total FROM `message` WHERE `Utilisateur_pseudo` = ?');
+		$req4->execute(array($pseudo));
+		if($donnees4 = $req4->fetch()) {
+			$res.='"nombre_mes_messages":"'.$donnees4['total'].'", ';
+		}
+
+		$req5 = $bdd->prepare('SELECT COUNT(*) as total FROM `message`');
+		$req5->execute(array($pseudo));
+		if($donnees5 = $req5->fetch()) {
+			$res.='"nombre_messages":"'.$donnees5['total'].'", ';
+		}
+
+		$req6 = $bdd->prepare('SELECT * FROM ( SELECT `Utilisateur_pseudo`, COUNT(`Utilisateur_pseudo`) AS rang FROM `message` GROUP BY `Utilisateur_pseudo` ORDER BY rang ) WHERE `Utilisateur_pseudo` = ?');
+		$req6->execute(array($pseudo));
+		if($donnees6 = $req6->fetch()) {
+			$res.='"chat_rang":"'.$donnees6['rang'].'", ';
 		}
 
 		$res.='"admin":"'.$donnees['admin'].'"';
