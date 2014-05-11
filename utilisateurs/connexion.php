@@ -44,10 +44,10 @@
 		}
 
 		
-		$req6 = $bdd->prepare('SELECT `Utilisateur_pseudo`, ( COUNT(*) AS `nb_message` ) FROM `message` GROUP BY `Utilisateur_pseudo` ORDER BY `nb_message` WHERE `Utilisateur_pseudo` = ?');
+		$req6 = $bdd->prepare('SELECT `Utilisateur_pseudo`, COUNT(*) AS `nb_message` FROM `message` ORDER BY `nb_message` WHERE `Utilisateur_pseudo` = ?');
 		
 		/*
-		$req6 = $bdd->prepare('SELECT `Utilisateur_pseudo`, COUNT(*) AS nb_message FROM `message` WHERE `Utilisateur_pseudo` = ?');
+		$req6 = $bdd->prepare('SELECT `Utilisateur_pseudo`, COUNT(*) AS nb_message FROM `message` GROUP BY `Utilisateur_pseudo` ORDER BY `nb_message` WHERE `Utilisateur_pseudo` = ?');
 		*/
 		$req6->execute(array($pseudo));
 		while($donnees6 = $req6->fetch()) {
