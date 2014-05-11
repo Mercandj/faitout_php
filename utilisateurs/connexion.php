@@ -44,7 +44,7 @@
 		}
 
 		
-		$req6 = $bdd->prepare('SELECT ROW_NUMBER() OVER (ORDER BY `nb_message`) AS `rang`, `Utilisateur_pseudo`, COUNT(*) AS `nb_message` FROM `message` WHERE `Utilisateur_pseudo` = ? GROUP BY `Utilisateur_pseudo` ORDER BY `nb_message`');
+		$req6 = $bdd->prepare('SELECT COUNT(*) AS `rang` FROM (SELECT COUNT(*) AS `nb_message` FROM `message` GROUP BY `Utilisateur_pseudo` ORDER BY `nb_message`) WHERE `nb_message` > (SELECT COUNT(*) AS `nb_message` FROM `message` WHERE `Utilisateur_pseudo` = ? GROUP BY `Utilisateur_pseudo` ORDER BY `nb_message`)');
 		
 		/*
 		$req6 = $bdd->prepare('SELECT `Utilisateur_pseudo`, COUNT(*) AS nb_message FROM `message` GROUP BY `Utilisateur_pseudo` ORDER BY `nb_message` WHERE `Utilisateur_pseudo` = ?');
