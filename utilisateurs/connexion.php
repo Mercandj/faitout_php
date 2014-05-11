@@ -24,6 +24,14 @@
 		$res.='"sexe":"'.$donnees['sexe'].'", ';
 		$res.='"xp":"'.$donnees['xp'].'", ';
 		$res.='"url_image_profil":"'.$donnees['url_image_profil'].'", ';
+
+		$req3 = $bdd->prepare('SELECT COUNT(*) as total FROM `utilisateur`');
+		$req3->execute(array());
+		$id = 0;
+		if($donnees3 = $req3->fetch()) {
+			$res.='"nombre_utilisateurs":"'.$donnees['total'].'", ';
+		}
+
 		$res.='"admin":"'.$donnees['admin'].'"';
 
 		$req2 = $bdd->prepare('SELECT * FROM `demandeami` WHERE `pseudo_ami` = ?');
