@@ -49,7 +49,7 @@
 		$req6 = $bdd->prepare('SELECT `Utilisateur_pseudo`, COUNT(*) AS nb_message FROM `message` WHERE `Utilisateur_pseudo` = ?');
 		$req6->execute(array($pseudo));
 		while($donnees6 = $req6->fetch()) {
-			$res.='"chat_rang":"'.$donnees6['Utilisateur_pseudo'].' '.$donnees6['nb_message'].", ';
+			$res.='"chat_rang":"'.$donnees6['Utilisateur_pseudo'].' '.$donnees6['nb_message'].'", ';
 		}
 
 		$res.='"admin":"'.$donnees['admin'].'"';
