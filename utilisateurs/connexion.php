@@ -44,14 +44,14 @@
 		}
 
 		
-		$req6 = $bdd->prepare('SELECT COUNT(*) AS `rang` FROM (SELECT COUNT(*) AS `nb_message` FROM `message` GROUP BY `Utilisateur_pseudo` ORDER BY `nb_message`) WHERE `nb_message` > (SELECT COUNT(*) AS `nb_message` FROM `message` WHERE `Utilisateur_pseudo` = ? GROUP BY `Utilisateur_pseudo` ORDER BY `nb_message`)');
+		$req6 = $bdd->prepare('SELECT COUNT(`nb_message`) AS `rang` FROM (SELECT COUNT(*) AS `nb_message` FROM `message` GROUP BY `Utilisateur_pseudo` ORDER BY `nb_message`) WHERE `nb_message` > (SELECT COUNT(*) FROM `message` WHERE `Utilisateur_pseudo` = ? GROUP BY `Utilisateur_pseudo` ORDER BY `nb_message`)');
 		
 		/*
 		$req6 = $bdd->prepare('SELECT `Utilisateur_pseudo`, COUNT(*) AS nb_message FROM `message` GROUP BY `Utilisateur_pseudo` ORDER BY `nb_message` WHERE `Utilisateur_pseudo` = ?');
 		*/
 		$req6->execute(array($pseudo));
 		while($donnees6 = $req6->fetch()) {
-			$res.='"chat_rang":"'.$donnees6['Utilisateur_pseudo'].' '.$donnees6['nb_message'].' '.$donnees6['rang'].'", ';
+			/*$res.='"chat_rang":"'.$donnees6['Utilisateur_pseudo'].' '.$donnees6['nb_message'].' '.$donnees6['rang'].'", ';*/
 		}
 
 		$res.='"admin":"'.$donnees['admin'].'"';
