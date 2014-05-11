@@ -29,7 +29,7 @@
 		$req3->execute(array());
 		$id = 0;
 		if($donnees3 = $req3->fetch()) {
-			$res.='"nombre_utilisateurs":"'.$donnees['total'].'", ';
+			$res.='"nombre_utilisateurs":"'.$donnees3['total'].'", ';
 		}
 
 		$res.='"admin":"'.$donnees['admin'].'"';
