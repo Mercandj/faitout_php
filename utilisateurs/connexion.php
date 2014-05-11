@@ -35,6 +35,33 @@
 		$req4->execute(array($pseudo));
 		if($donnees4 = $req4->fetch()) {
 			$res.='"nombre_mes_messages":"'.$donnees4['total'].'", ';
+
+			if($donnees4['total']!=0) {
+				$sql_req_6 = 
+				'SELECT COUNT( `nb_message` )+1 AS `rang`
+				FROM (
+				    SELECT COUNT( * ) AS `nb_message`
+				    FROM `message`
+				    GROUP BY `Utilisateur_pseudo`
+				    ORDER BY `nb_message`
+				) AS T
+				WHERE `nb_message` > (
+				    SELECT COUNT( * ) 
+				    FROM `message` 
+				    WHERE `Utilisateur_pseudo` = ?
+				    GROUP BY `Utilisateur_pseudo` 
+				    ORDER BY `nb_message`
+				)';
+
+				$req6 = $bdd->prepare($sql_req_6);
+				$req6->execute(array($pseudo));
+				if($donnees6 = $req6->fetch()) {
+					$res.='"chat_rang":"'.$donnees6['rang'].'", ';
+				}
+			}
+			else {
+				$res.='"chat_rang":"'.$donnees3['total'].'", ';
+			}
 		}
 
 		$req5 = $bdd->prepare('SELECT COUNT(*) as total FROM `message`');
@@ -61,27 +88,7 @@
 		)
 		*/
 
-		$sql_req_6 = 
-		'SELECT COUNT( `nb_message` )+1 AS `rang`
-		FROM (
-		    SELECT COUNT( * ) AS `nb_message`
-		    FROM `message`
-		    GROUP BY `Utilisateur_pseudo`
-		    ORDER BY `nb_message`
-		) AS T
-		WHERE `nb_message` > (
-		    SELECT COUNT( * ) 
-		    FROM `message` 
-		    WHERE `Utilisateur_pseudo` = ?
-		    GROUP BY `Utilisateur_pseudo` 
-		    ORDER BY `nb_message`
-		)';
-
-		$req6 = $bdd->prepare($sql_req_6);
-		$req6->execute(array($pseudo));
-		while($donnees6 = $req6->fetch()) {
-			$res.='"chat_rang":"'.$donnees6['rang'].'", ';
-		}
+		
 
 		$res.='"admin":"'.$donnees['admin'].'"';
 
