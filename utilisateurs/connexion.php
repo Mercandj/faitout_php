@@ -80,7 +80,7 @@
 		    ORDER BY `nb_ami`
 		) AS T
 		WHERE `nb_ami` > (
-		    SELECT COUNT( * ) 
+		    SELECT COUNT( * )
 		    FROM `ami` 
 		    WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?
 		    ORDER BY `nb_ami`
