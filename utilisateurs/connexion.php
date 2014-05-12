@@ -71,27 +71,36 @@
 			$res.='"nombre_messages":"'.$donnees5['total'].'", ';
 		}
 		
+		$req8 = $bdd->prepare('SELECT COUNT(*) as total FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?');
+		$req8->execute(array($pseudo, $pseudo));
+		if($donnees8 = $req8->fetch()) {
+			$res.='"nombre_mes_amis":"'.$donnees8['total'].'", ';
 
-		$sql_req_7 = 
-		'SELECT COUNT( `nb_ami` )+1 AS `rang`
-		FROM (
-		    SELECT COUNT( * ) AS `nb_ami`
-		    FROM `ami`
-		    ORDER BY `nb_ami`
-		) AS T
-		WHERE `nb_ami` > (
-		    SELECT COUNT( * )
-		    FROM `ami` 
-		    WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?
-		    ORDER BY `nb_ami`
-		)';
+			if($donnees8['total']!=0) {
+				$sql_req_7 = 
+				'SELECT COUNT( `nb_ami` )+1 AS `rang`
+				FROM (
+				    SELECT COUNT( * ) AS `nb_ami`
+				    FROM `ami`
+				    ORDER BY `nb_ami`
+				) AS T
+				WHERE `nb_ami` > (
+				    SELECT COUNT( * )
+				    FROM `ami` 
+				    WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?
+				    ORDER BY `nb_ami`
+				)';
 
-		$req7 = $bdd->prepare($sql_req_7);
-		$req7->execute(array($pseudo, $pseudo));
-		if($donnees7 = $req7->fetch()) {
-			$res.='"chat_ami":"'.$donnees7['rang'].'", ';
+				$req7 = $bdd->prepare($sql_req_7);
+				$req7->execute(array($pseudo, $pseudo));
+				if($donnees7 = $req7->fetch()) {
+					$res.='"chat_ami":"'.$donnees7['rang'].'", ';
+				}
+			}
+			else {
+				$res.='"chat_ami":"'.$donnees3['total'].'", ';				
+			}
 		}
-
 		
 
 		$res.='"admin":"'.$donnees['admin'].'"';
