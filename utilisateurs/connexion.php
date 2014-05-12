@@ -72,22 +72,25 @@
 		}
 		
 
-		/*
-		SELECT COUNT( `nb_message` ) AS `rang`
+		$sql_req_7 = 
+		'SELECT COUNT( `nb_ami` )+1 AS `rang`
 		FROM (
-		    SELECT COUNT( * ) AS `nb_message`
-		    FROM `message`
-		    GROUP BY `Utilisateur_pseudo`
-		    ORDER BY `nb_message`
+		    SELECT COUNT( * ) AS `nb_ami`
+		    FROM `ami`
+		    ORDER BY `nb_ami`
 		) AS T
-		WHERE `nb_message` > (
-		    SELECT COUNT(*) 
-		    FROM `message` 
-		    WHERE `Utilisateur_pseudo` = 'jon'
-		    GROUP BY `Utilisateur_pseudo` 
-		    ORDER BY `nb_message`
-		)
-		*/
+		WHERE `nb_ami` > (
+		    SELECT COUNT( * ) 
+		    FROM `ami` 
+		    WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?
+		    ORDER BY `nb_ami`
+		)';
+
+		$req7 = $bdd->prepare($sql_req_7);
+		$req7->execute(array($pseudo));
+		if($donnees7 = $req7->fetch()) {
+			$res.='"chat_ami":"'.$donnees7['rang'].'", ';
+		}
 
 		
 
