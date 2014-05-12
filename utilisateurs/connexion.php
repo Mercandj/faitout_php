@@ -57,11 +57,11 @@
 				$req6 = $bdd->prepare($sql_req_6);
 				$req6->execute(array($pseudo));
 				if($donnees6 = $req6->fetch()) {
-					$res.='"chat_rang":"'.$donnees6['rang'].'", ';
+					$res.='"rang_chat":"'.$donnees6['rang'].'", ';
 				}
 			}
 			else {
-				$res.='"chat_rang":"'.$donnees3['total'].'", ';
+				$res.='"rang_chat":"'.$donnees3['total'].'", ';
 			}
 		}
 
@@ -94,11 +94,11 @@
 				$req7 = $bdd->prepare($sql_req_7);
 				$req7->execute(array($pseudo, $pseudo));
 				if($donnees7 = $req7->fetch()) {
-					$res.='"chat_ami":"'.$donnees7['rang'].'", ';
+					$res.='"rang_ami":"'.$donnees7['rang'].'", ';
 				}
 			}
 			else {
-				$res.='"chat_ami":"'.$donnees3['total'].'", ';				
+				$res.='"rang_ami":"'.$donnees3['total'].'", ';				
 			}
 		}
 		
