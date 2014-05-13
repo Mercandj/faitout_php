@@ -20,7 +20,7 @@
       $this->nom = $pnom;
       $this->age = $page;
       $this->langue = $plangue;
-      $this->compte = $compte;
+      $this->compte = $pcompte;
       $this->version_faitout = $pversion_faitout;
       $this->version_android = $pversion_android;
       $this->nom_device = $pnom_device;
