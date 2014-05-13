@@ -44,7 +44,7 @@
 
     public function getinsert() {
       return 
-        'INSERT INTO message_droid(
+        'INSERT INTO `Message_droid` (
           date_de_creation,
           message,
           nom,
