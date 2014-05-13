@@ -26,7 +26,7 @@
 	$date = date('Y-m-d H:i:s');
 
 	// Création d'une image
-	$im = new Message_sans_repons(
+	$im = new Message_sans_reponse(
 		$date,
 		$message, 
 		$nom,
