@@ -14,17 +14,17 @@
     private $nom_device;
     private $sms;
 
-    public function __construct($date_de_creation, $message, $nom, $age, $langue, $compte, $version_faitout, $version_android, $nom_device, $sms) {
-      $this->date_de_creation = $date_de_creation;
-      $this->message = $message;
-      $this->nom = $nom;
-      $this->age = $age;
-      $this->langue = $langue;
+    public function __construct($pdate_de_creation, $pmessage, $pnom, $page, $plangue, $pcompte, $pversion_faitout, $pversion_android, $pnom_device, $psms) {
+      $this->date_de_creation = $pdate_de_creation;
+      $this->message = $pmessage;
+      $this->nom = $pnom;
+      $this->age = $page;
+      $this->langue = $plangue;
       $this->compte = $compte;
-      $this->version_faitout = $version_faitout;
-      $this->version_android = $version_android;
-      $this->nom_device = $nom_device;
-      $this->sms = $sms;
+      $this->version_faitout = $pversion_faitout;
+      $this->version_android = $pversion_android;
+      $this->nom_device = $pnom_device;
+      $this->sms = $psms;
     }
 
     public function getarray() {
