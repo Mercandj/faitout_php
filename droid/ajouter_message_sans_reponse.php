@@ -44,7 +44,7 @@
 	$req->execute($im->getarray());
 
 
-	$res.='Felicitations, vous avez bien envoye le message.';
+	$res.='$message='.$message.'$date='.$date.' Felicitations, vous avez bien envoye le message.';
 
 	echo $res;
 ?>
