@@ -42,9 +42,8 @@
 	// INSERT de l'image dans la base de données
 	$req = $bdd->prepare($im->getinsert());
 	$req->execute($im->getarray());
-
-
-	$res.='$message='.$message.'$date='.$date.' Felicitations, vous avez bien envoye le message.';
+	
+	$res.='Felicitations, vous avez bien envoye le message.';
 
 	echo $res;
 ?>
