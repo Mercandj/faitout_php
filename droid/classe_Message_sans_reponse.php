@@ -14,7 +14,7 @@
     private $nom_device;
     private $sms;
 
-    public function __construct($date_de_creation, $message, $nom, $age, $langue, $compte, $version_faitout, $nom_device, $sms) {
+    public function __construct($date_de_creation, $message, $nom, $age, $langue, $compte, $version_faitout, $version_android, $nom_device, $sms) {
       $this->date_de_creation = $date_de_creation;
       $this->message = $message;
       $this->nom = $nom;

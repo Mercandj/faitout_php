@@ -19,7 +19,6 @@
 
 	$date = date('Y-m-d H:i:s');
 
-
 	$url = '';
 
 	$maxwidth = 200000;
