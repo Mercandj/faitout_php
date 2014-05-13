@@ -1,7 +1,7 @@
 
 <?php 
 
-  class Message_sans_repons {
+  class Message_sans_reponse {
 
     private $date_de_creation;
     private $message;
