@@ -82,6 +82,7 @@
 			}
 		}
 		$res.='"date": "'.$date_relative.'", ';
+		$res.='"date_de_creation": "'.$donnees['date_de_creation'].'", ';
 		$res.='"destinataire": "'.$donnees['destinataire'].'"';
 		$res.='}';
 
