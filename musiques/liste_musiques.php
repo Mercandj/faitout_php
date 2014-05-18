@@ -4,7 +4,7 @@
 
 	$res = '{ "musiques" : [';
 
-	int $i=0;
+	$i=0;
 
 	foreach($files1 as $var) {
 		if($i!=0) 
