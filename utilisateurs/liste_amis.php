@@ -33,6 +33,7 @@
 				$res.='"sexe":"'.$donnees2['sexe'].'", ';
 				$res.='"xp":"'.$donnees2['xp'].'", ';
 				$res.='"url_image_profil":"'.$donnees2['url_image_profil'].'", ';
+				$res.='"description":"'.$donnees2['description'].'", ';
 				$res.='"admin":"'.$donnees2['admin'].'"';
 				$res.='}';
 			}
@@ -47,6 +48,7 @@
 				$res.='"sexe":"'.$donnees2['sexe'].'", ';
 				$res.='"xp":"'.$donnees2['xp'].'", ';
 				$res.='"url_image_profil":"'.$donnees2['url_image_profil'].'", ';
+				$res.='"description":"'.$donnees2['description'].'", ';
 				$res.='"admin":"'.$donnees2['admin'].'"';
 				$res.='}';
 			}
