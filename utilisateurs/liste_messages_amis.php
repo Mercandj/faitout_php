@@ -93,7 +93,7 @@
 		else if($donnees['pseudo_ami'] != $pseudo) {
 			
 			$req2 = $bdd->prepare('SELECT * FROM `message` WHERE `Utilisateur_pseudo` = ? ORDER BY date_de_creation DESC LIMIT 30');
-			$req2->execute(array($donnees['Utilisateur_pseudo']));
+			$req2->execute(array($donnees['pseudo_ami']));
 			$x = 0;
 			while($donnees2 = $req2->fetch()) {
 
