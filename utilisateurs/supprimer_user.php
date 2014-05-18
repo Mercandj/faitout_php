@@ -11,19 +11,19 @@
 
 	$res = '';
 
-	$req = $bdd->prepare('DELETE * FROM `groupe` WHERE `Utilisateur_pseudo` = ?');
+	$req = $bdd->prepare('DELETE FROM `groupe` WHERE `Utilisateur_pseudo` = ?');
 	$req->execute(array($pseudo));
 
-	$req = $bdd->prepare('DELETE * FROM `demandeami` WHERE `pseudo_ami` = ? OR `Utilisateur_pseudo` = ?');
+	$req = $bdd->prepare('DELETE FROM `demandeami` WHERE `pseudo_ami` = ? OR `Utilisateur_pseudo` = ?');
 	$req->execute(array($pseudo, $pseudo));
 
-	$req = $bdd->prepare('DELETE * FROM `image` WHERE `Utilisateur_pseudo` = ?');
+	$req = $bdd->prepare('DELETE FROM `image` WHERE `Utilisateur_pseudo` = ?');
 	$req->execute(array($pseudo));
 
-	$req = $bdd->prepare('DELETE * FROM `message` WHERE `Utilisateur_pseudo` = ?');
+	$req = $bdd->prepare('DELETE FROM `message` WHERE `Utilisateur_pseudo` = ?');
 	$req->execute(array($pseudo));
 
-	$req = $bdd->prepare('DELETE * FROM `utilisateur` WHERE `pseudo` = ?');
+	$req = $bdd->prepare('DELETE FROM `utilisateur` WHERE `pseudo` = ?');
 	$req->execute(array($pseudo));
 
 	$res .= 'Ami supprimé.';

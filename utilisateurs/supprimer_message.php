@@ -12,7 +12,7 @@
 
 	$res = '';
 
-	$req = $bdd->prepare('DELETE * FROM `message` WHERE `Utilisateur_pseudo` = ? AND `date_de_creation` = ?');
+	$req = $bdd->prepare('DELETE FROM `message` WHERE `Utilisateur_pseudo` = ? AND `date_de_creation` = ?');
 	$req->execute(array($pseudo, $date));
 
 	$res .= 'Message supprimé';
