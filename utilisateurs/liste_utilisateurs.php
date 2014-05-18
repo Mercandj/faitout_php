@@ -18,6 +18,7 @@
 		$res.='"sexe":"'.$donnees['sexe'].'", ';
 		$res.='"xp":"'.$donnees['xp'].'", ';
 		$res.='"url_image_profil":"'.$donnees['url_image_profil'].'", ';
+		$res.='"description":"'.$donnees['description'].'", ';
 		$res.='"admin":"'.$donnees['admin'].'"';
 		$res.='},';
 	}
