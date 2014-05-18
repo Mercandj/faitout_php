@@ -86,9 +86,9 @@
 				$res.='"destinataire": "'.$donnees2['destinataire'].'"';
 				$res.='}';
 
-
+				$x+=1;
 			}
-			$x+=1;
+			
 		}
 		else if($donnees['pseudo_ami'] != $pseudo) {
 			
@@ -155,8 +155,8 @@
 				$res.='"destinataire": "'.$donnees2['destinataire'].'"';
 				$res.='}';
 
+				$x+=1;
 			}
-			$x+=1;
 		}
 		else {
 			$res.='KO';
