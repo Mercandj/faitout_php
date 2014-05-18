@@ -9,8 +9,8 @@
 
 	$res = '{ "messages" : [';
 
-	$req = $bdd->prepare('SELECT * FROM `message` ORDER BY date_de_creation DESC LIMIT 30');
-	$req->execute();
+	$req = $bdd->prepare('SELECT * FROM `message` WHERE `destinataire` = ? ORDER BY date_de_creation DESC LIMIT 30');
+	$req->execute(array('All'));
 
 	$x = 0;
 
