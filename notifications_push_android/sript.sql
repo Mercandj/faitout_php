@@ -21,7 +21,7 @@ DROP TABLE IF EXISTS `utilisateur` ;
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `email` VARCHAR(100) NOT NULL,
-  `regId` VARCHAR(100) NULL,
+  `regId` VARCHAR(1000) NULL,
   PRIMARY KEY (`email`))
 ENGINE = InnoDB;
 
