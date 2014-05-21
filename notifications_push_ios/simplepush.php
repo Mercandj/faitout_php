@@ -15,10 +15,10 @@
     stream_context_set_option($ctx, 'ssl', 'passphrase', $passphrase);
     
     // Open a connection to the APNS server
-    $fp =stream_context_set_option($ctx, 'ssl', 'local_cert',dirname(__FILE__) . '\\' .'ck.pem');
+    $fp =stream_context_set_option($ctx, 'ssl', 'local_cert',dirname(__FILE__) . '\\' .'ck.pem');//windows
 
     //stream_socket_client('ssl://gateway.sandbox.push.apple.com:2195', $err, $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
-    //
+    //linux
     
     if (!$fp)
     exit("Failed to connect: $err $errstr" . PHP_EOL);
@@ -42,10 +42,11 @@
     $msg = chr(0) . pack('n', 32) . pack('H*', $deviceToken) . pack('n', strlen($payload)) . $payload;
     
     // Send it to the server
-    $result = fwrite($fp, $msg, strlen($msg));
-    
-    if (!$result)
-    echo 'Message not delivered' . PHP_EOL;
+    if (fwrite($fp, $msg) === FALSE)
+    {
+        echo "can't write to socket!<br />";
+
+    }
     else
     echo 'Message successfully delivered' . PHP_EOL;
     
