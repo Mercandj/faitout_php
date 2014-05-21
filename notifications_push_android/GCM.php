@@ -8,7 +8,7 @@
             'data' => $message,
         );
     // Google Cloud Messaging GCM API Key
-    define("GOOGLE_API_KEY", "AIzaSyDA5dlLInMWVsJEUTIHV0u7maB82MCsZbU");   
+    define("GOOGLE_API_KEY", "AIzaSyAjqCO1PHmds06fhPmKICZVbN0srQRlPdQ");   
         $headers = array(
             'Authorization: key=' . GOOGLE_API_KEY,
             'Content-Type: application/json'
