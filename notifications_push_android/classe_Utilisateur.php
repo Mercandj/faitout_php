@@ -6,7 +6,7 @@
     private $email;
     private $regId;
 
-    public function __construct($pemail, $regId) {
+    public function __construct($pemail, $pregId) {
       $this->email = $pemail;
       $this->regId = $pregId;
     }
