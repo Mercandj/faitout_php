@@ -85,8 +85,10 @@
 	$req = $bdd->prepare($mess->getinsert());
 	$req->execute($mess->getarray());
 
-
 	$res.='Felicitations, vous avez bien envoye un message.';
+
+	include_once './../notifications_push_android/notifier_tous.php';
+	sendAllGCM($bdd, $message);
 
 	echo $res;
 ?>
