@@ -36,7 +36,6 @@
     die('Erreur : '.$e->getMessage());
   }
 
-
   //this block is to post message to GCM on-click
   $pushStatus = "";
   if(!empty($_GET["push"])) {
@@ -56,25 +55,7 @@
       $pushStatus = sendPushNotificationToGCM($gcmRegIds, $message);
     }  
   }
-   
-  //this block is to receive the GCM regId from external (mobile apps)
-  if(!empty($_GET["shareRegId"])) {
 
-    include_once 'classe_Utilisateur.php';
-
-    $gcmRegID = $_POST["regId"];
-    $email = $_POST["email"];
-
-
-    // Création d'un user
-    $user = new Utilisateur($email, $gcmRegID);
-
-    // INSERT de le user dans la base de données
-    $req = $bdd->prepare($user->getinsert());
-    $req->execute($user->getarray());
-    echo "Ok!";
-    exit;
-  }
 ?>
 <html>
     <head>
