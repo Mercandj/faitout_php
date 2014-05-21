@@ -30,21 +30,22 @@
   }
   
   try {
-    $bdd = new PDO('mysql:host=localhost;dbname=datanoos', 'root', '');
+    $bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
   }
   catch(Exception $e) {
     die('Erreur : '.$e->getMessage());
   }
 
+
   //this block is to post message to GCM on-click
   $pushStatus = "";
-  if(!empty($_GET["push"])) {
+  if(!empty($_POST["message"]) && !empty($_POST["pseudo"])) {
     
     $pushMessage = $_POST["message"];
-    $email = $_POST["email"];
+    $pseudo = $_POST["pseudo"];
 
-    $req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `email` = ?');
-    $req->execute(array($email));
+    $req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+    $req->execute(array($pseudo));
     if($donnees = $req->fetch()) {
       $gcmRegID  = $donnees['regId'];
     }
@@ -55,20 +56,20 @@
       $pushStatus = sendPushNotificationToGCM($gcmRegIds, $message);
     }  
   }
-
+  
 ?>
 <html>
     <head>
-        <title>Google Cloud Messaging (GCM) Server in PHP</title>
+        <title>FAITOUT : Google Cloud Messaging (GCM) Server in PHP</title>
     </head>
   <body>
-    <h1>Google Cloud Messaging (GCM) Server in PHP</h1>
-    <form method="post" action="gcm.php/?push=1">                                     
+    <h1>FAITOUT : Google Cloud Messaging (GCM) Server in PHP</h1>
+    <form method="post" action="index.php">
       <div>                               
-        <textarea rows="2" name="message" cols="23" placeholder="Message à transmettre via GCM"></textarea>
+        <textarea rows="2" name="pseudo" cols="23" placeholder="Pseudo de l'utilisateur"></textarea>
       </div>
       <div>                               
-        <textarea rows="2" name="email" cols="23" placeholder="Email de l'utilisateur"></textarea>
+        <textarea rows="2" name="message" cols="23" placeholder="Message à transmettre via GCM"></textarea>
       </div>
       <div><input type="submit"  value="Send Push Notification via GCM" /></div>
     </form>
