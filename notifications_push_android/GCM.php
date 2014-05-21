@@ -69,7 +69,7 @@
         <textarea rows="2" name="message" cols="23" placeholder="Message à transmettre via GCM"></textarea>
       </div>
       <div>                               
-        <textarea rows="2" name="email" cols="23" placeholder="Email de l'utilisateur"></textarea>
+        <textarea rows="2" name="pseudo" cols="23" placeholder="Email de l'utilisateur"></textarea>
       </div>
       <div><input type="submit"  value="Send Push Notification via GCM" /></div>
     </form>
