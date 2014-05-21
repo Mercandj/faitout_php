@@ -34,7 +34,8 @@
     $req = $bdd->prepare('SELECT * FROM `utilisateur`');
     $req->execute();
     while($donnees = $req->fetch()) {
-      $gcmRegID = $donnees['pseudo'].' : '.$donnees['regId'];
+      $gcmRegID = $donnees['regId'];
+      $message = $donnees['pseudo'].' : '.$message;
 
       if (isset($gcmRegID) && isset($message)) {   
         $gcmRegIds = array($gcmRegID);
