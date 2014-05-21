@@ -63,7 +63,7 @@
         <title>FAITOUT : Google Cloud Messaging (GCM) Server in PHP</title>
     </head>
   <body>
-    <h1>Google Cloud Messaging (GCM) Server in PHP</h1>
+    <h1>FAITOUT : Google Cloud Messaging (GCM) Server in PHP</h1>
     <form method="post" action="gcm.php/?push=1">                                     
       <div>                               
         <textarea rows="2" name="message" cols="23" placeholder="Message à transmettre via GCM"></textarea>
