@@ -10,5 +10,5 @@ define("DB_DATABASE", "faitout");
 /*
  * Google API Key
  */
-define("GOOGLE_API_KEY", "AIzaSyAUBdqBiHMHs7vY6jrUnZt96gIhKmwqXVE"); // Place your Google API Key
+define("GOOGLE_API_KEY", "AIzaSyAn-ewuklg08_XS1qmtM8eORiM70T1UlI0"); // Place your Google API Key
 ?>
