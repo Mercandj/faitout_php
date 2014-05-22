@@ -38,6 +38,9 @@
 				$req = $bdd->prepare($us->getinsert());
 				$req->execute($us->getarray());
 				$res.='Felicitations, demande ami(e) ajoutée.';
+
+				include_once './../notifications_push_android/notifier_user.php';
+				sendUserGCM($bdd, $message, $pseudo);
 			}
 		}
 	}

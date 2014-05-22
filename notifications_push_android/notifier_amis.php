@@ -35,14 +35,8 @@
     $req = $bdd->prepare('SELECT * FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?');
     $req->execute(array($pseudo, $pseudo));
 
-    $id = 0;
-
     while($donnees = $req->fetch()) {
 
-      if($id!=0) {
-        $res.=',';
-      }
-      
       if($donnees['Utilisateur_pseudo'] != $pseudo) {
         $req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
         $req->execute(array($donnees['Utilisateur_pseudo']));
@@ -71,10 +65,6 @@
           }  
         }
       }
-      else {
-        $res.='KO';
-      }
-      $id+=1;
     }
 
 
