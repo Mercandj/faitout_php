@@ -87,8 +87,10 @@
 
 	$res.='Felicitations, vous avez bien envoye un message.';
 
-	include_once './../notifications_push_android/notifier_tous.php';
-	sendAllGCM($bdd, $message);
+	if($destinataire == "Amis") {
+		include_once './../notifications_push_android/notifier_amis.php';
+		sendAmisGCM($bdd, $message, $pseudo);
+	}
 
 	echo $res;
 ?>
