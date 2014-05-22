@@ -38,7 +38,7 @@
 
   //this block is to post message to GCM on-click
   $pushStatus = "";
-  if(!empty($_POST["message"]) && !$_POST["email"]) {
+  if(!empty($_POST["message"]) && !empty($_POST["email"])) {
     
     $pushMessage = $_POST["message"];
     $email = $_POST["email"];
