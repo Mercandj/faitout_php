@@ -44,9 +44,9 @@
       }
       
       if($donnees['Utilisateur_pseudo'] != $pseudo) {
-        $req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `Upseudo` = ?');
-        $req->execute();
-        while($donnees2 = $req->fetch($donnees['Utilisateur_pseudo'])) {
+        $req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+        $req->execute(array($donnees['Utilisateur_pseudo']));
+        while($donnees2 = $req->fetch()) {
           $gcmRegID = $donnees2['regId'];
           $message = $donnees2['pseudo'].' : '.$message;
 
@@ -58,9 +58,9 @@
         }
       }
       else if($donnees['pseudo_ami'] != $pseudo) {
-        $req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE ');
-        $req->execute();
-        while($donnees2 = $req->fetch($donnees['pseudo_ami'])) {
+        $req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+        $req->execute(array($donnees['pseudo_ami']));
+        while($donnees2 = $req->fetch()) {
           $gcmRegID = $donnees2['regId'];
           $message = $donnees2['pseudo'].' : '.$message;
 
