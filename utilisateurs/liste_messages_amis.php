@@ -32,10 +32,10 @@
 		}
 	}
 
-	$requete = 'SELECT * FROM `message` WHERE (`Utilisateur_pseudo` = ';
+	$requete = 'SELECT * FROM `message` WHERE (`Utilisateur_pseudo` = `';
 	$x = 0;
 	foreach($array_amis as $element) {
-		if($x!=0) $requete.= ' OR `Utilisateur_pseudo` = ';
+		if($x!=0) $requete.= '` OR `Utilisateur_pseudo` = `';
 		$requete.=$element;
 		$x+=1;
 	}
