@@ -32,19 +32,19 @@
 		}
 	}
 
-	$requete = 'SELECT * FROM `message` WHERE (`Utilisateur_pseudo` = `';
+	$requete = 'SELECT * FROM `message` WHERE (`Utilisateur_pseudo` = \'';
 	$x = 0;
 	foreach($array_amis as $element) {
-		if($x!=0) $requete.= '` OR `Utilisateur_pseudo` = `';
+		if($x!=0) $requete.= '\' OR `Utilisateur_pseudo` = \'';
 		$requete.=$element;
 		$x+=1;
 	}
-	$requete .=') AND `destinataire` = ? ORDER BY date_de_creation DESC LIMIT 30';
+	$requete .='\') AND `destinataire` = \'Amis\' ORDER BY date_de_creation DESC LIMIT 30';
 
 	echo $requete;
 
 	$req2 = $bdd->prepare($requete);
-	$req2->execute(array('Amis'));
+	$req2->execute();
 	
 	$x = 0;
 	while($donnees2 = $req2->fetch()) {
