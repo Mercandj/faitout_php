@@ -41,6 +41,8 @@
 	}
 	$requete .=') AND `destinataire` = ? ORDER BY date_de_creation DESC LIMIT 30';
 
+	echo $requete;
+
 	$req2 = $bdd->prepare($requete);
 	$req2->execute(array('Amis'));
 	
