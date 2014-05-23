@@ -26,6 +26,9 @@
 		$res.='"url_image_profil":"'.$donnees['url_image_profil'].'", ';
 		$res.='"description":"'.$donnees['description'].'", ';
 
+		$res.='"clic_best":"'.$donnees['clic_best'].'", ';
+		$res.='"clic_total":"'.$donnees['clic_total'].'", ';
+
 		$req3 = $bdd->prepare('SELECT COUNT(*) as total FROM `utilisateur`');
 		$req3->execute(array());
 		if($donnees3 = $req3->fetch()) {
