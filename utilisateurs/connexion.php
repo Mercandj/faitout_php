@@ -114,10 +114,9 @@
 		    ORDER BY `clic_best`
 		) AS T
 		WHERE `clic_best` > (
-		    SELECT COUNT( * )
+		    SELECT `clic_best`
 		    FROM `utilisateur`
 		    WHERE `pseudo` = ?
-		    ORDER BY `clic_best`
 		)';
 		$req9 = $bdd->prepare($sql_req_9);
 		$req9->execute(array($pseudo));
