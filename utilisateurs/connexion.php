@@ -108,7 +108,11 @@
 
 		$sql_req_9 = 
 		'SELECT COUNT( `clic_best` )+1 AS `rang`
-		FROM `utilisateur`
+		FROM (
+		    SELECT COUNT( * ) AS `clic_best`
+		    FROM `utilisateur`
+		    ORDER BY `clic_best`
+		) AS T
 		WHERE `clic_best` > (
 		    SELECT COUNT( * )
 		    FROM `utilisateur`
