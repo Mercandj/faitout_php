@@ -112,7 +112,7 @@
 		WHERE `clic_best` > (
 		    SELECT COUNT( * )
 		    FROM `utilisateur`
-		    WHERE `Utilisateur_pseudo` = ?
+		    WHERE `pseudo` = ?
 		    ORDER BY `clic_best`
 		)';
 		$req9 = $bdd->prepare($sql_req_9);
