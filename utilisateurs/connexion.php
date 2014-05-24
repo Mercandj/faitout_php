@@ -125,6 +125,13 @@
 		}
 		
 
+		$req10 = $bdd->prepare('SELECT MAX(`clic_best`) AS `maxi` FROM `utilisateur`');
+		$req10->execute();
+		if($donnees10 = $req10->fetch()) {
+			$res.='"clic_best_world":"'.$donnees10['maxi'].'", ';
+		}
+		
+
 		$res.='"admin":"'.$donnees['admin'].'"';
 
 		$req2 = $bdd->prepare('SELECT * FROM `demandeami` WHERE `pseudo_ami` = ?');
