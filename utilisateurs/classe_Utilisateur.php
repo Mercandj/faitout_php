@@ -13,6 +13,8 @@
     private $xp;
     private $admin;
     private $url_image_profil;
+    private $clic_best;
+    private $clic_total;
 
     public function __construct($ppseudo, $pmot_de_passe, $psexe) {
       $this->pseudo = $ppseudo;
@@ -20,6 +22,8 @@
       $this->sexe = $psexe;
       $this->xp = '0';
       $this->admin = 'non';
+      $this->clic_best = '0';
+      $this->clic_total = '0';
     }
 
     public function getarray() {
@@ -28,7 +32,9 @@
         'mot_de_passe' => $this->mot_de_passe,
         'sexe' => $this->sexe,
         'xp' => $this->xp,
-        'admin' => $this->admin
+        'admin' => $this->admin,
+        'clic_best' => $this->clic_best,
+        'clic_total' => $this->clic_total
       );
     }
 
@@ -39,13 +45,17 @@
           mot_de_passe,
           sexe,
           xp,
-          admin
+          admin,
+          clic_best,
+          clic_total
         ) VALUES(
           :pseudo,
           :mot_de_passe,
           :sexe,
           :xp,
-          :admin
+          :admin,
+          :clic_best,
+          :clic_total
         )';
     }
 
