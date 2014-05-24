@@ -108,18 +108,13 @@
 
 		$sql_req_9 = 
 		'SELECT COUNT( `clic_best` )+1 AS `rang`
-		FROM (
-		    SELECT COUNT( * ) AS `clic_best`
-		    FROM `utilisateur`
-		    ORDER BY `clic_best`
-		) AS T
+		FROM `utilisateur`
 		WHERE `clic_best` > (
 		    SELECT COUNT( * )
 		    FROM `utilisateur`
 		    WHERE `Utilisateur_pseudo` = ?
 		    ORDER BY `clic_best`
 		)';
-
 		$req9 = $bdd->prepare($sql_req_9);
 		$req9->execute(array($pseudo));
 		if($donnees9 = $req9->fetch()) {
