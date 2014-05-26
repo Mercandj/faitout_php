@@ -18,5 +18,9 @@
   // INSERT de le user dans la base de données
   $req = $bdd->prepare($user->getinsert());
   $req->execute($user->getarray());
+
+  $req = $bdd->prepare('UPDATE `utilisateur` SET `regId` = ? WHERE `email` = ?');
+  $req->execute(array($gcmRegID, $email));
+  
   echo "Ok!";
 ?>
