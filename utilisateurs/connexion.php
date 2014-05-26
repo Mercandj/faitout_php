@@ -132,7 +132,7 @@
 		}
 		
 
-		$res.='"admin":"'.$donnees['admin'].', "';
+		$res.='"admin":"'.$donnees['admin'].'", ';
 
 
 
