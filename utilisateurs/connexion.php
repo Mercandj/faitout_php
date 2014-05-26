@@ -132,14 +132,17 @@
 		}
 		
 
-		$res.='"admin":"'.$donnees['admin'].'"';
+		$res.='"admin":"'.$donnees['admin'].', "';
+
+
+
 
 		$req2 = $bdd->prepare('SELECT * FROM `demandeami` WHERE `pseudo_ami` = ?');
 		$req2->execute(array($pseudo));
 		$id = 0;
 		while($donnees2 = $req2->fetch()) {
 			if($id == 0) {
-				$res.=', "demandeami": [{';
+				$res.='"demandeami": [{';
 			}
 			else {
 				$res.=', {';
@@ -165,11 +168,9 @@
 			$id += 1;
 		}
 		if($id!=0) {
-			$res.=']';
+			$res.='], ';
 		}
 
-		$res.='}';
-		$res.='], ';
 
 
 		$res .= '"messages" : [';
@@ -253,7 +254,15 @@
 
 			$x+=1;
 		}
-		$res.=']} ';
+		$res.='] ';
+
+
+
+		$res.='}';
+		$res.='] ';
+
+
+		
 
 
 		echo $res;
