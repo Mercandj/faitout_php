@@ -15,7 +15,7 @@
 	$requete = 'SELECT * FROM `message` WHERE `Utilisateur_pseudo` = ? AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT 30';
 
 	$req = $bdd->prepare($requete);
-	$req->execute();
+	$req->execute($pseudo);
 	
 	$x = 0;
 	while($donnees = $req->fetch()) {
