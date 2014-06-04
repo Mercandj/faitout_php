@@ -21,7 +21,10 @@
 			$res.=',{';
 
 		$res.='"Utilisateur_pseudo": "'.$donnees['nom'].'", ';
-		$res.='"message": "'.$donnees['message'].'", ';
+		
+		$tmp_mess = str_replace('"', '\"', $donnees['message']);
+		$res.='"message": "'.$tmp_mess.'", ';
+
 		$res.='"version_faitout": "'.$donnees['version_faitout'].'", ';
 		$res.='"version_android": "'.$donnees['version_android'].'", ';
 		$res.='"age": "'.$donnees['age'].'", ';
