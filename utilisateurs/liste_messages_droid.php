@@ -9,7 +9,7 @@
 
 	$res = '{ "messages" : [';
 
-	$req = $bdd->prepare('SELECT * FROM `message_droid` ORDER BY date_de_creation DESC LIMIT 30');
+	$req = $bdd->prepare('SELECT * FROM `message_droid` ORDER BY date_de_creation DESC LIMIT 100');
 	$req->execute();
 
 	$x = 0;
