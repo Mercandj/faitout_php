@@ -32,8 +32,9 @@
 	}
 	else {
 		if(isset($_GET['recherche'])) {
+			$off = (($page-1)*$per_page);
 			$recherche = $_GET['recherche'];
-			$req = $bdd->prepare("SELECT * FROM `message_droid` WHERE `message` LIKE '%".$recherche."%' ORDER BY date_de_creation LIMIT ".$per_page." OFFSET ".(($page-1)*$per_page);
+			$req = $bdd->prepare("SELECT * FROM `message_droid` WHERE `message` LIKE '%".$recherche."%' ORDER BY date_de_creation LIMIT ".$per_page." OFFSET ".$off;
 			$req->execute();
 		}
 		else {
