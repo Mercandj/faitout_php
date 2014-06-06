@@ -11,10 +11,10 @@
 	$page = 1;
 
 	if(isset($_GET['per_page'])) {
-		$per_page = $_GET['per_page'];
+		$per_page = (int) $_GET['per_page'];
 	}
 	if(isset($_GET['page'])) {
-		$page = $_GET['page'];
+		$page = (int) $_GET['page'];
 	}
 
 	$res = '{ "messages" : [';
