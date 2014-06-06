@@ -7,10 +7,18 @@
 		die('Erreur : '.$e->getMessage());
 	}
 
+	$recherche = $_GET['recherche'];
+
 	$res = '{ "messages" : [';
 
-	$req = $bdd->prepare('SELECT * FROM `message_droid` ORDER BY date_de_creation DESC LIMIT 300');
-	$req->execute();
+	if($recherche!=null) {
+		$req = $bdd->prepare('SELECT * FROM `message_droid` WHERE `message` LIKE (\'%?%\') ORDER BY date_de_creation DESC LIMIT 10');
+		$req->execute(array($recherche));
+	}
+	else {
+		$req = $bdd->prepare('SELECT * FROM `message_droid` ORDER BY date_de_creation DESC LIMIT 300');
+		$req->execute();
+	}
 
 	$x = 0;
 
