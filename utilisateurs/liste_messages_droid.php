@@ -7,18 +7,40 @@
 		die('Erreur : '.$e->getMessage());
 	}
 
-	
+	$per_page = 80;
+	$page = 1;
+
+	if(isset($_GET['per_page'])) {
+		$per_page = $_GET['per_page'];
+	}
+	if(isset($_GET['page'])) {
+		$page = $_GET['page'];
+	}
 
 	$res = '{ "messages" : [';
 
-	if(isset($_GET['recherche'])) {
-		$recherche = $_GET['recherche'];
-		$req = $bdd->prepare("SELECT * FROM `message_droid` WHERE `message` LIKE '%".$recherche."%' ORDER BY date_de_creation DESC LIMIT 10");
-		$req->execute();
+	if(!isset($_GET['page']) {
+		if(isset($_GET['recherche'])) {
+			$recherche = $_GET['recherche'];
+			$req = $bdd->prepare("SELECT * FROM `message_droid` WHERE `message` LIKE '%".$recherche."%' ORDER BY date_de_creation DESC LIMIT ".$per_page);
+			$req->execute();
+		}
+		else {
+			$req = $bdd->prepare('SELECT * FROM `message_droid` ORDER BY date_de_creation DESC LIMIT '.$per_page);
+			$req->execute();
+		}
 	}
 	else {
-		$req = $bdd->prepare('SELECT * FROM `message_droid` ORDER BY date_de_creation DESC LIMIT 100');
-		$req->execute();
+		if(isset($_GET['recherche'])) {
+			$recherche = $_GET['recherche'];
+			$req = $bdd->prepare("SELECT * FROM `message_droid` WHERE `message` LIKE '%".$recherche."%' ORDER BY date_de_creation LIMIT ".$per_page." OFFSET ".(($page-1)*$per_page);
+			$req->execute();
+		}
+		else {
+			$req = $bdd->prepare('SELECT * FROM `message_droid` ORDER BY date_de_creation LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page);
+			$req->execute();
+		}
+
 	}
 
 	$x = 0;
