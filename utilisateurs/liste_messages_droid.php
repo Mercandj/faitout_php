@@ -19,7 +19,7 @@
 
 	$res = '{ "messages" : [';
 
-	if(!isset($_GET['page']) {
+	if(!isset($_GET['page'])) {
 		if(isset($_GET['recherche'])) {
 			$recherche = $_GET['recherche'];
 			$req = $bdd->prepare("SELECT * FROM `message_droid` WHERE `message` LIKE '%".$recherche."%' ORDER BY date_de_creation DESC LIMIT ".$per_page);
