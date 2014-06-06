@@ -11,7 +11,7 @@
 
 	$res = '{ "messages" : [';
 
-	$req = $bdd->prepare('SELECT * FROM `message_droid` WHERE `message` LIKE (%?%) ORDER BY date_de_creation DESC LIMIT 4');
+	$req = $bdd->prepare('SELECT * FROM `message_droid` WHERE `message` LIKE (\'%?%\') ORDER BY date_de_creation DESC LIMIT 4');
 	$req->execute(array($recherche));
 
 	$x = 0;
