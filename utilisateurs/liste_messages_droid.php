@@ -13,6 +13,9 @@
 
 	if(isset($_GET['recherche'])) {
 		$recherche = $_GET['recherche'];
+
+		echo($recherche);
+
 		$req = $bdd->prepare("SELECT * FROM `message_droid` WHERE `message` LIKE '%?%' ORDER BY date_de_creation DESC LIMIT 10");
 		$req->execute(array($recherche));
 	}
