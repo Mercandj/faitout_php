@@ -8,9 +8,7 @@
 		die('Erreur : '.$e->getMessage());
 	}
 
-	$res = 'test : ';
-
-	$requete = 'SELECT * FROM `message_droid` WHERE `reponse` IS NOT NULL DESC LIMIT 200';
+	$requete = 'SELECT * FROM `message_droid` WHERE `reponse` IS NOT NULL LIMIT 0 , 30';
 
 	$req = $bdd->prepare($requete);
 	$req->execute();
