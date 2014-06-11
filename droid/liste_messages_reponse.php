@@ -8,7 +8,7 @@
 		die('Erreur : '.$e->getMessage());
 	}
 
-	$res = '';
+	$res = 'test : ';
 
 	$requete = 'SELECT * FROM `message_droid` WHERE `reponse` IS NOT NULL DESC LIMIT 200';
 
@@ -19,7 +19,7 @@
 	while($donnees = $req->fetch()) {
 
 		$res.='[Q] "'.$donnees['message'].'" ';
-		$res.='[R] "'.$donnees['reponse'].'<br/>"';
+		$res.='[R] "'.$donnees['reponse'].'"<br/>';
 
 		$x+=1;
 	}
