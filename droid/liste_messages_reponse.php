@@ -24,5 +24,7 @@
 		$x+=1;
 	}
 
-	echo '<!DOCTYPE html><html xml:lang="fr" lang="fr"><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><body><a>'.$res.'</a></body></html>';
+	$ret = '<!DOCTYPE html><html xml:lang="fr" lang="fr"><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><body><a>'.$res.'</a></body></html>';
+
+	echo utf8_decode($ret);
 ?>
