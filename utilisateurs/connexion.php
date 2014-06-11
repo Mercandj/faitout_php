@@ -162,6 +162,16 @@
 				$res.='"admin":"'.$donnees3['admin'].'"';
 				$res.='},';
 			}
+			else {
+				$res.='{';
+				$res.='"pseudo": "null", ';
+				$res.='"mot_de_passe": "null", ';
+				$res.='"sexe":"null", ';
+				$res.='"xp":"null", ';
+				$res.='"url_image_profil":"null", ';
+				$res.='"admin":"non"';
+				$res.='},';
+			}
 
 			$res.='"date_de_creation": "'.$donnees2['date_de_creation'].'"';		
 			$res.='}';

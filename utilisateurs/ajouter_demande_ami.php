@@ -5,43 +5,49 @@
 	$pseudo = $_GET['pseudo'];
 	$pseudo_ami = $_GET['pseudo_ami'];
 
-	// Connexion à la base de données
-	try {
-		$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
-	}
-	catch(Exception $e) {
-		die('Erreur : '.$e->getMessage());
-	}
-
 	$res = '';
 
-	if($pseudo!=$pseudo_ami) {	
+	if($pseudo!='null') {
 
-		$req = $bdd->prepare('SELECT * FROM `ami` WHERE ( `Utilisateur_pseudo` = ? AND `pseudo_ami` = ? ) OR ( `Utilisateur_pseudo` = ? AND `pseudo_ami` = ? )');
-		$req->execute(array($pseudo, $pseudo_ami, $pseudo_ami, $pseudo));
-		
-		if($donnees = $req->fetch()) {
-			$res.='KO';
+		// Connexion à la base de données
+		try {
+			$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
 		}
-		else {
-			$req2 = $bdd->prepare('SELECT * FROM `demandeami` WHERE ( `Utilisateur_pseudo` = ? AND `pseudo_ami` = ? ) OR ( `Utilisateur_pseudo` = ? AND `pseudo_ami` = ? )');
-			$req2->execute(array($pseudo, $pseudo_ami, $pseudo_ami, $pseudo));
+		catch(Exception $e) {
+			die('Erreur : '.$e->getMessage());
+		}		
 
-			if($donnees2 = $req2->fetch()) {
+		if($pseudo!=$pseudo_ami) {	
+
+			$req = $bdd->prepare('SELECT * FROM `ami` WHERE ( `Utilisateur_pseudo` = ? AND `pseudo_ami` = ? ) OR ( `Utilisateur_pseudo` = ? AND `pseudo_ami` = ? )');
+			$req->execute(array($pseudo, $pseudo_ami, $pseudo_ami, $pseudo));
+			
+			if($donnees = $req->fetch()) {
 				$res.='KO';
 			}
 			else {
-				$date = date('Y-m-d H:i:s');
+				$req2 = $bdd->prepare('SELECT * FROM `demandeami` WHERE ( `Utilisateur_pseudo` = ? AND `pseudo_ami` = ? ) OR ( `Utilisateur_pseudo` = ? AND `pseudo_ami` = ? )');
+				$req2->execute(array($pseudo, $pseudo_ami, $pseudo_ami, $pseudo));
 
-				$us = new DemandeAmi($pseudo, $date, $pseudo_ami);
+				if($donnees2 = $req2->fetch()) {
+					$res.='KO';
+				}
+				else {
+					$date = date('Y-m-d H:i:s');
 
-				$req = $bdd->prepare($us->getinsert());
-				$req->execute($us->getarray());
-				$res.='Felicitations, demande ami(e) ajoutée.';
+					$us = new DemandeAmi($pseudo, $date, $pseudo_ami);
 
-				include_once './../notifications_push_android/notifier_user.php';
-				sendUserGCM($bdd, $pseudo." souhaite vous ajouter en ami !", $pseudo);
+					$req = $bdd->prepare($us->getinsert());
+					$req->execute($us->getarray());
+					$res.='Felicitations, demande ami(e) ajoutée.';
+
+					include_once './../notifications_push_android/notifier_user.php';
+					sendUserGCM($bdd, $pseudo." souhaite vous ajouter en ami !", $pseudo);
+				}
 			}
+		}
+		else {
+			$res.='KO';
 		}
 	}
 	else {

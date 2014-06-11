@@ -7,26 +7,31 @@
 	$mot_de_passe = $_GET['mot_de_passe'];
 	$sexe = $_GET['sexe'];
 
-	// Connexion à la base de données
-	try {
-		$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
-	}
-	catch(Exception $e) {
-		die('Erreur : '.$e->getMessage());
-	}
+	if($pseudo!='null') {
+		// Connexion à la base de données
+		try {
+			$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
+		}
+		catch(Exception $e) {
+			die('Erreur : '.$e->getMessage());
+		}
 
-	$res = '';
+		$res = '';
 
-	if(utilisateur_existant($pseudo)) {
-		$res.='Ce nom d\'utilisateur est deja pris.';
+		if(utilisateur_existant($pseudo)) {
+			$res.='Ce nom d\'utilisateur est deja pris.';
+		}
+		else {
+		  $us = new Utilisateur($pseudo, $mot_de_passe, $sexe);
+
+		  $req = $bdd->prepare($us->getinsert());
+		  $req->execute($us->getarray());
+		  $res.='OK';
+
+		}
 	}
 	else {
-	  $us = new Utilisateur($pseudo, $mot_de_passe, $sexe);
-
-	  $req = $bdd->prepare($us->getinsert());
-	  $req->execute($us->getarray());
-	  $res.='OK';
-
+		$res ='Ce nom d\'utilisateur est deja pris.';
 	}
 
 	echo $res;
