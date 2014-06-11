@@ -24,5 +24,5 @@
 		$x+=1;
 	}
 
-	echo $res;
+	echo '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />'.$res;
 ?>
