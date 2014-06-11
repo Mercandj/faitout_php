@@ -13,6 +13,8 @@
 	$req = $bdd->prepare($requete);
 	$req->execute();
 	
+	$res = "";
+
 	$x = 0;
 	while($donnees = $req->fetch()) {
 
