@@ -62,6 +62,7 @@
 		$res.='"langue": "'.$donnees['langue'].'", ';
 		$res.='"compte": "'.$donnees['compte'].'", ';
 		$res.='"nom_device": "'.$donnees['nom_device'].'", ';
+		$res.='"reponse": "'.$donnees['reponse'].'", ';
 
 		$date = date('Y-m-d H:i:s');
 		$diff_temps_sec = abs(strtotime($date) - strtotime(date($donnees['date_de_creation'])));
