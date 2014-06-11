@@ -8,7 +8,7 @@
 		die('Erreur : '.$e->getMessage());
 	}
 
-	$requete = 'SELECT DISTINCT * FROM `message_droid` WHERE `reponse` IS NOT NULL LIMIT 0 , 300';
+	$requete = 'SELECT * FROM `message_droid` WHERE `reponse` IS NOT NULL LIMIT AND  0 , 300';
 
 	$req = $bdd->prepare($requete);
 	$req->execute();
