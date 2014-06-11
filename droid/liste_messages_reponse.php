@@ -1,7 +1,5 @@
 <?php
 
-	$pseudo = $_GET['pseudo'];
-
 	// Connexion à la base de données
 	try {
 		$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
