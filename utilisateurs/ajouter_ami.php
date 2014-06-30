@@ -15,21 +15,27 @@
 
 	$res = '';
 
-	if($pseudo!=$pseudo_ami) {
+	if($pseudo!='null') {
 
-		$req2 = $bdd->prepare('SELECT * FROM `ami` WHERE `Utilisateur_pseudo` = ? AND `pseudo_ami` = ?');
-		$req2->execute(array($pseudo, $pseudo_ami));
-		if($donnees2 = $req2->fetch()) {
-			
+		if($pseudo!=$pseudo_ami) {
+
+			$req2 = $bdd->prepare('SELECT * FROM `ami` WHERE `Utilisateur_pseudo` = ? AND `pseudo_ami` = ?');
+			$req2->execute(array($pseudo, $pseudo_ami));
+			if($donnees2 = $req2->fetch()) {
+				
+			}
+			else {
+				$date = date('Y-m-d H:i:s');
+
+				$us = new Ami($pseudo, $date, $pseudo_ami);
+
+				$req = $bdd->prepare($us->getinsert());
+				$req->execute($us->getarray());
+				$res.='Felicitations, ami(e) ajouté(e).';
+			}
 		}
 		else {
-			$date = date('Y-m-d H:i:s');
-
-			$us = new Ami($pseudo, $date, $pseudo_ami);
-
-			$req = $bdd->prepare($us->getinsert());
-			$req->execute($us->getarray());
-			$res.='Felicitations, ami(e) ajouté(e).';
+			$res.='KO';
 		}
 	}
 	else {

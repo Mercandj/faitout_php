@@ -12,10 +12,47 @@
 
 	$res = '{ "messages" : [';
 
-	$requete = 'SELECT * FROM `message` WHERE `Utilisateur_pseudo` = ? AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT 30';
 
-	$req = $bdd->prepare($requete);
-	$req->execute(array($pseudo));
+	if(isset($_GET['me'])) {
+		$requete = 'SELECT * FROM `message` WHERE `Utilisateur_pseudo` = ? AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT 50';
+		$req = $bdd->prepare($requete);
+		$req->execute(array($pseudo));
+	}
+	else {
+
+		$req = $bdd->prepare('SELECT * FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?');
+		$req->execute(array($pseudo, $pseudo));
+
+		$array_amis = array();
+
+		array_push($array_amis, $pseudo);
+
+		while($donnees = $req->fetch()) {
+			
+			if($donnees['Utilisateur_pseudo'] != $pseudo) {
+				array_push($array_amis, $donnees['Utilisateur_pseudo']);
+			}
+			else if($donnees['pseudo_ami'] != $pseudo) {
+				array_push($array_amis, $donnees['pseudo_ami']);
+			}
+			else {
+				$res.='KO';
+			}
+		}
+
+		$requete = 'SELECT * FROM `message` WHERE (`Utilisateur_pseudo` = \'';
+		$x = 0;
+		foreach($array_amis as $element) {
+			if($x!=0) $requete.= '\' OR `Utilisateur_pseudo` = \'';
+			$requete.=$element;
+			$x+=1;
+		}
+		$requete .='\') AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT 50';
+		
+		$req = $bdd->prepare($requete);
+		$req->execute(array());
+
+	}
 	
 	$x = 0;
 	while($donnees = $req->fetch()) {
