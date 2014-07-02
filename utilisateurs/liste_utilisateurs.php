@@ -17,7 +17,7 @@
 		$req->execute();
 		$i = 0;
 		while($donnees = $req->fetch()) {
-			if($i==0)
+			if($i!=0)
 				$res.=',';
 			$res.='{';
 			$res.='"pseudo": "'.$donnees['pseudo'].'", ';
@@ -37,7 +37,7 @@
 		$req->execute();
 		$i = 0;
 		while($donnees = $req->fetch()) {
-			if($i==0)
+			if($i!=0)
 				$res.=',';
 			$res.='{';
 			$res.='"pseudo": "'.$donnees['pseudo'].'", ';
