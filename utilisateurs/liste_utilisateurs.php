@@ -9,9 +9,9 @@
 
 	$res = '{ "utilisateurs" : [';
 
-	if(isset($_GET['pseudo'])) {
+	if(isset($_GET['recherche_pseudo'])) {
 
-		$pseudo = $_GET['pseudo'];
+		$pseudo = $_GET['recherche_pseudo'];
 
 		$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` LIKE "%'.$pseudo.'%"');
 		$req->execute();
@@ -25,6 +25,7 @@
 			$res.='"sexe":"'.$donnees['sexe'].'", ';
 			$res.='"xp":"'.$donnees['xp'].'", ';
 			$res.='"url_image_profil":"'.$donnees['url_image_profil'].'", ';
+			$res.='"description":"'.$donnees['description'].'", ';
 			$res.='"admin":"'.$donnees['admin'].'"';
 			$res.='}';
 			$i+=1;
