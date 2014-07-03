@@ -1,7 +1,5 @@
 <?php
 
-	include_once 'class.mp3file.php';
-
 	$dir = "./../../musiques/";
 	$files1 = scandir($dir);
 
