@@ -25,8 +25,9 @@
 			}			
 
 		    fclose($musicfile);
-		}	
-
+		}
+		
+		$res.='"last_modified": "'.date ("F d Y H:i:s.", filemtime($dir.$var)).'",';
 		$res.='"size": "'.filesize($dir.$var).'",';
 		$res.='"titre": "'.$var.'"';
 		$res.='}';
