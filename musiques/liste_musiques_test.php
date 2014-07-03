@@ -16,9 +16,9 @@
 		$res.='"url": "'.$var.'",';
 		$res.='"titre": "'.$var.'"';
 
-		echo $i.' url='.$dir.$var.'<br />';
+		echo $i.' url='.'http://jonathan:nexus5@mercandalli.com/faitout/musiques/'.$var.'<br />';
 
-		$m = new mp3file($dir.$var);
+		$m = new mp3file('http://jonathan:nexus5@mercandalli.com/faitout/musiques/'.$var);
 		
 
 		/*$a = $m->get_metadata();
