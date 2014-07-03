@@ -1,4 +1,7 @@
 <?php
+
+	include_once 'class.mp3file.php';
+
 	$dir = "./../../musiques/";
 	$files1 = scandir($dir);
 
@@ -15,7 +18,7 @@
 
 		echo $i.' $dir='.$dir.' $var='.$var.'<br />';
 
-		$m = new mp3file($var);
+		$m = new mp3file($dir.$var);
 		$a = $m->get_metadata();
 		 
 		if ($a['Encoding']=='Unknown')
