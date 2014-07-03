@@ -15,6 +15,7 @@
 		$res.='"titre": "'.$var.'"';
 
 		if (strpos($var,'mp3')) {
+			echo $i.' <br />';
 		    $fp = fopen($dir.$var, 'r'); 
 		}
 		
