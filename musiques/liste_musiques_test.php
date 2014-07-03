@@ -1,5 +1,7 @@
 <?php
 
+	include_once('mp3.php');
+
 	$dir = "./../../musiques/";
 	$files1 = scandir($dir);
 
@@ -16,12 +18,12 @@
 
 		if (strpos($var,'mp3')) {
 			echo $i.' <br />';
-		    $fp = fopen($dir.$var, 'r'); 
+		    //$fp = fopen($dir.$var, 'r'); 
+
+		    $m = new mp3file($dir.$var);
 
 
-
-
-		    fclose($this->fp);
+		    //fclose($fp);
 		}
 		
 
