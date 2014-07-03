@@ -16,9 +16,9 @@
 		$res.='"url": "'.$var.'",';
 		$res.='"titre": "'.$var.'"';
 
-		echo $i.' url='.'http://jonathan:nexus5@mercandalli.com/faitout/musiques/'.$var.'<br />';
+		echo $i.' url='.$dir.$var.'<br />';
 
-		$m = new mp3file('http://jonathan:nexus5@mercandalli.com/faitout/musiques/'.$var);
+		$m = new mp3file($dir.$var);
 		
 
 		/*$a = $m->get_metadata();
@@ -30,7 +30,7 @@
 		else if ($a['Encoding']=='CBR')
 		    $res.='"url": "'.$a.'",';
 		unset($a);*/
-
+		
 
 		$res.='}';
 		$i++;
