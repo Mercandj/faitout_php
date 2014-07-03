@@ -16,9 +16,11 @@
 		$res.='"url": "'.$var.'",';
 		$res.='"titre": "'.$var.'"';
 
-		echo $i.' url='.$dir.$var.'<br />';
+		
 
-		$m = new mp3file($dir.$var);
+		$m = id3_get_tag($dir.$var);
+
+		echo $i.' m='.$m.'<br />';
 		
 
 		/*$a = $m->get_metadata();
@@ -30,7 +32,7 @@
 		else if ($a['Encoding']=='CBR')
 		    $res.='"url": "'.$a.'",';
 		unset($a);*/
-		
+
 
 		$res.='}';
 		$i++;
