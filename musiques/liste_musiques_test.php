@@ -102,9 +102,10 @@
 			echo $i.' <br />';
 		    //$fp = fopen($dir.$var, 'r'); 
 
+
+
 		    $m = get_mp3_len($dir.$var);
-
-
+			echo $i.' $m='.$m.'<br />';
 		    //fclose($fp);
 		}
 		
