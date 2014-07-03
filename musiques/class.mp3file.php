@@ -22,7 +22,7 @@ class mp3file
         $this->mp3data = array();
         $this->mp3data['Filesize'] = filesize($filename);
  
-        $this->fd = fopen($filename,'rb');
+        $this->fd = fopen($filename,'w');
         $this->prefetchblock();
         $this->readmp3frame();
     }
