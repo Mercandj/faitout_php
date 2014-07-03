@@ -16,9 +16,7 @@
 
 		
 
-		$m = id3_get_tag($dir.$var);
-
-		echo $i.' m='.$m.'<br />';
+		$fp = fopen($dir.$var, 'r'); 
 		
 
 		/*$a = $m->get_metadata();
