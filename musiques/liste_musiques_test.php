@@ -25,12 +25,12 @@
 			$tag = fread($musicfile, 3);
 
 			if($tag == "TAG") {
-				$res.='"size": "'.($data["song"] = trim(fread($musicfile, 30))).'",';
-				$res.='"size": "'.($data["artist"] = trim(fread($musicfile, 30))).'",';
-				$res.='"size": "'.($data["album"] = trim(fread($musicfile, 30))).'",';
+				$res.='"song": "'.($data["song"] = trim(fread($musicfile, 30))).'",';
+				$res.='"artist": "'.($data["artist"] = trim(fread($musicfile, 30))).'",';
+				$res.='"album": "'.($data["album"] = trim(fread($musicfile, 30))).'",';
 			}
 
-			$res.='"size": "'.filesize($dir.$var).'",';
+			$res.='"size": "'.filesize('liste_musiques').'",';
 
 		    fclose($musicfile);
 		}
