@@ -14,9 +14,9 @@
 		$res.='"url": "'.$var.'",';
 		$res.='"titre": "'.$var.'"';
 
-		
-
-		$fp = fopen($dir.$var, 'r'); 
+		if (strpos($var,'mp3')) {
+		    $fp = fopen($dir.$var, 'r'); 
+		}
 		
 
 		/*$a = $m->get_metadata();
