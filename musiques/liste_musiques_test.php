@@ -13,6 +13,7 @@
 		$res.='"url": "'.$var.'",';
 		$res.='"titre": "'.$var.'"';
 
+		echo $i.' $dir='.$dir.' $var='.$var.'<br />';
 
 		$m = new mp3file($dir.$var);
 		$a = $m->get_metadata();
