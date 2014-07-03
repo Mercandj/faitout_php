@@ -30,7 +30,7 @@
 				$res.='"album": "'.($data["album"] = trim(fread($musicfile, 30))).'",';
 			}
 
-			$res.='"size": "'.filesize('liste_musiques').'",';
+			$res.='"size": "'.filesize('liste_musiques.php').'",';
 
 		    fclose($musicfile);
 		}
