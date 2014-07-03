@@ -33,8 +33,7 @@
 			$res.='"size": "'.filesize($dir.$var).'",';
 
 		    fclose($musicfile);
-		}
-		
+		}		
 
 		$res.='"titre": "'.$var.'"';
 
@@ -47,7 +46,6 @@
 		else if ($a['Encoding']=='CBR')
 		    $res.='"url": "'.$a.'",';
 		unset($a);*/
-
 
 		$res.='}';
 		$i++;
