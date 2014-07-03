@@ -17,6 +17,11 @@
 		if (strpos($var,'mp3')) {
 			echo $i.' <br />';
 		    $fp = fopen($dir.$var, 'r'); 
+
+
+
+
+		    fclose($this->fp);
 		}
 		
 
