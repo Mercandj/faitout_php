@@ -15,7 +15,7 @@
 
 		echo $i.' $dir='.$dir.' $var='.$var.'<br />';
 
-		$m = new mp3file($dir.$var);
+		$m = new mp3file($var);
 		$a = $m->get_metadata();
 		 
 		if ($a['Encoding']=='Unknown')
