@@ -13,7 +13,7 @@
 		die('Erreur : '.$e->getMessage());
 	}
 
-	$res ='{ "message_serveur_fr": "Le serveur est en cours de maintenance.", "message_serveur_en": "The server is being updated please try again later.", "serveur_ouvert": false, ';
+	$res ='{ "message_serveur_fr": "Le serveur est en cours de maintenance.", "message_serveur_en": "The server is being updated please try again later.", "serveur_ouvert": true, ';
 
 	$res .= '"utilisateur" : [';
 
