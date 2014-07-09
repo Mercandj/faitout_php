@@ -13,7 +13,9 @@
 		die('Erreur : '.$e->getMessage());
 	}
 
-	$res = '{ "utilisateur" : [';
+	$res ='{ "message_serveur_fr": "Le serveur est en maintenance.", "message_serveur_en": "The server is being updated please try again later.", "serveur_ouvert": false, ';
+
+	$res .= '"utilisateur" : [';
 
 	$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ? AND `mot_de_passe` = ?');
 	$req->execute(array($pseudo, $mot_de_passe));
@@ -305,13 +307,9 @@
 		$res.='] ';
 
 
-
 		$res.='}';
-		$res.=']}';
-
-
-		
-
+		$res.=']';
+		$res.='}';
 
 		echo $res;
 	}
