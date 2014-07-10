@@ -169,7 +169,7 @@
 		        $obj = null;
 		    }
 
-			$res .= ' "bdd_sizes_mb" : [';
+			$res .= ' "bdd_sizes_mb" : [ {';
 
 			$req2 = $bdd->prepare('SELECT table_schema "Data Base Name", sum( data_length + index_length ) /1024 /1024 "Data Base Size in MB"
 			FROM information_schema.TABLES
@@ -185,7 +185,7 @@
 				$res .= '"'.$donnees2[0].'":"'.$donnees2[1].'"';
 				$i+=1;
 			}
-			$res .= '] ,';
+			$res .= '} ] ,';
 		}
 
 
