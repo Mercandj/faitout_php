@@ -141,7 +141,7 @@
 			$req->execute(array());
 
 			if($donnees = $req->fetch()) {
-				$res .= '"nb_droid_messages_sans_reponses":"'.$donnees['count'].'", ';
+				$res .= '"nb_droid_ss_reponses":"'.$donnees['count'].'", ';
 			}
 
 
