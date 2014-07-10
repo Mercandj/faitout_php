@@ -149,9 +149,8 @@
 			$req->execute(array());
 
 			if($donnees = $req->fetch()) {
-				$res .= '"nb_messages_faitout_social":"'.$donnees['count'].'", ';
+				$res .= '"nb_messages_social":"'.$donnees['count'].'", ';
 			}
-
 
 			$f = 'C:\wamp\www\faitout\images';
 		    $obj = new COM ( 'scripting.filesystemobject' );
@@ -169,25 +168,18 @@
 		        $obj = null;
 		    }
 
-			$res .= ' "bdd_sizes_mb" : [';
-
 			$req2 = $bdd->prepare('SELECT table_schema "Data Base Name", sum( data_length + index_length ) /1024 /1024 "Data Base Size in MB"
 			FROM information_schema.TABLES
 			GROUP BY table_schema
 			LIMIT 0 , 30');
 			$req2->execute(array());
 
-			$i = 0;
 			while($donnees2 = $req2->fetch()) {
-				if($i!=0) {
-					$res.=', ';
+				if(strpos($donnees2[0], 'faitout') !== FALSE) {
+					$res .= ' "bdd_sizes_mb" : "'.$donnees2[1].'", ';
 				}
-				$res .= '{"bdd":"'.$donnees2[0].'", "bdd_size":"'.$donnees2[1].'"}';
-				$i+=1;
 			}
-			$res .= '] ,';
 		}
-
 
 
 		$req2 = $bdd->prepare('SELECT * FROM `demandeami` WHERE `pseudo_ami` = ?');
