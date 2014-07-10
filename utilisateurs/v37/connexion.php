@@ -136,7 +136,7 @@
 
 		$res.='"admin":"'.$donnees['admin'].'", ';
 
-		if(strpos($donnees['admin'], '.') !== FALSE) {
+		if(strpos($donnees['admin'], 'non') == FALSE) {
 			$req = $bdd->prepare('SELECT COUNT(*) AS `count` FROM `message_droid` WHERE 1');
 			$req->execute(array());
 
