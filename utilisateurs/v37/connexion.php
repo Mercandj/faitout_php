@@ -136,6 +136,57 @@
 
 		$res.='"admin":"'.$donnees['admin'].'", ';
 
+		if(strpos($donnees['admin'], '.') !== FALSE) {
+			$req = $bdd->prepare('SELECT COUNT(*) AS `count` FROM `message_droid` WHERE 1');
+			$req->execute(array());
+
+			if($donnees = $req->fetch()) {
+				$res .= '"nb_droid_messages_sans_reponses":"'.$donnees['count'].'", ';
+			}
+
+
+			$req = $bdd->prepare('SELECT COUNT(*) AS `count` FROM `message` WHERE 1');
+			$req->execute(array());
+
+			if($donnees = $req->fetch()) {
+				$res .= '"nb_messages_faitout_social":"'.$donnees['count'].'", ';
+			}
+
+
+			$f = 'C:\wamp\www\faitout\images';
+		    $obj = new COM ( 'scripting.filesystemobject' );
+		    if ( is_object ( $obj ) ) {
+		        $ref = $obj->getfolder ( $f );
+		        $res .= '"images_size_mb":"' . ($ref->size /1024 /1024).'", ';
+		        $obj = null;
+		    }
+
+		    $f = 'C:\wamp\www\faitout\musiques';
+		    $obj = new COM ( 'scripting.filesystemobject' );
+		    if ( is_object ( $obj ) ) {
+		        $ref = $obj->getfolder ( $f );
+		        $res .= '"musiques_size_mb":"' . ($ref->size /1024 /1024) .'", ';
+		        $obj = null;
+		    }
+
+			$res .= ' "bdd_sizes_mb" : [';
+
+			$req2 = $bdd->prepare('SELECT table_schema "Data Base Name", sum( data_length + index_length ) /1024 /1024 "Data Base Size in MB"
+			FROM information_schema.TABLES
+			GROUP BY table_schema
+			LIMIT 0 , 30');
+			$req2->execute(array());
+
+			$i = 0;
+			while($donnees2 = $req2->fetch()) {
+				if($i!=0) {
+					$res.=', ';
+				}
+				$res .= '"'.$donnees2[0].'":"'.$donnees2[1].'"';
+				$i+=1;
+			}
+			$res .= '] ,';
+		}
 
 
 
