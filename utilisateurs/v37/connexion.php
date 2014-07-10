@@ -182,7 +182,7 @@
 				if($i!=0) {
 					$res.=', ';
 				}
-				$res .= '{"'.$donnees2[0].'":"'.$donnees2[1].'"}';
+				$res .= '{"bdd":"'.$donnees2[0].'", "bdd_size":"'.$donnees2[1].'"}';
 				$i+=1;
 			}
 			$res .= '] ,';
