@@ -53,7 +53,7 @@
 			$res.=',{';
 
 		$res.='"Utilisateur_pseudo": "'.$donnees2['Utilisateur_pseudo'].'", ';
-		$res.='"message": "'.$donnees2['message'].'", ';
+		$res.='"message": "'.str_replace('"', '\"', $donnees2['message']).'", ';
 		$res.='"Image_url": "'.$donnees2['Image_url'].'", ';
 
 		$date = date('Y-m-d H:i:s');
