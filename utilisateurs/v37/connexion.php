@@ -283,7 +283,7 @@
 			$req2->execute(array($donnees['Utilisateur_pseudo']));
 			if($donnees2 = $req2->fetch()) {
 				$res.='"utilisateur": {';
-				$res.='"pseudo": "'.$donnees2['pseudo'].'", ';
+				$res.='"pseudo": "'.str_replace('"', '\"', $donnees2['pseudo']).'", ';
 				$res.='"mot_de_passe": "'.$donnees2['mot_de_passe'].'", ';
 				$res.='"sexe":"'.$donnees2['sexe'].'", ';
 				$res.='"xp":"'.$donnees2['xp'].'", ';
@@ -292,7 +292,7 @@
 				$res.='}, ';
 			}
 
-			$res.='"Utilisateur_pseudo": "'.$donnees['Utilisateur_pseudo'].'", ';
+			$res.='"Utilisateur_pseudo": "'.str_replace('"', '\"', $donnees['Utilisateur_pseudo']).'", ';
 			$res.='"message": "'.str_replace('"', '\"', $donnees['message']).'", ';
 			$res.='"Image_url": "'.$donnees['Image_url'].'", ';
 
@@ -342,7 +342,7 @@
 			}
 			$res.='"date": "'.$date_relative.'", ';
 			$res.='"date_de_creation": "'.$donnees['date_de_creation'].'", ';
-			$res.='"destinataire": "'.$donnees['destinataire'].'"';
+			$res.='"destinataire": "'.str_replace('"', '\"', $donnees['destinataire']).'"';
 			$res.='}';
 
 			$x+=1;

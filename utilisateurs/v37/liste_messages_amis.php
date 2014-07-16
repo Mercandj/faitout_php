@@ -52,7 +52,7 @@
 		else
 			$res.=',{';
 
-		$res.='"Utilisateur_pseudo": "'.$donnees2['Utilisateur_pseudo'].'", ';
+		$res.='"Utilisateur_pseudo": "'.str_replace('"', '\"', $donnees2['Utilisateur_pseudo']).'", ';
 		$res.='"message": "'.str_replace('"', '\"', $donnees2['message']).'", ';
 		$res.='"Image_url": "'.$donnees2['Image_url'].'", ';
 
@@ -102,7 +102,7 @@
 		}
 		$res.='"date": "'.$date_relative.'", ';
 		$res.='"date_de_creation": "'.$donnees2['date_de_creation'].'", ';
-		$res.='"destinataire": "'.$donnees2['destinataire'].'"';
+		$res.='"destinataire": "'.str_replace('"', '\"', $donnees2['destinataire']).'"';
 		$res.='}';
 		$x+=1;
 	}
