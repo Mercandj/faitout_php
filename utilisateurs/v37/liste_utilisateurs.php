@@ -20,22 +20,22 @@
 	if(!isset($_GET['page'])) {
 		if(isset($_GET['recherche_pseudo'])) {
 			$recherche_pseudo = $_GET['recherche_pseudo'];
-			$req = $bdd->prepare( 'SELECT * FROM `utilisateur` WHERE `pseudo` LIKE "%'.$recherche_pseudo.'%" DESC LIMIT '.$per_page );
+			$req = $bdd->prepare( 'SELECT * FROM `utilisateur` WHERE `pseudo` LIKE "%'.$recherche_pseudo.'%" LIMIT '.$per_page );
 			$req->execute();
 		}
 		else {
-			$req = $bdd->prepare( 'SELECT * FROM `utilisateur` LIMIT 0 , '.$per_page );
+			$req = $bdd->prepare( 'SELECT * FROM `utilisateur` LIMIT '.$per_page );
 			$req->execute();
 		}
 	}
 	else {
 		if(isset($_GET['recherche_pseudo'])) {
 			$recherche_pseudo = $_GET['recherche_pseudo'];
-			$req = $bdd->prepare( 'SELECT * FROM `utilisateur` WHERE `pseudo` LIKE "%'.$recherche_pseudo.'%" DESC LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page));
+			$req = $bdd->prepare( 'SELECT * FROM `utilisateur` WHERE `pseudo` LIKE "%'.$recherche_pseudo.'%" LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page));
 			$req->execute();
 		}
 		else {
-			$req = $bdd->prepare('SELECT * FROM `utilisateur` DESC LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page));
+			$req = $bdd->prepare('SELECT * FROM `utilisateur` LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page));
 			$req->execute();
 		}
 
