@@ -43,7 +43,6 @@
 
 	$res = '{ "utilisateurs" : [';
 
-	$req->execute();
 	$i = 0;
 	while($donnees = $req->fetch()) {
 		if($i!=0)
