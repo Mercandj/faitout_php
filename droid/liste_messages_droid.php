@@ -115,5 +115,12 @@
 		$x+=1;
 	}
 
-	echo $res.']}';
+	$res.=']';
+
+	if($per_page==$x)
+		$res.=', "next":'.($page+1);
+
+	$res.='}';
+
+	echo $res;
 ?>
