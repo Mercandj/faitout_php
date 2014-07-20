@@ -61,7 +61,7 @@
 			echo $res.', "next":'.($page+1).'}';
 	}
 	else {
-		$req = $bdd->prepare('SELECT * FROM `utilisateur` IS NOT NULL LIMIT 0 , 200');
+		$req = $bdd->prepare('SELECT * FROM `utilisateur` LIMIT 0 , 200');
 		$req->execute();
 		$i = 0;
 		while($donnees = $req->fetch()) {
