@@ -7,7 +7,7 @@
 		die('Erreur : '.$e->getMessage());
 	}
 
-	$per_page = 3;
+	$per_page = 50;
 	$page = 1;
 
 	if(isset($_GET['per_page'])) {

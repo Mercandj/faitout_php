@@ -227,7 +227,6 @@
 		}
 
 
-
 		$res .= '"messages" : [';
 
 		if(isset($_GET['me'])) {
@@ -236,7 +235,6 @@
 			$req->execute(array($pseudo));
 		}
 		else {
-
 			$req = $bdd->prepare('SELECT * FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?');
 			$req->execute(array($pseudo, $pseudo));
 
