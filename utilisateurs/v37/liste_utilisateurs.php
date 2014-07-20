@@ -24,7 +24,7 @@
 			$req->execute();
 		}
 		else {
-			$req = $bdd->prepare( 'SELECT * FROM `utilisateur` WHERE `pseudo` DESC LIMIT '.$per_page );
+			$req = $bdd->prepare( 'SELECT * FROM `utilisateur` DESC LIMIT '.$per_page );
 			$req->execute();
 		}
 	}
@@ -35,7 +35,7 @@
 			$req->execute();
 		}
 		else {
-			$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` DESC LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page));
+			$req = $bdd->prepare('SELECT * FROM `utilisateur` DESC LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page));
 			$req->execute();
 		}
 
