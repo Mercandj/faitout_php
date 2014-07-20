@@ -58,6 +58,8 @@
 		echo $res.']';
 		if($i==$per_page)
 			echo $res.', "next":'.($page+1).'}';
+
+		echo $res.'    ($per_page* ($page-1)):'.($per_page* ($page-1)).'     ($per_page*$page):'.($per_page*$page);
 	}
 	else {
 		$req = $bdd->prepare('SELECT * FROM `utilisateur` LIMIT 0 , 200');
