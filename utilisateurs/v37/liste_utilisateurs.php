@@ -24,7 +24,7 @@
 			$req->execute();
 		}
 		else {
-			$req = $bdd->prepare( 'SELECT * FROM `utilisateur` DESC LIMIT '.$per_page );
+			$req = $bdd->prepare( 'SELECT * FROM `utilisateur` LIMIT 0 , '.$per_page );
 			$req->execute();
 		}
 	}
