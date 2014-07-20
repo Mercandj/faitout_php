@@ -7,6 +7,7 @@
 		die('Erreur : '.$e->getMessage());
 	}
 
+	$per_page = 5;
 	$res = '{ "utilisateurs" : [';
 
 	if(isset($_GET['recherche_pseudo'])) {
@@ -36,7 +37,7 @@
 	else if(isset($_GET['page'])) {
 		$page = $_GET['page'];
 
-		$req = $bdd->prepare('SELECT * FROM `utilisateur` LIMIT '.(5* ($page-1)).' , '.(5*$page));
+		$req = $bdd->prepare('SELECT * FROM `utilisateur` LIMIT '.($per_page* ($page-1)).' , '.($per_page*$page));
 		$req->execute();
 		$i = 0;
 		while($donnees = $req->fetch()) {
@@ -55,7 +56,7 @@
 		}
 
 		echo $res.']';
-		if($i!=0)
+		if($i==$per_page)
 			echo $res.', "next":'.($page+1).'}';
 	}
 	else {
