@@ -61,7 +61,10 @@
 
 	$res.=']';
 	if($i==$per_page)
-		$res.=', "next":'.($page+1).'}';
+		$res.=', "next":'.($page+1);
+
+	$res.='}';
+
 	echo $res;
 
 
