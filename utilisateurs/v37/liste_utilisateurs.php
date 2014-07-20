@@ -41,6 +41,7 @@
 
 	}
 
+	$res = '{ "utilisateurs" : [';
 
 	$req->execute();
 	$i = 0;
@@ -63,9 +64,6 @@
 	if($i==$per_page)
 		$res.=', "next":'.($page+1).'}';
 	echo $res;
-
-
-
 
 
 
