@@ -36,7 +36,7 @@
 	else if(isset($_GET['page'])) {
 		$page = $_GET['page'];
 
-		$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` LIKE "%'.$pseudo.'%" LIMIT '.(5* ($page-1)).' , '.(5*$page));
+		$req = $bdd->prepare('SELECT * FROM `utilisateur` LIMIT '.(5* ($page-1)).' , '.(5*$page));
 		$req->execute();
 		$i = 0;
 		while($donnees = $req->fetch()) {
