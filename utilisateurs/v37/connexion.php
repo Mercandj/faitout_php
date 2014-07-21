@@ -1,6 +1,7 @@
 <?php
 
 	include_once 'classe_Utilisateur.php';
+	include_once 'serveur_ouvert.php';
 
 	$pseudo = $_GET['pseudo'];
 	$mot_de_passe = $_GET['mot_de_passe'];
@@ -13,7 +14,7 @@
 		die('Erreur : '.$e->getMessage());
 	}
 
-	$res ='{ "message_serveur_fr": "Le serveur est en cours de maintenance.", "message_serveur_en": "The server is being updated please try again later.", "serveur_ouvert": true, ';
+	$res ='{ "message_serveur_fr": "'.$message_serveur_fr.'", "message_serveur_en": "'.$message_serveur_en.'", "serveur_ouvert": '.$serveur_ouvert.', ';
 
 	$res .= '"utilisateur" : [';
 
