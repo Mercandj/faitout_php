@@ -201,7 +201,7 @@
 			if($donnees3 = $req3->fetch()) {
 				$res.='{';
 				$res.='"pseudo": "'.$donnees3['pseudo'].'", ';
-				$res.='"mot_de_passe": "'.$donnees3['mot_de_passe'].'", ';
+				//$res.='"mot_de_passe": "'.$donnees3['mot_de_passe'].'", ';
 				$res.='"sexe":"'.$donnees3['sexe'].'", ';
 				$res.='"xp":"'.$donnees3['xp'].'", ';
 				$res.='"url_image_profil":"'.$donnees3['url_image_profil'].'", ';
@@ -211,7 +211,7 @@
 			else {
 				$res.='{';
 				$res.='"pseudo": "null", ';
-				$res.='"mot_de_passe": "null", ';
+				//$res.='"mot_de_passe": "null", ';
 				$res.='"sexe":"null", ';
 				$res.='"xp":"null", ';
 				$res.='"url_image_profil":"null", ';
@@ -283,7 +283,7 @@
 			if($donnees2 = $req2->fetch()) {
 				$res.='"utilisateur": {';
 				$res.='"pseudo": "'.str_replace('"', '\"', $donnees2['pseudo']).'", ';
-				$res.='"mot_de_passe": "'.$donnees2['mot_de_passe'].'", ';
+				//$res.='"mot_de_passe": "'.$donnees2['mot_de_passe'].'", ';
 				$res.='"sexe":"'.$donnees2['sexe'].'", ';
 				$res.='"xp":"'.$donnees2['xp'].'", ';
 				$res.='"url_image_profil":"'.$donnees2['url_image_profil'].'", ';
