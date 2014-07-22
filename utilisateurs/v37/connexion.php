@@ -21,6 +21,15 @@
 	$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ? AND `mot_de_passe` = ?');
 	$req->execute(array($pseudo, $mot_de_passe));
 	if($donnees = $req->fetch()) {
+
+		$x = 0;
+		$per_page = 3;
+		$page = 1;
+		if(isset($_GET['per_page']))
+			$per_page = (int) $_GET['per_page'];
+		if(isset($_GET['page']))
+			$page = (int) $_GET['page'];
+
 		$res.='{';
 		$res.='"pseudo": "'.$donnees['pseudo'].'", ';
 		//$res.='"mot_de_passe": "'.$donnees['mot_de_passe'].'", ';
@@ -34,9 +43,8 @@
 
 		$req3 = $bdd->prepare('SELECT COUNT(*) as total FROM `utilisateur`');
 		$req3->execute(array());
-		if($donnees3 = $req3->fetch()) {
+		if($donnees3 = $req3->fetch())
 			$res.='"nombre_utilisateurs":"'.$donnees3['total'].'", ';
-		}
 
 		$req4 = $bdd->prepare('SELECT COUNT(*) as total FROM `message` WHERE `Utilisateur_pseudo` = ?');
 		$req4->execute(array($pseudo));
@@ -62,20 +70,17 @@
 
 				$req6 = $bdd->prepare($sql_req_6);
 				$req6->execute(array($pseudo));
-				if($donnees6 = $req6->fetch()) {
+				if($donnees6 = $req6->fetch())
 					$res.='"rang_chat":"'.$donnees6['rang'].'", ';
-				}
 			}
-			else {
+			else
 				$res.='"rang_chat":"'.$donnees3['total'].'", ';
-			}
 		}
 
 		$req5 = $bdd->prepare('SELECT COUNT(*) as total FROM `message`');
 		$req5->execute(array($pseudo));
-		if($donnees5 = $req5->fetch()) {
+		if($donnees5 = $req5->fetch())
 			$res.='"nombre_messages":"'.$donnees5['total'].'", ';
-		}
 		
 		$req8 = $bdd->prepare('SELECT COUNT(*) as total FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?');
 		$req8->execute(array($pseudo, $pseudo));
@@ -99,13 +104,11 @@
 
 				$req7 = $bdd->prepare($sql_req_7);
 				$req7->execute(array($pseudo, $pseudo));
-				if($donnees7 = $req7->fetch()) {
+				if($donnees7 = $req7->fetch())
 					$res.='"rang_ami":"'.$donnees7['rang'].'", ';
-				}
 			}
-			else {
-				$res.='"rang_ami":"'.$donnees3['total'].'", ';				
-			}
+			else
+				$res.='"rang_ami":"'.$donnees3['total'].'", ';
 		}
 
 
@@ -123,16 +126,14 @@
 		)';
 		$req9 = $bdd->prepare($sql_req_9);
 		$req9->execute(array($pseudo));
-		if($donnees9 = $req9->fetch()) {
+		if($donnees9 = $req9->fetch())
 			$res.='"rang_jeu_clic":"'.$donnees9['rang'].'", ';
-		}
 		
 
 		$req10 = $bdd->prepare('SELECT MAX(`clic_best`) AS `maxi` FROM `utilisateur`');
 		$req10->execute();
-		if($donnees10 = $req10->fetch()) {
+		if($donnees10 = $req10->fetch())
 			$res.='"clic_best_world":"'.$donnees10['maxi'].'", ';
-		}
 		
 
 		$res.='"admin":"'.$donnees['admin'].'", ';
@@ -141,17 +142,14 @@
 			$req = $bdd->prepare('SELECT COUNT(*) AS `count` FROM `message_droid` WHERE 1');
 			$req->execute(array());
 
-			if($donnees = $req->fetch()) {
+			if($donnees = $req->fetch())
 				$res .= '"nb_droid_ss_reponses":"'.$donnees['count'].'", ';
-			}
-
 
 			$req = $bdd->prepare('SELECT COUNT(*) AS `count` FROM `message` WHERE 1');
 			$req->execute(array());
 
-			if($donnees = $req->fetch()) {
+			if($donnees = $req->fetch())
 				$res .= '"nb_messages_social":"'.$donnees['count'].'", ';
-			}
 
 			$f = 'C:\wamp\www\faitout\images';
 		    $obj = new COM ( 'scripting.filesystemobject' );
@@ -175,11 +173,9 @@
 			LIMIT 0 , 30');
 			$req2->execute(array());
 
-			while($donnees2 = $req2->fetch()) {
-				if(strpos($donnees2[0], 'faitout') !== FALSE) {
+			while($donnees2 = $req2->fetch())
+				if(strpos($donnees2[0], 'faitout') !== FALSE)
 					$res .= ' "bdd_sizes_mb" : "'.$donnees2[1].'", ';
-				}
-			}
 		}
 
 
@@ -187,12 +183,10 @@
 		$req2->execute(array($pseudo));
 		$id = 0;
 		while($donnees2 = $req2->fetch()) {
-			if($id == 0) {
+			if($id == 0)
 				$res.='"demandeami": [{';
-			}
-			else {
+			else
 				$res.=', {';
-			}
 			$res.='"Utilisateur_pseudo": "'.$donnees2['Utilisateur_pseudo'].'", ';
 
 			$res.= '"utilisateur" : ';
@@ -225,9 +219,8 @@
 			$res.='}';
 			$id += 1;
 		}
-		if($id!=0) {
+		if($id!=0)
 			$res.='], ';
-		}
 
 
 		$res .= '"messages" : [';
@@ -246,24 +239,13 @@
 			array_push($array_amis, $pseudo);
 
 			while($donnees = $req->fetch()) {				
-				if($donnees['Utilisateur_pseudo'] != $pseudo) {
+				if($donnees['Utilisateur_pseudo'] != $pseudo)
 					array_push($array_amis, $donnees['Utilisateur_pseudo']);
-				}
-				else if($donnees['pseudo_ami'] != $pseudo) {
+				else if($donnees['pseudo_ami'] != $pseudo)
 					array_push($array_amis, $donnees['pseudo_ami']);
-				}
-				else {
+				else
 					$res.='KO';
-				}
 			}
-
-
-			$per_page = 3;
-			$page = 1;
-			if(isset($_GET['per_page']))
-				$per_page = (int) $_GET['per_page'];
-			if(isset($_GET['page']))
-				$page = (int) $_GET['page'];
 
 			if(!isset($_GET['page'])) {
 				$requete = 'SELECT * FROM `message` WHERE (`Utilisateur_pseudo` = \'';
@@ -285,21 +267,8 @@
 				}
 				$requete .='\') AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page);
 			}
-
-			/*
-			$requete = 'SELECT * FROM `message` WHERE (`Utilisateur_pseudo` = \'';
-			$x = 0;
-			foreach($array_amis as $element) {
-				if($x!=0) $requete.= '\' OR `Utilisateur_pseudo` = \'';
-				$requete.=$element;
-				$x+=1;
-			}
-			$requete .='\') AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT 50';
-			*/
-
 			$req = $bdd->prepare($requete);
 			$req->execute(array());
-
 		}
 
 		$x = 0;
@@ -330,42 +299,35 @@
 			$date = date('Y-m-d H:i:s');
 			$diff_temps_sec = abs(strtotime($date) - strtotime(date($donnees['date_de_creation'])));
 
-			if( $diff_temps_sec < 60) {
+			if( $diff_temps_sec < 60) 
 			    $date_relative = 'il y a '.$diff_temps_sec.'s';
-			}
 			else {
 				$diff_temps_min = intval($diff_temps_sec / 60);
 
-				if($diff_temps_min < 60) {
+				if($diff_temps_min < 60)
 					$date_relative = 'il y a '.$diff_temps_min.'mn';
-				}
 				else {
 					$diff_temps_h = intval($diff_temps_min / 60);
 
-					if($diff_temps_h < 24) {
+					if($diff_temps_h < 24)
 						$date_relative = 'il y a '.$diff_temps_h.'h'.($diff_temps_min-$diff_temps_h*60);
-					}
 					else {
 						$diff_temps_j = intval($diff_temps_h / 24);
 
-						if($diff_temps_j < 30) {
+						if($diff_temps_j < 30) 
 							$date_relative = 'il y a '.$diff_temps_j.'j';
-						}
 						else {
 							$diff_temps_mois = intval($diff_temps_j / 30);
 
-							if($diff_temps_mois < 12) {
+							if($diff_temps_mois < 12)
 								$date_relative = 'il y a '.$diff_temps_mois.' mois';
-							}
 							else {
 								$diff_temps_ans = intval($diff_temps_mois / 12);
 
-								if($diff_temps_ans==1) {
+								if($diff_temps_ans==1)
 									$date_relative = 'il y a '.$diff_temps_ans.' an';
-								}
-								else {
+								else
 									$date_relative = 'il y a '.$diff_temps_ans.' ans';
-								}
 							}
 						}
 					}
@@ -378,8 +340,10 @@
 
 			$x+=1;
 		}
-		$res.='] ';
+		$res.=']';
 
+		if($x==$per_page)
+			$res.=', "next":"'.($page+1).'"';
 
 		$res.='}';
 		$res.=']';
