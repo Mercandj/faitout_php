@@ -283,7 +283,7 @@
 					$requete.=$element;
 					$x+=1;
 				}
-				$requete .='\') AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page));
+				$requete .='\') AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page);
 			}
 
 			/*
