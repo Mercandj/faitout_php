@@ -203,6 +203,7 @@
 				$res.='"pseudo": "'.$donnees3['pseudo'].'", ';
 				//$res.='"mot_de_passe": "'.$donnees3['mot_de_passe'].'", ';
 				$res.='"sexe":"'.$donnees3['sexe'].'", ';
+				$res.='"description":"'.$donnees['description'].'", ';
 				$res.='"xp":"'.$donnees3['xp'].'", ';
 				$res.='"url_image_profil":"'.$donnees3['url_image_profil'].'", ';
 				$res.='"admin":"'.$donnees3['admin'].'"';
@@ -213,6 +214,7 @@
 				$res.='"pseudo": "null", ';
 				//$res.='"mot_de_passe": "null", ';
 				$res.='"sexe":"null", ';
+				$res.='"description":"null", ';
 				$res.='"xp":"null", ';
 				$res.='"url_image_profil":"null", ';
 				$res.='"admin":"non"';
