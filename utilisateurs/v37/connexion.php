@@ -23,7 +23,7 @@
 	if($donnees = $req->fetch()) {
 
 		$x = 0;
-		$per_page = 3;
+		$per_page = 15;
 		$page = 1;
 		if(isset($_GET['per_page']))
 			$per_page = (int) $_GET['per_page'];
