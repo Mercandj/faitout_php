@@ -245,8 +245,7 @@
 
 			array_push($array_amis, $pseudo);
 
-			while($donnees = $req->fetch()) {
-				
+			while($donnees = $req->fetch()) {				
 				if($donnees['Utilisateur_pseudo'] != $pseudo) {
 					array_push($array_amis, $donnees['Utilisateur_pseudo']);
 				}
@@ -258,6 +257,36 @@
 				}
 			}
 
+
+			$per_page = 3;
+			$page = 1;
+			if(isset($_GET['per_page']))
+				$per_page = (int) $_GET['per_page'];
+			if(isset($_GET['page']))
+				$page = (int) $_GET['page'];
+
+			if(!isset($_GET['page'])) {
+				$requete = 'SELECT * FROM `message` WHERE (`Utilisateur_pseudo` = \'';
+				$x = 0;
+				foreach($array_amis as $element) {
+					if($x!=0) $requete.= '\' OR `Utilisateur_pseudo` = \'';
+					$requete.=$element;
+					$x+=1;
+				}
+				$requete .='\') AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT '.$per_page;
+			}
+			else {
+				$requete = 'SELECT * FROM `message` WHERE (`Utilisateur_pseudo` = \'';
+				$x = 0;
+				foreach($array_amis as $element) {
+					if($x!=0) $requete.= '\' OR `Utilisateur_pseudo` = \'';
+					$requete.=$element;
+					$x+=1;
+				}
+				$requete .='\') AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page));
+			}
+
+			/*
 			$requete = 'SELECT * FROM `message` WHERE (`Utilisateur_pseudo` = \'';
 			$x = 0;
 			foreach($array_amis as $element) {
@@ -266,7 +295,8 @@
 				$x+=1;
 			}
 			$requete .='\') AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT 50';
-			
+			*/
+
 			$req = $bdd->prepare($requete);
 			$req->execute(array());
 
