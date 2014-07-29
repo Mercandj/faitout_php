@@ -288,7 +288,24 @@
 				$res.='"sexe":"'.$donnees2['sexe'].'", ';
 				$res.='"xp":"'.$donnees2['xp'].'", ';
 				$res.='"url_image_profil":"'.$donnees2['url_image_profil'].'", ';
-				$res.='"admin":"'.$donnees2['admin'].'"';
+				$res.='"admin":"'.$donnees2['admin'].'",';
+
+				$res.='"images":[';
+				$req3 = $bdd->prepare('SELECT * FROM `image` WHERE `pseudo` = ?');
+				$req3->execute(array($donnees['Utilisateur_pseudo']));
+				$tmp_images_index = 0;
+				while($donnees3 = $req3->fetch()) {
+					if($tmp_images_index==0)
+						$res.='{';
+					else
+						$res.=',{';
+					$res.='"titre":"'.$donnees3['titre'].'", ';
+					$res.='"url":"'.$donnees3['url'].'"';
+					$res.='}';
+					$tmp_images_index+=1;
+				}
+				$res.=']';
+
 				$res.='}, ';
 			}
 

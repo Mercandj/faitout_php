@@ -39,12 +39,12 @@
 					if ( !($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) ) {
 
 						// Créer un dossier
-			      		@mkdir('./../../images/'.$pseudo.'/', 0777, true);
+			      		@mkdir('./../../../images/'.$pseudo.'/', 0777, true);
 			     
 			     		$date_heure = date('Y-m-d-H-i-s');
 
 						// Enregistre le fichier image
-						$url_file = "./../../images/".$pseudo.'/'.$date_heure.'_'.$_FILES['image']['name'];
+						$url_file = "./../../../images/".$pseudo.'/'.$date_heure.'_'.$_FILES['image']['name'];
 						$resultat = move_uploaded_file($_FILES['image']['tmp_name'], $url_file);
 
 			      		// Création des attributs de l'image
