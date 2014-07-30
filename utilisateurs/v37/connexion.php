@@ -51,7 +51,7 @@
 			$res.='}';
 			$tmp_images_index+=1;
 		}
-		$res.=']';
+		$res.='], ';
 
 		$res.='"clic_best":"'.$donnees['clic_best'].'", ';
 		$res.='"clic_total":"'.$donnees['clic_total'].'", ';
