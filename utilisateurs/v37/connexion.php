@@ -47,7 +47,8 @@
 			else
 				$res.=',{';
 			$res.='"titre":"'.$donnees3['titre'].'", ';
-			$res.='"url":"'.$donnees3['url'].'"';
+			$res.='"url":"'.$donnees3['url'].'", ';
+			$res.='"date":"'.$donnees3['date_de_creation'].'"';
 			$res.='}';
 			$tmp_images_index+=1;
 		}
