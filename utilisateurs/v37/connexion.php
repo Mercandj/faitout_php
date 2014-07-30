@@ -32,11 +32,26 @@
 
 		$res.='{';
 		$res.='"pseudo": "'.$donnees['pseudo'].'", ';
-		//$res.='"mot_de_passe": "'.$donnees['mot_de_passe'].'", ';
 		$res.='"sexe":"'.$donnees['sexe'].'", ';
 		$res.='"xp":"'.$donnees['xp'].'", ';
 		$res.='"url_image_profil":"'.$donnees['url_image_profil'].'", ';
 		$res.='"description":"'.$donnees['description'].'", ';
+
+		$res.='"images":[';
+		$req3 = $bdd->prepare('SELECT * FROM `image` WHERE `Utilisateur_pseudo` = ?');
+		$req3->execute(array($donnees['pseudo']));
+		$tmp_images_index = 0;
+		while($donnees3 = $req3->fetch()) {
+			if($tmp_images_index==0)
+				$res.='{';
+			else
+				$res.=',{';
+			$res.='"titre":"'.$donnees3['titre'].'", ';
+			$res.='"url":"'.$donnees3['url'].'"';
+			$res.='}';
+			$tmp_images_index+=1;
+		}
+		$res.=']';
 
 		$res.='"clic_best":"'.$donnees['clic_best'].'", ';
 		$res.='"clic_total":"'.$donnees['clic_total'].'", ';
@@ -195,7 +210,6 @@
 			if($donnees3 = $req3->fetch()) {
 				$res.='{';
 				$res.='"pseudo": "'.$donnees3['pseudo'].'", ';
-				//$res.='"mot_de_passe": "'.$donnees3['mot_de_passe'].'", ';
 				$res.='"sexe":"'.$donnees3['sexe'].'", ';
 				$res.='"description":"'.$donnees3['description'].'", ';
 				$res.='"xp":"'.$donnees3['xp'].'", ';
@@ -206,7 +220,6 @@
 			else {
 				$res.='{';
 				$res.='"pseudo": "null", ';
-				//$res.='"mot_de_passe": "null", ';
 				$res.='"sexe":"null", ';
 				$res.='"description":"null", ';
 				$res.='"xp":"null", ';
@@ -284,28 +297,10 @@
 			if($donnees2 = $req2->fetch()) {
 				$res.='"utilisateur": {';
 				$res.='"pseudo": "'.str_replace('"', '\"', $donnees2['pseudo']).'", ';
-				//$res.='"mot_de_passe": "'.$donnees2['mot_de_passe'].'", ';
 				$res.='"sexe":"'.$donnees2['sexe'].'", ';
 				$res.='"xp":"'.$donnees2['xp'].'", ';
 				$res.='"url_image_profil":"'.$donnees2['url_image_profil'].'", ';
-				$res.='"admin":"'.$donnees2['admin'].'",';
-
-				$res.='"images":[';
-				$req3 = $bdd->prepare('SELECT * FROM `image` WHERE `Utilisateur_pseudo` = ?');
-				$req3->execute(array($donnees['Utilisateur_pseudo']));
-				$tmp_images_index = 0;
-				while($donnees3 = $req3->fetch()) {
-					if($tmp_images_index==0)
-						$res.='{';
-					else
-						$res.=',{';
-					$res.='"titre":"'.$donnees3['titre'].'", ';
-					$res.='"url":"'.$donnees3['url'].'"';
-					$res.='}';
-					$tmp_images_index+=1;
-				}
-				$res.=']';
-
+				$res.='"admin":"'.$donnees2['admin'].'"';
 				$res.='}, ';
 			}
 

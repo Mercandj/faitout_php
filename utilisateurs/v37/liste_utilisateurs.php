@@ -46,7 +46,6 @@
 			$res.=',';
 		$res.='{';
 		$res.='"pseudo": "'.$donnees['pseudo'].'", ';
-		//$res.='"mot_de_passe": "'.$donnees['mot_de_passe'].'", ';
 		$res.='"sexe":"'.$donnees['sexe'].'", ';
 		$res.='"xp":"'.$donnees['xp'].'", ';
 		$res.='"url_image_profil":"'.$donnees['url_image_profil'].'", ';
