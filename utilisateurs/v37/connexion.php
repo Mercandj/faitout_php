@@ -93,6 +93,37 @@
 				$res.='"rang_chat":"'.$donnees3['total'].'", ';
 		}
 
+		$req4 = $bdd->prepare('SELECT COUNT(*) as total FROM `image` WHERE `Utilisateur_pseudo` = ?');
+		$req4->execute(array($pseudo));
+		if($donnees4 = $req4->fetch()) {
+			$res.='"nombre_mes_images":"'.$donnees4['total'].'", ';
+
+			if($donnees4['total']!=0) {
+				$sql_req_6 = 
+				'SELECT COUNT( `nb_images` )+1 AS `rang`
+				FROM (
+				    SELECT COUNT( * ) AS `nb_images`
+				    FROM `image`
+				    GROUP BY `Utilisateur_pseudo`
+				    ORDER BY `nb_images`
+				) AS T
+				WHERE `nb_images` > (
+				    SELECT COUNT( * ) 
+				    FROM `image` 
+				    WHERE `Utilisateur_pseudo` = ?
+				    GROUP BY `Utilisateur_pseudo` 
+				    ORDER BY `nb_images`
+				)';
+
+				$req6 = $bdd->prepare($sql_req_6);
+				$req6->execute(array($pseudo));
+				if($donnees6 = $req6->fetch())
+					$res.='"rang_images":"'.$donnees6['rang'].'", ';
+			}
+			else
+				$res.='"rang_images":"'.$donnees3['total'].'", ';
+		}
+
 		$req5 = $bdd->prepare('SELECT COUNT(*) as total FROM `message`');
 		$req5->execute(array($pseudo));
 		if($donnees5 = $req5->fetch())
