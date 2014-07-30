@@ -23,10 +23,13 @@
 	$req = $bdd->prepare('DELETE FROM `message` WHERE `Utilisateur_pseudo` = ?');
 	$req->execute(array($pseudo));
 
+	$req = $bdd->prepare('DELETE FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?');
+	$req->execute(array($pseudo, $pseudo));
+
 	$req = $bdd->prepare('DELETE FROM `utilisateur` WHERE `pseudo` = ?');
 	$req->execute(array($pseudo));
 
-	$res .= 'Ami supprimé.';
+	$res .= 'User supprimé.';
 
 	echo $res;
 ?>
