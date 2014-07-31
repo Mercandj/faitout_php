@@ -38,7 +38,7 @@
 		$res.='"description":"'.$donnees['description'].'", ';
 
 		$res.='"images":[';
-		$req3 = $bdd->prepare('SELECT * FROM `image` WHERE `Utilisateur_pseudo` = ?');
+		$req3 = $bdd->prepare('SELECT * FROM `image` WHERE `Utilisateur_pseudo` = ? ORDER BY date_de_creation DESC LIMIT 50');
 		$req3->execute(array($donnees['pseudo']));
 		$tmp_images_index = 0;
 		while($donnees3 = $req3->fetch()) {
