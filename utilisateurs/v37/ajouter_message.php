@@ -55,6 +55,7 @@
 
 					$url = "http://mercandalli.com/faitout/images/".$pseudo.'/'.$date_heure.'_'.$_FILES['image']['name'];
 
+					/*
 					// Création d'une image
 					$im = new Image(
 						$url,
@@ -66,6 +67,7 @@
 					// INSERT de l'image dans la base de données
 					$req = $bdd->prepare($im->getinsert());
 					$req->execute($im->getarray());
+					*/
 
 				}
 				else {
