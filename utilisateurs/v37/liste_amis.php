@@ -29,12 +29,27 @@
 			if($donnees2 = $req2->fetch()) {
 				$res.='{';
 				$res.='"pseudo": "'.$donnees2['pseudo'].'", ';
-				$res.='"mot_de_passe": "'.$donnees2['mot_de_passe'].'", ';
 				$res.='"sexe":"'.$donnees2['sexe'].'", ';
 				$res.='"xp":"'.$donnees2['xp'].'", ';
 				$res.='"url_image_profil":"'.$donnees2['url_image_profil'].'", ';
 				$res.='"description":"'.$donnees2['description'].'", ';
-				$res.='"admin":"'.$donnees2['admin'].'"';
+				$res.='"admin":"'.$donnees2['admin'].'", ';
+				$res.='"images":[';
+				$req3 = $bdd->prepare('SELECT * FROM `image` WHERE `Utilisateur_pseudo` = ? ORDER BY date_de_creation DESC LIMIT 50');
+				$req3->execute(array($donnees2['pseudo']));
+				$tmp_images_index = 0;
+				while($donnees3 = $req3->fetch()) {
+					if($tmp_images_index==0)
+						$res.='{';
+					else
+						$res.=',{';
+					$res.='"titre":"'.$donnees3['titre'].'", ';
+					$res.='"url":"'.$donnees3['url'].'", ';
+					$res.='"date":"'.$donnees3['date_de_creation'].'"';
+					$res.='}';
+					$tmp_images_index+=1;
+				}
+				$res.=']';
 				$res.='}';
 			}
 		}
@@ -44,12 +59,27 @@
 			if($donnees2 = $req2->fetch()) {
 				$res.='{';
 				$res.='"pseudo": "'.$donnees2['pseudo'].'", ';
-				$res.='"mot_de_passe": "'.$donnees2['mot_de_passe'].'", ';
 				$res.='"sexe":"'.$donnees2['sexe'].'", ';
 				$res.='"xp":"'.$donnees2['xp'].'", ';
 				$res.='"url_image_profil":"'.$donnees2['url_image_profil'].'", ';
 				$res.='"description":"'.$donnees2['description'].'", ';
-				$res.='"admin":"'.$donnees2['admin'].'"';
+				$res.='"admin":"'.$donnees2['admin'].'", ';
+				$res.='"images":[';
+				$req3 = $bdd->prepare('SELECT * FROM `image` WHERE `Utilisateur_pseudo` = ? ORDER BY date_de_creation DESC LIMIT 50');
+				$req3->execute(array($donnees2['pseudo']));
+				$tmp_images_index = 0;
+				while($donnees3 = $req3->fetch()) {
+					if($tmp_images_index==0)
+						$res.='{';
+					else
+						$res.=',{';
+					$res.='"titre":"'.$donnees3['titre'].'", ';
+					$res.='"url":"'.$donnees3['url'].'", ';
+					$res.='"date":"'.$donnees3['date_de_creation'].'"';
+					$res.='}';
+					$tmp_images_index+=1;
+				}
+				$res.=']';
 				$res.='}';
 			}
 		}
@@ -58,6 +88,13 @@
 		}
 		$id+=1;
 	}
+
+	$res.='], ';
+
+	$req3 = $bdd->prepare('SELECT COUNT(*) as total FROM `utilisateur`');
+	$req3->execute(array());
+	if($donnees3 = $req3->fetch())
+		$res.='"nombre_utilisateurs":"'.$donnees3['total'].'"';
 
 	echo $res.']}';
 ?>
