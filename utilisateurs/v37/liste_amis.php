@@ -96,5 +96,7 @@
 	if($donnees3 = $req3->fetch())
 		$res.='"nombre_utilisateurs":"'.$donnees3['total'].'"';
 
-	echo $res.']}';
+	$res.='}';
+
+	echo $res;
 ?>
