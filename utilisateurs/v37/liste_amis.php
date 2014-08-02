@@ -10,10 +10,43 @@
 		die('Erreur : '.$e->getMessage());
 	}
 
+	$per_page = 50;
+	$page = 1;
+
+	if(isset($_GET['per_page']))
+		$per_page = (int) $_GET['per_page'];
+	if(isset($_GET['page']))
+		$page = (int) $_GET['page'];
+
 	$res = '{ "amis" : [';
 
+	if(!isset($_GET['page'])) {
+		if(isset($_GET['recherche_pseudo'])) {
+			$recherche_pseudo = $_GET['recherche_pseudo'];
+			$req = $bdd->prepare( 'SELECT * FROM `ami` WHERE (`Utilisateur_pseudo` = ? OR `pseudo_ami` = ?) AND ( (`pseudo_ami` = ? AND `Utilisateur_pseudo` LIKE "%'.$recherche_pseudo.'%") OR (`Utilisateur_pseudo` = ? AND `pseudo_ami` LIKE "%'.$recherche_pseudo.'%")) LIMIT '.$per_page );
+			$req->execute(array($pseudo, $pseudo, $pseudo, $pseudo));
+		}
+		else {
+			$req = $bdd->prepare( 'SELECT * FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ? LIMIT '.$per_page );
+			$req->execute(array($pseudo, $pseudo));
+		}
+	}
+	else {
+		if(isset($_GET['recherche_pseudo'])) {
+			$recherche_pseudo = $_GET['recherche_pseudo'];
+			$req = $bdd->prepare( 'SELECT * FROM `ami` WHERE (`Utilisateur_pseudo` = ? OR `pseudo_ami` = ?) AND ( (`pseudo_ami` = ? AND `Utilisateur_pseudo` LIKE "%'.$recherche_pseudo.'%") OR (`Utilisateur_pseudo` = ? AND `pseudo_ami` LIKE "%'.$recherche_pseudo.'%")) LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page));
+			$req->execute(array($pseudo, $pseudo, $pseudo, $pseudo));
+		}
+		else {
+			$req = $bdd->prepare('SELECT * FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ? LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page));
+			$req->execute(array($pseudo, $pseudo));
+		}
+	}
+
+	/*
 	$req = $bdd->prepare('SELECT * FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?');
 	$req->execute(array($pseudo, $pseudo));
+	*/
 
 	$id = 0;
 
@@ -90,6 +123,9 @@
 	}
 
 	$res.='], ';
+
+	if($id==$per_page)
+		$res.='"next":'.($page+1).', ';
 
 	$req3 = $bdd->prepare('SELECT COUNT(*) as total FROM `utilisateur`');
 	$req3->execute(array());
