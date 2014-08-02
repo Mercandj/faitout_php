@@ -1,0 +1,1 @@
+ALTER TABLE `Utilisateur` ADD `date_de_connexion` DATETIME NULL

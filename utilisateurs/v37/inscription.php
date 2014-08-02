@@ -22,12 +22,11 @@
 			$res.='Ce nom d\'utilisateur est deja pris.';
 		}
 		else {
-		  $us = new Utilisateur($pseudo, $mot_de_passe, $sexe);
-
-		  $req = $bdd->prepare($us->getinsert());
-		  $req->execute($us->getarray());
-		  $res.='OK';
-
+			$date = date('Y-m-d H:i:s');
+		 	$us = new Utilisateur($pseudo, $mot_de_passe, $sexe, $date);
+			$req = $bdd->prepare($us->getinsert());
+			$req->execute($us->getarray());
+			$res.='OK';
 		}
 	}
 	else {

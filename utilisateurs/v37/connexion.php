@@ -1,12 +1,11 @@
 <?php
-
 	include_once 'classe_Utilisateur.php';
 	include_once 'serveur_ouvert.php';
+	include_once 'changer_date_de_connexion.php';
 
 	$pseudo = $_GET['pseudo'];
 	$mot_de_passe = $_GET['mot_de_passe'];
 
-	// Connexion à la base de données
 	try {
 		$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
 	}
@@ -392,6 +391,8 @@
 		$res.='}';
 		$res.=']';
 		$res.='}';
+
+		update_user_date_de_connexion($bdd, $pseudo);
 
 		echo $res;
 	}

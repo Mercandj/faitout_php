@@ -15,8 +15,10 @@
     private $url_image_profil;
     private $clic_best;
     private $clic_total;
+    private $date_de_creation;
+    private $date_de_connexion;
 
-    public function __construct($ppseudo, $pmot_de_passe, $psexe) {
+    public function __construct($ppseudo, $pmot_de_passe, $psexe, $pdate_de_creation) {
       $this->pseudo = $ppseudo;
       $this->mot_de_passe = $pmot_de_passe;
       $this->sexe = $psexe;
@@ -24,6 +26,7 @@
       $this->admin = 'non';
       $this->clic_best = '0';
       $this->clic_total = '0';
+      $this->date_de_creation = $pdate_de_creation;
     }
 
     public function getarray() {
@@ -34,7 +37,9 @@
         'xp' => $this->xp,
         'admin' => $this->admin,
         'clic_best' => $this->clic_best,
-        'clic_total' => $this->clic_total
+        'clic_total' => $this->clic_total,
+        'date_de_creation' => $this->date_de_creation,
+        'date_de_connexion' => $this->date_de_creation
       );
     }
 
@@ -47,7 +52,9 @@
           xp,
           admin,
           clic_best,
-          clic_total
+          clic_total,
+          date_de_creation,
+          date_de_connexion
         ) VALUES(
           :pseudo,
           :mot_de_passe,
@@ -55,20 +62,10 @@
           :xp,
           :admin,
           :clic_best,
-          :clic_total
+          :clic_total,
+          :date_de_creation,
+          :date_de_connexion
         )';
-    }
-
-    public function getPseudo() {
-      return $this->pseudo;
-    }
-
-    public function getXp() {
-      return $this->xp;
-    }
-
-    public function setXp($var) {
-      $this->xp = $var;
     }
   }
 ?>
