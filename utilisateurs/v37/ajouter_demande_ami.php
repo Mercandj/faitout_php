@@ -42,7 +42,7 @@
 					$res.='Felicitations, demande ami(e) ajoutée.';
 
 					include_once './../../notifications_push_android/notifier_user.php';
-					sendUserGCM($bdd, $pseudo." souhaite vous ajouter en ami !", $pseudo);
+					sendUserGCM($bdd, $pseudo.' souhaite vous ajouter en ami !', $pseudo_ami);
 				}
 			}
 		}

@@ -30,23 +30,17 @@
   }
 
   function sendUserGCM($bdd, $message, $pseudo) {
-    echo "1";
     $req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
     $req->execute(array($pseudo));
-    echo "2";
     if($donnees = $req->fetch()) {
-      echo "3";
       $gcmRegID  = $donnees['regId'];
 
       if (isset($gcmRegID) && isset($message)) {
-        echo "4";  
         $gcmRegIds = array($gcmRegID);
         $message = array("m" => $message);
         $pushStatus = sendPushNotificationToGCM($gcmRegIds, $message);
       }
-      echo "5";
     }
-    echo "6";
   }
 
 ?>
