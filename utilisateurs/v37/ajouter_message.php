@@ -1,5 +1,4 @@
 <?php
-
 	include_once 'classe_Message.php';
 	include_once 'classe_Image.php';
 
@@ -18,7 +17,6 @@
 	$res = '';
 
 	$date = date('Y-m-d H:i:s');
-
 	$url = '';
 
 	$maxwidth = 200000;
@@ -50,7 +48,6 @@
 					$resultat = move_uploaded_file($_FILES['image']['tmp_name'], $url_file);
 
 		      		// Création des attributs de l'image
-		      		$date = date('Y-m-d H:i:s');
 		      		$titre = $message;
 
 					$url = "http://mercandalli.com/faitout/images/".$pseudo.'/'.$date_heure.'_'.$_FILES['image']['name'];
