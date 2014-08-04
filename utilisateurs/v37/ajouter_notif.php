@@ -1,4 +1,5 @@
 <?php
+	include_once 'classe_Message.php';
 	include_once 'classe_DemandeAmi.php';
 
 	$pseudo = $_GET['pseudo'];
