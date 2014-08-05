@@ -13,7 +13,10 @@
 		die('Erreur : '.$e->getMessage());
 	}
 
-	$res ='{ "message_serveur_fr": "'.$message_serveur_fr.'", "message_serveur_en": "'.$message_serveur_en.'", "serveur_ouvert": '.$serveur_ouvert.', ';
+	$res ='{ "serveur_ouvert": '.$serveur_ouvert.', ';
+
+	if(!$serveur_ouvert)
+		$res .= '"message_serveur_fr": "'.$message_serveur_fr.'", "message_serveur_en": "'.$message_serveur_en.'", ';
 
 	$res .= '"utilisateur" : [';
 
