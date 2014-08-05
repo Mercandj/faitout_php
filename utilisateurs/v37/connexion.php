@@ -331,9 +331,7 @@
 				$res.='"utilisateur": {';
 				$res.='"pseudo": "'.str_replace('"', '\"', $donnees2['pseudo']).'", ';
 				$res.='"sexe":"'.$donnees2['sexe'].'", ';
-				$res.='"xp":"'.$donnees2['xp'].'", ';
 				$res.='"url_image_profil":"'.$donnees2['url_image_profil'].'", ';
-				$res.='"admin":"'.$donnees2['admin'].'", ';
 				$res.='"images":[';
 				$req3 = $bdd->prepare('SELECT * FROM `image` WHERE `Utilisateur_pseudo` = ? ORDER BY date_de_creation DESC LIMIT 10');
 				$req3->execute(array($donnees2['pseudo']));
@@ -353,7 +351,6 @@
 				$res.='}, ';
 			}
 
-			$res.='"Utilisateur_pseudo": "'.str_replace('"', '\"', $donnees['Utilisateur_pseudo']).'", ';
 			$res.='"message": "'.str_replace('"', '\"', $donnees['message']).'", ';
 			$res.='"Image_url": "'.$donnees['Image_url'].'", ';
 
