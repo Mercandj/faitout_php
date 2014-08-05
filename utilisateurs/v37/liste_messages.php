@@ -53,7 +53,10 @@
 				$diff_temps_h = intval($diff_temps_min / 60);
 
 				if($diff_temps_h < 24) {
-					$date_relative = 'il y a '.$diff_temps_h.'h'.($diff_temps_min-$diff_temps_h*60);
+					if(($diff_temps_min-$diff_temps_h*60)<10)
+						$date_relative = 'il y a '.$diff_temps_h.'h0'.($diff_temps_min-$diff_temps_h*60);
+					else
+						$date_relative = 'il y a '.$diff_temps_h.'h'.($diff_temps_min-$diff_temps_h*60);
 				}
 				else {
 					$diff_temps_j = intval($diff_temps_h / 24);
