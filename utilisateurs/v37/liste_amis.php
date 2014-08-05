@@ -56,7 +56,7 @@
 			$req2->execute(array($donnees['Utilisateur_pseudo']));
 			if($donnees2 = $req2->fetch()) {
 				$res.='{';
-				$res.='"pseudo": "'.$donnees2['pseudo'].'", ';
+				$res.='"pseudo": "'.str_replace('"', '\"', $donnees2['pseudo']).'", ';
 				$res.='"sexe":"'.$donnees2['sexe'].'", ';
 				$res.='"xp":"'.$donnees2['xp'].'", ';
 				$res.='"url_image_profil":"'.$donnees2['url_image_profil'].'", ';
