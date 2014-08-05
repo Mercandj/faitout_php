@@ -84,7 +84,7 @@
 					$res.='"nombre_utilisateurs":"'.$donnees3['total'].'", ';
 
 				$req4 = $bdd->prepare('SELECT COUNT(*) as total FROM `message` WHERE `Utilisateur_pseudo` = ?');
-				$req4->execute(array($donnees['pseudo']));
+				$req4->execute(array($donnees2['pseudo']));
 				if($donnees4 = $req4->fetch()) {
 					$res.='"nombre_mes_messages":"'.$donnees4['total'].'", ';
 
@@ -106,7 +106,7 @@
 						)';
 
 						$req6 = $bdd->prepare($sql_req_6);
-						$req6->execute(array($donnees['pseudo']));
+						$req6->execute(array($donnees2['pseudo']));
 						if($donnees6 = $req6->fetch())
 							$res.='"rang_chat":"'.$donnees6['rang'].'", ';
 					}
@@ -115,7 +115,7 @@
 				}
 
 				$req4 = $bdd->prepare('SELECT COUNT(*) as total FROM `image` WHERE `Utilisateur_pseudo` = ?');
-				$req4->execute(array($donnees['pseudo']));
+				$req4->execute(array($donnees2['pseudo']));
 				if($donnees4 = $req4->fetch()) {
 					$res.='"nombre_mes_images":"'.$donnees4['total'].'", ';
 
@@ -137,7 +137,7 @@
 						)';
 
 						$req6 = $bdd->prepare($sql_req_6);
-						$req6->execute(array($donnees['pseudo']));
+						$req6->execute(array($donnees2['pseudo']));
 						if($donnees6 = $req6->fetch())
 							$res.='"rang_images":"'.$donnees6['rang'].'", ';
 					}
@@ -146,12 +146,12 @@
 				}
 
 				$req5 = $bdd->prepare('SELECT COUNT(*) as total FROM `message`');
-				$req5->execute(array($donnees['pseudo']));
+				$req5->execute(array($donnees2['pseudo']));
 				if($donnees5 = $req5->fetch())
 					$res.='"nombre_messages":"'.$donnees5['total'].'", ';
 				
 				$req8 = $bdd->prepare('SELECT COUNT(*) as total FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?');
-				$req8->execute(array($donnees['pseudo'], $donnees['pseudo']));
+				$req8->execute(array($donnees2['pseudo'], $donnees2['pseudo']));
 				if($donnees8 = $req8->fetch()) {
 					$res.='"nombre_mes_amis":"'.$donnees8['total'].'", ';
 
@@ -171,7 +171,7 @@
 						)';
 
 						$req7 = $bdd->prepare($sql_req_7);
-						$req7->execute(array($donnees['pseudo'], $donnees['pseudo']));
+						$req7->execute(array($donnees2['pseudo'], $donnees2['pseudo']));
 						if($donnees7 = $req7->fetch())
 							$res.='"rang_ami":"'.$donnees7['rang'].'", ';
 					}
@@ -192,7 +192,7 @@
 				    WHERE `pseudo` = ?
 				)';
 				$req9 = $bdd->prepare($sql_req_9);
-				$req9->execute(array($donnees['pseudo']));
+				$req9->execute(array($donnees2['pseudo']));
 				if($donnees9 = $req9->fetch())
 					$res.='"rang_jeu_clic":"'.$donnees9['rang'].'"';
 
@@ -232,7 +232,7 @@
 					$res.='"nombre_utilisateurs":"'.$donnees3['total'].'", ';
 
 				$req4 = $bdd->prepare('SELECT COUNT(*) as total FROM `message` WHERE `Utilisateur_pseudo` = ?');
-				$req4->execute(array($donnees['pseudo']));
+				$req4->execute(array($donnees2['pseudo']));
 				if($donnees4 = $req4->fetch()) {
 					$res.='"nombre_mes_messages":"'.$donnees4['total'].'", ';
 
@@ -254,7 +254,7 @@
 						)';
 
 						$req6 = $bdd->prepare($sql_req_6);
-						$req6->execute(array($donnees['pseudo']));
+						$req6->execute(array($donnees2['pseudo']));
 						if($donnees6 = $req6->fetch())
 							$res.='"rang_chat":"'.$donnees6['rang'].'", ';
 					}
@@ -263,7 +263,7 @@
 				}
 
 				$req4 = $bdd->prepare('SELECT COUNT(*) as total FROM `image` WHERE `Utilisateur_pseudo` = ?');
-				$req4->execute(array($donnees['pseudo']));
+				$req4->execute(array($donnees2['pseudo']));
 				if($donnees4 = $req4->fetch()) {
 					$res.='"nombre_mes_images":"'.$donnees4['total'].'", ';
 
@@ -285,7 +285,7 @@
 						)';
 
 						$req6 = $bdd->prepare($sql_req_6);
-						$req6->execute(array($donnees['pseudo']));
+						$req6->execute(array($donnees2['pseudo']));
 						if($donnees6 = $req6->fetch())
 							$res.='"rang_images":"'.$donnees6['rang'].'", ';
 					}
@@ -294,12 +294,12 @@
 				}
 
 				$req5 = $bdd->prepare('SELECT COUNT(*) as total FROM `message`');
-				$req5->execute(array($donnees['pseudo']));
+				$req5->execute(array($donnees2['pseudo']));
 				if($donnees5 = $req5->fetch())
 					$res.='"nombre_messages":"'.$donnees5['total'].'", ';
 				
 				$req8 = $bdd->prepare('SELECT COUNT(*) as total FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?');
-				$req8->execute(array($donnees['pseudo'], $donnees['pseudo']));
+				$req8->execute(array($donnees2['pseudo'], $donnees2['pseudo']));
 				if($donnees8 = $req8->fetch()) {
 					$res.='"nombre_mes_amis":"'.$donnees8['total'].'", ';
 
@@ -319,7 +319,7 @@
 						)';
 
 						$req7 = $bdd->prepare($sql_req_7);
-						$req7->execute(array($donnees['pseudo'], $donnees['pseudo']));
+						$req7->execute(array($donnees2['pseudo'], $donnees2['pseudo']));
 						if($donnees7 = $req7->fetch())
 							$res.='"rang_ami":"'.$donnees7['rang'].'", ';
 					}
@@ -340,7 +340,7 @@
 				    WHERE `pseudo` = ?
 				)';
 				$req9 = $bdd->prepare($sql_req_9);
-				$req9->execute(array($donnees['pseudo']));
+				$req9->execute(array($donnees2['pseudo']));
 				if($donnees9 = $req9->fetch())
 					$res.='"rang_jeu_clic":"'.$donnees9['rang'].'"';
 
