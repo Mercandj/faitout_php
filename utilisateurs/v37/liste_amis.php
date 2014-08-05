@@ -43,11 +43,6 @@
 		}
 	}
 
-	/*
-	$req = $bdd->prepare('SELECT * FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?');
-	$req->execute(array($pseudo, $pseudo));
-	*/
-
 	$id = 0;
 
 	while($donnees = $req->fetch()) {
@@ -76,7 +71,6 @@
 						$res.='{';
 					else
 						$res.=',{';
-					$res.='"titre":"'.$donnees3['titre'].'", ';
 					$res.='"url":"'.$donnees3['url'].'", ';
 					$res.='"date":"'.$donnees3['date_de_creation'].'"';
 					$res.='}';
@@ -106,7 +100,6 @@
 						$res.='{';
 					else
 						$res.=',{';
-					$res.='"titre":"'.$donnees3['titre'].'", ';
 					$res.='"url":"'.$donnees3['url'].'", ';
 					$res.='"date":"'.$donnees3['date_de_creation'].'"';
 					$res.='}';
