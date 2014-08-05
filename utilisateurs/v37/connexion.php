@@ -269,7 +269,7 @@
 			$res.='], ';
 
 
-		$res .= '"messages" : [';
+		$res .= '"messages_mur" : [';
 
 		if(isset($_GET['me'])) {
 			$requete = 'SELECT * FROM `message` WHERE `Utilisateur_pseudo` = ? AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT 50';
@@ -394,9 +394,7 @@
 					}
 				}
 			}
-			$res.='"date": "'.$date_relative.'", ';
-			$res.='"date_de_creation": "'.$donnees['date_de_creation'].'", ';
-			$res.='"destinataire": "'.str_replace('"', '\"', $donnees['destinataire']).'"';
+			$res.='"date": "'.$date_relative.'"';
 			$res.='}';
 
 			$x+=1;
