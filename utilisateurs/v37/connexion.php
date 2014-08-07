@@ -278,6 +278,150 @@
 			if($x==0)	$res.='{';
 			else 		$res.=',{';
 			$res.='"Utilisateur_pseudo": "'.$donnees['Utilisateur_pseudo'].'", ';
+			$req2 = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+			$req2->execute(array($donnees['Utilisateur_pseudo']));
+			if($donnees2 = $req2->fetch()) {
+				$res.='"utilisateur": {';
+				$pseudo_tmp = $donnees2['pseudo'];
+				$res.='"pseudo": "'.str_replace('"', '\"', $pseudo_tmp).'", ';
+				$res.='"sexe":"'.$donnees2['sexe'].'", ';
+				$res.='"url_image_profil":"'.$donnees2['url_image_profil'].'", ';
+				$res.='"images":[';
+				$req3 = $bdd->prepare('SELECT * FROM `image` WHERE `Utilisateur_pseudo` = ? ORDER BY date_de_creation DESC LIMIT 10');
+				$req3->execute(array($donnees2['pseudo']));
+				$tmp_images_index = 0;
+				while($donnees3 = $req3->fetch()) {
+					if($tmp_images_index==0)
+						$res.='{';
+					else
+						$res.=',{';
+					$res.='"url":"'.$donnees3['url'].'", ';
+					$res.='"date":"'.$donnees3['date_de_creation'].'"';
+					$res.='}';
+					$tmp_images_index+=1;
+				}
+				$res.='], ';
+
+				$req3 = $bdd->prepare('SELECT COUNT(*) as total FROM `utilisateur`');
+				$req3->execute(array());
+				if($donnees3 = $req3->fetch())
+					$res.='"nombre_utilisateurs":"'.$donnees3['total'].'", ';
+
+				$req4 = $bdd->prepare('SELECT COUNT(*) as total FROM `message` WHERE `Utilisateur_pseudo` = ?');
+				$req4->execute(array($pseudo_tmp));
+				if($donnees4 = $req4->fetch()) {
+					$res.='"nombre_mes_messages":"'.$donnees4['total'].'", ';
+
+					if($donnees4['total']!=0) {
+						$sql_req_6 = 
+						'SELECT COUNT( `nb_message` )+1 AS `rang`
+						FROM (
+						    SELECT COUNT( * ) AS `nb_message`
+						    FROM `message`
+						    GROUP BY `Utilisateur_pseudo`
+						    ORDER BY `nb_message`
+						) AS T
+						WHERE `nb_message` > (
+						    SELECT COUNT( * ) 
+						    FROM `message` 
+						    WHERE `Utilisateur_pseudo` = ?
+						    GROUP BY `Utilisateur_pseudo` 
+						    ORDER BY `nb_message`
+						)';
+
+						$req6 = $bdd->prepare($sql_req_6);
+						$req6->execute(array($pseudo_tmp));
+						if($donnees6 = $req6->fetch())
+							$res.='"rang_chat":"'.$donnees6['rang'].'", ';
+					}
+					else
+						$res.='"rang_chat":"'.$donnees3['total'].'", ';
+				}
+
+				$req4 = $bdd->prepare('SELECT COUNT(*) as total FROM `image` WHERE `Utilisateur_pseudo` = ?');
+				$req4->execute(array($pseudo_tmp));
+				if($donnees4 = $req4->fetch()) {
+					$res.='"nombre_mes_images":"'.$donnees4['total'].'", ';
+
+					if($donnees4['total']!=0) {
+						$sql_req_6 = 
+						'SELECT COUNT( `nb_images` )+1 AS `rang`
+						FROM (
+						    SELECT COUNT( * ) AS `nb_images`
+						    FROM `image`
+						    GROUP BY `Utilisateur_pseudo`
+						    ORDER BY `nb_images`
+						) AS T
+						WHERE `nb_images` > (
+						    SELECT COUNT( * ) 
+						    FROM `image` 
+						    WHERE `Utilisateur_pseudo` = ?
+						    GROUP BY `Utilisateur_pseudo` 
+						    ORDER BY `nb_images`
+						)';
+
+						$req6 = $bdd->prepare($sql_req_6);
+						$req6->execute(array($pseudo_tmp));
+						if($donnees6 = $req6->fetch())
+							$res.='"rang_images":"'.$donnees6['rang'].'", ';
+					}
+					else
+						$res.='"rang_images":"'.$donnees3['total'].'", ';
+				}
+
+				$req5 = $bdd->prepare('SELECT COUNT(*) as total FROM `message`');
+				$req5->execute(array($pseudo_tmp));
+				if($donnees5 = $req5->fetch())
+					$res.='"nombre_messages":"'.$donnees5['total'].'", ';
+				
+				$req8 = $bdd->prepare('SELECT COUNT(*) as total FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?');
+				$req8->execute(array($pseudo_tmp, $pseudo_tmp));
+				if($donnees8 = $req8->fetch()) {
+					$res.='"nombre_mes_amis":"'.$donnees8['total'].'", ';
+
+					if($donnees8['total']!=0) {
+						$sql_req_7 = 
+						'SELECT COUNT( `nb_ami` )+1 AS `rang`
+						FROM (
+						    SELECT COUNT( * ) AS `nb_ami`
+						    FROM `ami`
+						    ORDER BY `nb_ami`
+						) AS T
+						WHERE `nb_ami` > (
+						    SELECT COUNT( * )
+						    FROM `ami` 
+						    WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?
+						    ORDER BY `nb_ami`
+						)';
+
+						$req7 = $bdd->prepare($sql_req_7);
+						$req7->execute(array($pseudo_tmp, $pseudo_tmp));
+						if($donnees7 = $req7->fetch())
+							$res.='"rang_ami":"'.$donnees7['rang'].'", ';
+					}
+					else
+						$res.='"rang_ami":"'.$donnees3['total'].'", ';
+				}
+
+				$sql_req_9 = 
+				'SELECT COUNT( `clic_best` )+1 AS `rang`
+				FROM (
+				    SELECT `clic_best`
+				    FROM `utilisateur`
+				    ORDER BY `clic_best`
+				) AS T
+				WHERE `clic_best` > (
+				    SELECT `clic_best`
+				    FROM `utilisateur`
+				    WHERE `pseudo` = ?
+				)';
+				$req9 = $bdd->prepare($sql_req_9);
+				$req9->execute(array($pseudo_tmp));
+				if($donnees9 = $req9->fetch())
+					$res.='"rang_jeu_clic":"'.$donnees9['rang'].'"';
+
+				$res.='}, ';
+			}
 			$res.='"message": "'.str_replace('"', '\"', $donnees['message']).'", ';
 			$date = date('Y-m-d H:i:s');
 			$diff_temps_sec = abs(strtotime($date) - strtotime(date($donnees['date_de_creation'])));
