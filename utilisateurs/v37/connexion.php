@@ -270,7 +270,7 @@
 
 
 		$res .= '"messages_mp" : [';
-		$requete = 'SELECT * FROM `message` WHERE `destinataire` = ? LIMIT 10';
+		$requete = 'SELECT * FROM `message` WHERE `destinataire` = ? ORDER BY date_de_creation DESC LIMIT 10';
 		$req = $bdd->prepare($requete);
 		$req->execute(array($pseudo));
 		$x = 0;
