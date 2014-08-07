@@ -18,23 +18,18 @@
 			die('Erreur : '.$e->getMessage());
 		}		
 
-		if($pseudo!=$destinataire) {
-			include_once './../../notifications_push_android/notifier_user.php';
-			sendUserGCM($bdd, $pseudo.' à '.$destinataire.' : '.$message, $destinataire);
-				
-			$date = date('Y-m-d H:i:s');
-			$url = '';
+		include_once './../../notifications_push_android/notifier_user.php';
+		sendUserGCM($bdd, $pseudo.' à '.$destinataire.' : '.$message, $destinataire);
+			
+		$date = date('Y-m-d H:i:s');
+		$url = '';
 
-			$mess = new Message($pseudo, $date, $message, $destinataire, $url);
+		$mess = new Message($pseudo, $date, $message, $destinataire, $url);
 
-			$req = $bdd->prepare($mess->getinsert());
-			$req->execute($mess->getarray());
+		$req = $bdd->prepare($mess->getinsert());
+		$req->execute($mess->getarray());
 
-			$res.='Felicitations, vous avez bien envoye un message.';
-		}
-		else {
-			$res.='KO';
-		}
+		$res.='Felicitations, vous avez bien envoye un message.';		
 	}
 	else {
 		$res.='KO';
