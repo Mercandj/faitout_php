@@ -20,7 +20,7 @@
 
 		if($pseudo!=$destinataire) {
 			include_once './../../notifications_push_android/notifier_user.php';
-			sendUserGCM($bdd, $pseudo.' : '.$message, $destinataire);
+			sendUserGCM($bdd, $pseudo.' à '.$destinataire.' : '.$message, $destinataire);
 				
 			$date = date('Y-m-d H:i:s');
 			$url = '';
