@@ -269,8 +269,23 @@
 			$res.='], ';
 
 
-		$res .= '"messages_mur" : [';
+		$res .= '"messages_mp" : [';
+		$requete = 'SELECT * FROM `message` WHERE `destinataire` = ? LIMIT 10';
+		$req = $bdd->prepare($requete);
+		$req->execute(array($pseudo));
+		$x = 0;
+		while($donnees = $req->fetch()) {
+			if($x==0)	$res.='{';
+			else 		$res.=',{';
+			$res.='"Utilisateur_pseudo": "'.$donnees['Utilisateur_pseudo'].'", ';
+			$res.='"message": "'.str_replace('"', '\"', $donnees['message']).'"';
+			$res.='}';
+			$x+=1;
+		}
+		$res.='], ';
 
+
+		$res .= '"messages_mur" : [';
 		if(isset($_GET['me'])) {
 			$requete = 'SELECT * FROM `message` WHERE `Utilisateur_pseudo` = ? AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT 50';
 			$req = $bdd->prepare($requete);
@@ -526,6 +541,12 @@
 			$res.=', "next":"'.($page+1).'"';
 
 		$res.='}';
+
+
+
+
+
+
 		$res.=']';
 		$res.='}';
 
