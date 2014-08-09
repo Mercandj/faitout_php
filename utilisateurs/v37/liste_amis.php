@@ -355,7 +355,7 @@
 						)';
 
 						$req7 = $bdd->prepare($sql_req_7);
-						$req7->execute(array($donnees2['pseudo'], $donnees2['pseudo']));
+						$req7->execute(array($donnees2['pseudo']));
 						if($donnees7 = $req7->fetch())
 							$res.='"rang_ami":"'.$donnees7['rang'].'", ';
 					}
