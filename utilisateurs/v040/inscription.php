@@ -1,7 +1,5 @@
 <?php
-
 	include_once 'classe_Utilisateur.php';
-	include_once 'inscription_check_utilisateur_db.php';
 
 	$pseudo = $_GET['pseudo'];
 	$mot_de_passe = $_GET['mot_de_passe'];
@@ -18,7 +16,7 @@
 
 		$res = '';
 
-		if(utilisateur_existant($pseudo)) {
+		if(utilisateur_existant($bdd, $pseudo)) {
 			$res.='Ce nom d\'utilisateur est deja pris.';
 		}
 		else {
@@ -31,6 +29,17 @@
 	}
 	else {
 		$res ='Ce nom d\'utilisateur est deja pris.';
+	}
+
+	function utilisateur_existant($bdd, $pseudo) {
+		$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+		$req->execute(array($pseudo));
+		if($donnees = $req->fetch()) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	echo $res;
