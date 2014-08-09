@@ -139,15 +139,33 @@
 				$sql_req_7 = 
 				'SELECT COUNT( `nb_ami` )+1 AS `rang`
 				FROM (
-				    SELECT COUNT( * ) AS `nb_ami`
-				    FROM `ami`
-				    ORDER BY `nb_ami`
+			    	SELECT SUM(`cmp`) AS `nb_ami`
+				    FROM (
+				    	SELECT `Utilisateur_pseudo` AS `pseudo`, COUNT( `Utilisateur_pseudo` ) AS `cmp`
+					    FROM `ami`
+					    GROUP BY `Utilisateur_pseudo`
+					    UNION ALL
+					    SELECT `pseudo_ami` AS `pseudo`, COUNT( `pseudo_ami` ) AS `cmp`
+					    FROM `ami`
+					    GROUP BY `pseudo_ami`
+				    ) AS M
+					GROUP BY `pseudo`
+					ORDER BY `nb_ami` DESC
 				) AS T
 				WHERE `nb_ami` > (
-				    SELECT COUNT( * )
-				    FROM `ami` 
-				    WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?
-				    ORDER BY `nb_ami`
+					SELECT SUM(`cmp`) AS `nb`
+			    	FROM (
+				    	SELECT `Utilisateur_pseudo` AS `pseudo`, COUNT( `Utilisateur_pseudo` ) AS `cmp`
+					    FROM `ami`
+					    GROUP BY `Utilisateur_pseudo`
+					    UNION ALL
+					    SELECT `pseudo_ami` AS `pseudo`, COUNT( `pseudo_ami` ) AS `cmp`
+					    FROM `ami`
+					    GROUP BY `pseudo_ami`
+				    ) AS D
+					WHERE `pseudo` = ?
+					GROUP BY `pseudo`
+					ORDER BY `nb` DESC
 				)';
 
 				$req7 = $bdd->prepare($sql_req_7);
