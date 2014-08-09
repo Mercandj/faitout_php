@@ -736,9 +736,12 @@
 			$res.='"message": "'.str_replace('"', '\"', $donnees['message']).'", ';
 			$res.='"Image_url": "'.$donnees['Image_url'].'", ';
 
-			$date = date('Y-m-d H:i:s');
-			$diff_temps_sec = abs(strtotime($date) - strtotime(date($donnees['date_de_creation'])));
+			$date = date('Y-m-d H:i:s');			
 
+			$date_relative = difference_date($date, date($donnees['date_de_creation']));
+
+			/*
+			$diff_temps_sec = abs(strtotime($date) - strtotime(date($donnees['date_de_creation'])));
 			if( $diff_temps_sec < 60) 
 			    $date_relative = 'il y a '.$diff_temps_sec.'s';
 			else {
@@ -777,6 +780,7 @@
 					}
 				}
 			}
+			*/
 			$res.='"date_de_creation": "'.$donnees['date_de_creation'].'", ';
 			$res.='"date": "'.$date_relative.'"';
 			$res.='}';
