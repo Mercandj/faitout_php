@@ -1,4 +1,5 @@
 <?php
+	include_once 'lib.php';
 	include_once 'classe_Utilisateur.php';
 	include_once 'serveur_ouvert.php';
 	include_once 'changer_date_de_connexion.php';
