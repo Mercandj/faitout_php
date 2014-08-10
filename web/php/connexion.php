@@ -17,7 +17,7 @@
 		$_SESSION['url_image_profil'] = $donnees['url_image_profil'];
 		$_SESSION['description'] = $donnees['description'];
 
-		$_SESSION['rang_chat'] = 0;
+		$_SESSION['rang_chat'] = $donnees['pseudo'];
 
 		/*
 		$req2 = $bdd->prepare('SELECT COUNT(*) as total FROM `utilisateur`');

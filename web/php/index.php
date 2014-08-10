@@ -186,7 +186,7 @@ lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(960px, 280px) scale(1); opacity: 1;" class="item item-visible item-small item-color-red item-skill isotope-item">
 				<div>
 					<em class="value100"></em>
-					<span><?php echo $_SESSION['rang_chat'];?>%</span>
+					<span><?php echo $_SESSION['rang_chat']; ?>%</span>
 				</div>
 				<p>Chat Rang</p>
 			</div>
