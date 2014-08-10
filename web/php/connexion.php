@@ -12,7 +12,6 @@
 	$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ? AND `mot_de_passe` = ?');
 	$req->execute(array($user, $pass));
 	if($donnees = $req->fetch()) {
-
 		session_start();
 		$_SESSION['pseudo'] = $donnees['pseudo'];
 		$_SESSION['url_image_profil'] = $donnees['url_image_profil'];

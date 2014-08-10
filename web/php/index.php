@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html class="csstransforms no-csstransforms3d csstransitions"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">.gm-style .gm-style-mtc label,.gm-style .gm-style-mtc div{font-weight:400}</style><style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}</style><link href="Fichiers_Web/css.css" rel="stylesheet" type="text/css"><style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style type="text/css">.gm-style{font-family:Roboto,Arial,sans-serif;font-size:11px;font-weight:400;text-decoration:none}</style>
@@ -31,7 +34,7 @@
 			
 			<!-- wellcome item -->
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(240px, 30px);" data-sort="2" class="item item-large item-wellcome isotope-item">
-				<h1>Salut <strong><?php echo $donnees['pseudo']; ?></strong> !</h1>
+				<h1>Salut <strong><?php echo $_SESSION['pseudo']; ?></strong> !</h1>
 				<p>Description : <?php echo $_SESSION['description']; ?></p>
 			</div>
 			<!--/ wellcome item -->
