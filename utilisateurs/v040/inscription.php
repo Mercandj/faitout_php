@@ -21,7 +21,8 @@
 		}
 		else {
 			$date = date('Y-m-d H:i:s');
-		 	$us = new Utilisateur($pseudo, $mot_de_passe, $sexe, $date);
+		 	$us = new Utilisateur();
+		 	$us->fill_insctiption($pseudo, $mot_de_passe, $sexe, $date);
 			$req = $bdd->prepare($us->getinsert());
 			$req->execute($us->getarray());
 			$res.='OK';

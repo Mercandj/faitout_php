@@ -16,16 +16,19 @@
     private $clic_best;
     private $clic_total;
     private $date_de_creation;
-    private $date_de_connexion;
+    private $date_de_connexion;    
 
-    public function __construct($ppseudo, $pmot_de_passe, $psexe, $pdate_de_creation) {
-      $this->pseudo = $ppseudo;
-      $this->mot_de_passe = $pmot_de_passe;
-      $this->sexe = $psexe;
+    public function __construct() {
       $this->xp = '0';
       $this->admin = 'non';
       $this->clic_best = '0';
       $this->clic_total = '0';
+    }
+
+    public function fill_insctiption($ppseudo, $pmot_de_passe, $psexe, $pdate_de_creation) {
+      $this->pseudo = $ppseudo;
+      $this->mot_de_passe = $pmot_de_passe;
+      $this->sexe = $psexe;
       $this->date_de_creation = $pdate_de_creation;
     }
 
