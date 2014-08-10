@@ -349,7 +349,7 @@
 			}
 			$res.='"message": "'.str_replace('"', '\"', $donnees['message']).'", ';
 			$date = date('Y-m-d H:i:s');
-			$date_relative = difference_date_nat($date, date($donnees['date_de_creation'], $user->langue));
+			$date_relative = difference_date_nat($date, date($donnees['date_de_creation']), $user->langue);
 			
 			$res.='"date": "'.$date_relative.'", ';
 			$res.='"date_de_creation": "'.$donnees['date_de_creation'].'"';
@@ -510,7 +510,7 @@
 			$res.='"Image_url": "'.$donnees['Image_url'].'", ';
 
 			$date = date('Y-m-d H:i:s');
-			$date_relative = difference_date_nat($date, date($donnees['date_de_creation'], $user->langue));
+			$date_relative = difference_date_nat($date, date($donnees['date_de_creation']), $user->langue);
 
 			$res.='"date_de_creation": "'.$donnees['date_de_creation'].'", ';
 			$res.='"date": "'.$date_relative.'"';
