@@ -4,8 +4,29 @@
 	include_once 'serveur_ouvert.php';
 	include_once 'changer_date_de_connexion.php';
 
-	$pseudo = $_GET['pseudo'];
-	$mot_de_passe = $_GET['mot_de_passe'];
+	/*
+		Récupération des paramètres
+	*/
+
+	if(isset($_GET['pseudo']))
+		$pseudo = $_GET['pseudo'];
+	if(isset($_GET['mot_de_passe']))
+		$mot_de_passe = $_GET['mot_de_passe'];
+
+	$request_body = file_get_contents('php://input');
+	$phpArray = json_decode($request_body, true);
+	if($phpArray!=null) {
+		foreach ($phpArray as $key => $value) {
+		    if($key=="utilisateur") {
+			    foreach ($value as $k => $v) {
+			    	if($k=="pseudo")
+			    		$pseudo = $v;
+			    	else if($k=="mot_de_passe")
+			    		$mot_de_passe = $v;
+			    }
+			}
+		}
+	}
 
 	try {
 		$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
