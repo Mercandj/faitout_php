@@ -33,6 +33,14 @@
 		}
 	}
 
+	$x = 0;
+	$per_page = 15;
+	$page = 1;
+	if(isset($_GET['per_page']))
+		$per_page = (int) $_GET['per_page'];
+	if(isset($_GET['page']))
+		$page = (int) $_GET['page'];
+
 	/*
 		END : Récupération des paramètres
 	*/
@@ -53,15 +61,7 @@
 
 	$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ? AND `mot_de_passe` = ?');
 	$req->execute(array($user->pseudo, $user->mot_de_passe));
-	if($donnees = $req->fetch()) {
-
-		$x = 0;
-		$per_page = 15;
-		$page = 1;
-		if(isset($_GET['per_page']))
-			$per_page = (int) $_GET['per_page'];
-		if(isset($_GET['page']))
-			$page = (int) $_GET['page'];
+	if($donnees = $req->fetch()) {		
 
 		$res.='{';
 		$res.='"pseudo": "'.$donnees['pseudo'].'", ';
