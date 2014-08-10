@@ -144,11 +144,15 @@
 				$res.='"rang_ami":"'.$donnees3['total'].'", ';
 		}
 
-		$req9 = $bdd->prepare($req_rang_jeu_best);
-		$req9->execute(array($user->pseudo));
-		if($donnees9 = $req9->fetch())
-			$res.='"rang_jeu_clic":"'.$donnees9['rang'].'", ';
-		
+		if($donnees['clic_best']=='0') {
+			$res.='"rang_jeu_clic":"'.$donnees3['total'].'", ';
+		}
+		else {
+			$req9 = $bdd->prepare($req_rang_jeu_best);
+			$req9->execute(array($user->pseudo));
+			if($donnees9 = $req9->fetch())
+				$res.='"rang_jeu_clic":"'.$donnees9['rang'].'", ';
+		}		
 
 		$req10 = $bdd->prepare('SELECT MAX(`clic_best`) AS `maxi` FROM `utilisateur`');
 		$req10->execute();

@@ -1,5 +1,6 @@
 <?php
-	// Connexion à la base de données
+	include_once 'lib.php';
+	
 	try {
 		$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
 	}
@@ -172,22 +173,28 @@
 				$res.='"rang_ami":"'.$donnees3['total'].'", ';
 		}
 
-		$sql_req_9 = 
-		'SELECT COUNT( `clic_best` )+1 AS `rang`
-		FROM (
-		    SELECT `clic_best`
-		    FROM `utilisateur`
-		    ORDER BY `clic_best`
-		) AS T
-		WHERE `clic_best` > (
-		    SELECT `clic_best`
-		    FROM `utilisateur`
-		    WHERE `pseudo` = ?
-		)';
-		$req9 = $bdd->prepare($sql_req_9);
-		$req9->execute(array($pseudo_tmp));
-		if($donnees9 = $req9->fetch())
-			$res.='"rang_jeu_clic":"'.$donnees9['rang'].'"';
+		if($donnees['clic_best']=='0') {
+			$res.='"rang_jeu_clic":"'.$donnees3['total'].'", ';
+		}
+		else {
+			$sql_req_9 = 
+			'SELECT COUNT( `clic_best` )+1 AS `rang`
+			FROM (
+			    SELECT `clic_best`
+			    FROM `utilisateur`
+			    ORDER BY `clic_best`
+			) AS T
+			WHERE `clic_best` > (
+			    SELECT `clic_best`
+			    FROM `utilisateur`
+			    WHERE `pseudo` = ?
+			)';
+			$req9 = $bdd->prepare($sql_req_9);
+			$req9->execute(array($pseudo_tmp));
+			if($donnees9 = $req9->fetch())
+				$res.='"rang_jeu_clic":"'.$donnees9['rang'].'"';
+		}
+
 
 
 		$res.='}';
