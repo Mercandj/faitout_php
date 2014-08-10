@@ -756,9 +756,10 @@ a:hover {
 	top: 0;
 	left: 50%;
 	display: block;
-	width: 460px;
+	/*width: 460px;*/
+  width: 230px;
 	height: 230px;
-	margin-left: -230px;
+	/*margin-left: -230px;*/
 }
 
 
