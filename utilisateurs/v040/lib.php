@@ -125,10 +125,18 @@
 					$diff_temps_j = intval($diff_temps_h / 24);
 
 					if($diff_temps_j < 30) {
-						if($fr)
-					    	$date_relative = 'il y a '.$diff_temps_j.'j';
-					    else
-					    	$date_relative = $diff_temps_j.'d ago';
+					    if($diff_temps_j==1) {								
+							if($fr)
+						    	$date_relative = 'il y a '.$diff_temps_j.' jour';
+						    else
+						    	$date_relative = $diff_temps_j.' day ago';
+						}
+						else {
+							if($fr)
+						    	$date_relative = 'il y a '.$diff_temps_j.' jours';
+						    else
+						    	$date_relative = $diff_temps_j.' days ago';
+						}
 					}
 					else {
 						$diff_temps_mois = intval($diff_temps_j / 30);
