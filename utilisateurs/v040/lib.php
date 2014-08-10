@@ -179,6 +179,6 @@
 	}
 
 	function difference_date($date1, $date2) {
-		return difference_date($date1, $date2, 'fr');
+		return difference_date_nat($date1, $date2, 'fr');
 	}
 ?>
