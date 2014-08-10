@@ -110,7 +110,7 @@
 		}
 
 		if($donnees['clic_best']=='0') {
-			$res.='"rang_jeu_clic":"'.$donnees3['total'].'", ';
+			$res.='"rang_jeu_clic":"'.$donnees3['total'].'"';
 		}
 		else {
 			$req9 = $bdd->prepare($req_rang_jeu_best);
