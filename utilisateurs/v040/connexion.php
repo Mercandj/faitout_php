@@ -63,7 +63,7 @@
 
 	$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ? AND `mot_de_passe` = ?');
 	$req->execute(array($user->pseudo, $user->mot_de_passe));
-	if($donnees = $req->fetch()) {		
+	if($donnees = $req->fetch()) {
 
 		$res.='{';
 		$res.='"pseudo": "'.$donnees['pseudo'].'", ';
