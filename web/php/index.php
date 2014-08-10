@@ -11,7 +11,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		
-		<link rel="icon" href="http://voky.com.ua/frittata/img/favicon.ico">
+		<link rel="icon" href="http://mercandalli.com/faitout_web/Faitout_web_fichiers/favicon-57x57.png">
 		<link rel="stylesheet" href="Fichiers_Web/main.css">
 	<script style="" src="Fichiers_Web/commonmaputilmarker.js" charset="UTF-8" type="text/javascript"></script><script src="Fichiers_Web/onion.js" charset="UTF-8" type="text/javascript"></script><script src="Fichiers_Web/controlsstats.js" charset="UTF-8" type="text/javascript"></script></head>
 	
