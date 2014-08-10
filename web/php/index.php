@@ -22,7 +22,7 @@
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 30px);" data-sort="1" class="item item-small item-avatar isotope-item">
 
 				<?php
-					print '<img src="./../../script.php?url='.urlencode('http://mercandalli.com/faitout/images/jon/2014-07-30-09-10-34_Image-Photo.jpg').'" />';
+					print '<img src="./../../script.php?url='.urlencode($_SESSOIN['url_image_profil']).'" />';
 				?>
 
 				<!-- <img src="http://jonathan:nexus5@mercandalli.com/faitout/images/jon/2014-07-30-09-10-34_Image-Photo.jpg" alt=""> -->
@@ -31,8 +31,8 @@
 			
 			<!-- wellcome item -->
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(240px, 30px);" data-sort="2" class="item item-large item-wellcome isotope-item">
-				<h1>Hello! My name is <strong>Markus Fisher</strong></h1>
-				<p>I am senior UI/UX designer and front-end developer at <a href="#">best company</a> and this is my official website.</p>
+				<h1>Salut <strong><?php echo $_SESSOIN['pseudo']; ?></strong> !</h1>
+				<p>Description : <?php echo $_SESSOIN['description']; ?></p>
 			</div>
 			<!--/ wellcome item -->
 			

@@ -13,15 +13,10 @@
 	$req->execute(array($user, $pass));
 	if($donnees = $req->fetch()) {
 
-		$res.='{';
-		$res.='"pseudo": "'.$donnees['pseudo'].'", ';
-		$res.='"sexe":"'.$donnees['sexe'].'", ';
-		$res.='"xp":"'.$donnees['xp'].'", ';
-		$res.='"url_image_profil":"'.$donnees['url_image_profil'].'", ';
-		$res.='"description":"'.$donnees['description'].'", ';
-
 		session_start();
-		$_SESSION['user'] = $user;
+		$_SESSION['pseudo'] = $donnees['pseudo'];
+		$_SESSION['url_image_profil'] = $donnees['url_image_profil'];
+		$_SESSION['description'] = $donnees['description'];
 		header("Location: ./index.php");
 	}
 	else {
