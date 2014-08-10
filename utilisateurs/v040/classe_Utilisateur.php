@@ -3,11 +3,11 @@
 
   class Utilisateur {
 
-    private $pseudo;
+    public $pseudo;
     private $prenom;
     private $nom;
     private $email;
-    private $mot_de_passe;
+    public $mot_de_passe;
     private $sexe;
     private $grade;
     private $xp;

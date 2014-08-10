@@ -8,8 +8,10 @@
 		Récupération des paramètres
 	*/
 
+	$user = new Utilisateur;
+
 	if(isset($_GET['pseudo']))
-		$pseudo = $_GET['pseudo'];
+		$user->pseudo = $_GET['pseudo'];
 	if(isset($_GET['mot_de_passe']))
 		$mot_de_passe = $_GET['mot_de_passe'];
 
@@ -20,7 +22,7 @@
 		    if($key=="utilisateur") {
 			    foreach ($value as $k => $v) {
 			    	if($k=="pseudo")
-			    		$pseudo = $v;
+			    		$user->pseudo = $v;
 			    	else if($k=="mot_de_passe")
 			    		$mot_de_passe = $v;
 			    }
@@ -43,7 +45,7 @@
 	$res .= '"utilisateur" : [';
 
 	$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ? AND `mot_de_passe` = ?');
-	$req->execute(array($pseudo, $mot_de_passe));
+	$req->execute(array($user->pseudo, $mot_de_passe));
 	if($donnees = $req->fetch()) {
 
 		$x = 0;
@@ -86,13 +88,13 @@
 			$res.='"nombre_utilisateurs":"'.$donnees3['total'].'", ';
 
 		$req4 = $bdd->prepare('SELECT COUNT(*) as total FROM `message` WHERE `Utilisateur_pseudo` = ?');
-		$req4->execute(array($pseudo));
+		$req4->execute(array($user->pseudo));
 		if($donnees4 = $req4->fetch()) {
 			$res.='"nombre_mes_messages":"'.$donnees4['total'].'", ';
 
 			if($donnees4['total']!=0) {
 				$req6 = $bdd->prepare($req_rang_message);
-				$req6->execute(array($pseudo));
+				$req6->execute(array($user->pseudo));
 				if($donnees6 = $req6->fetch())
 					$res.='"rang_chat":"'.$donnees6['rang'].'", ';
 			}
@@ -101,13 +103,13 @@
 		}
 
 		$req4 = $bdd->prepare('SELECT COUNT(*) as total FROM `image` WHERE `Utilisateur_pseudo` = ?');
-		$req4->execute(array($pseudo));
+		$req4->execute(array($user->pseudo));
 		if($donnees4 = $req4->fetch()) {
 			$res.='"nombre_mes_images":"'.$donnees4['total'].'", ';
 
 			if($donnees4['total']!=0) {
 				$req6 = $bdd->prepare($req_rang_image);
-				$req6->execute(array($pseudo));
+				$req6->execute(array($user->pseudo));
 				if($donnees6 = $req6->fetch())
 					$res.='"rang_images":"'.$donnees6['rang'].'", ';
 			}
@@ -116,18 +118,18 @@
 		}
 
 		$req5 = $bdd->prepare('SELECT COUNT(*) as total FROM `message`');
-		$req5->execute(array($pseudo));
+		$req5->execute(array($user->pseudo));
 		if($donnees5 = $req5->fetch())
 			$res.='"nombre_messages":"'.$donnees5['total'].'", ';
 		
 		$req8 = $bdd->prepare('SELECT COUNT(*) as total FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?');
-		$req8->execute(array($pseudo, $pseudo));
+		$req8->execute(array($user->pseudo, $user->pseudo));
 		if($donnees8 = $req8->fetch()) {
 			$res.='"nombre_mes_amis":"'.$donnees8['total'].'", ';
 
 			if($donnees8['total']!=0) {
 				$req7 = $bdd->prepare($req_rang_ami);
-				$req7->execute(array($pseudo));
+				$req7->execute(array($user->pseudo));
 				if($donnees7 = $req7->fetch())
 					$res.='"rang_ami":"'.$donnees7['rang'].'", ';
 			}
@@ -136,7 +138,7 @@
 		}
 
 		$req9 = $bdd->prepare($req_rang_jeu_best);
-		$req9->execute(array($pseudo));
+		$req9->execute(array($user->pseudo));
 		if($donnees9 = $req9->fetch())
 			$res.='"rang_jeu_clic":"'.$donnees9['rang'].'", ';
 		
@@ -191,7 +193,7 @@
 
 
 		$req2 = $bdd->prepare('SELECT * FROM `demandeami` WHERE `pseudo_ami` = ?');
-		$req2->execute(array($pseudo));
+		$req2->execute(array($user->pseudo));
 		$id = 0;
 		while($donnees2 = $req2->fetch()) {
 			if($id == 0)
@@ -235,7 +237,7 @@
 		$res .= '"messages_mp" : [';
 		$requete = 'SELECT * FROM `message` WHERE `destinataire` = ? ORDER BY date_de_creation DESC LIMIT 10';
 		$req = $bdd->prepare($requete);
-		$req->execute(array($pseudo));
+		$req->execute(array($user->pseudo));
 		$x = 0;
 		while($donnees = $req->fetch()) {
 			if($x==0)	$res.='{';
@@ -343,20 +345,20 @@
 		if(isset($_GET['me'])) {
 			$requete = 'SELECT * FROM `message` WHERE `Utilisateur_pseudo` = ? AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT 50';
 			$req = $bdd->prepare($requete);
-			$req->execute(array($pseudo));
+			$req->execute(array($user->pseudo));
 		}
 		else {
 			$req = $bdd->prepare('SELECT * FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?');
-			$req->execute(array($pseudo, $pseudo));
+			$req->execute(array($user->pseudo, $user->pseudo));
 
 			$array_amis = array();
 
-			array_push($array_amis, $pseudo);
+			array_push($array_amis, $user->pseudo);
 
 			while($donnees = $req->fetch()) {				
-				if($donnees['Utilisateur_pseudo'] != $pseudo)
+				if($donnees['Utilisateur_pseudo'] != $user->pseudo)
 					array_push($array_amis, $donnees['Utilisateur_pseudo']);
-				else if($donnees['pseudo_ami'] != $pseudo)
+				else if($donnees['pseudo_ami'] != $user->pseudo)
 					array_push($array_amis, $donnees['pseudo_ami']);
 				else
 					$res.='KO';
@@ -503,7 +505,7 @@
 		$res.=']';
 		$res.='}';
 
-		update_user_date_de_connexion($bdd, $pseudo);
+		update_user_date_de_connexion($bdd, $user->pseudo);
 
 		echo $res;
 	}
