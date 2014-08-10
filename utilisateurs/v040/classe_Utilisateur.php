@@ -8,7 +8,7 @@
     private $nom;
     private $email;
     public $mot_de_passe;
-    private $sexe;
+    public $sexe;
     private $grade;
     private $xp;
     private $admin;
