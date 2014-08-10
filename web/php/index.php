@@ -31,7 +31,7 @@
 			
 			<!-- wellcome item -->
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(240px, 30px);" data-sort="2" class="item item-large item-wellcome isotope-item">
-				<h1>Salut <strong><?php echo $_SESSION['pseudo']; ?></strong> !</h1>
+				<h1>Salut <strong><?php echo $donnees['pseudo']; ?></strong> !</h1>
 				<p>Description : <?php echo $_SESSION['description']; ?></p>
 			</div>
 			<!--/ wellcome item -->
