@@ -4,19 +4,19 @@
   class Utilisateur {
 
     public $pseudo;
-    private $prenom;
-    private $nom;
-    private $email;
+    public $prenom;
+    public $nom;
+    public $email;
     public $mot_de_passe;
     public $sexe;
-    private $grade;
-    private $xp;
-    private $admin;
-    private $url_image_profil;
-    private $clic_best;
-    private $clic_total;
-    private $date_de_creation;
-    private $date_de_connexion;
+    public $grade;
+    public $xp;
+    public $admin;
+    public $url_image_profil;
+    public $clic_best;
+    public $clic_total;
+    public $date_de_creation;
+    public $date_de_connexion;
 
     public $longitude;
     public $latitude;    
