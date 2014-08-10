@@ -37,12 +37,12 @@
 			<!-- nav item -->
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(240px, 150px);" data-sort="3" class="item item-large item-nav isotope-item">
 				<ul id="item-nav">
-					<li><a href="#page=home" class="active"><i class="icon-home"></i>Home</a></li>
-					<li><a class="" href="#page=skills"><i class="icon-magic"></i>Skills</a></li>
-					<li><a class="" href="#page=portfolio"><i class="icon-briefcase"></i>Portfolio</a></li>
+					<li><a href="#page=home" class="active"><i class="icon-home"></i>TouT</a></li>
+					<li><a class="" href="#page=skills"><i class="icon-magic"></i>Rangs</a></li>
+					<li><a class="" href="#page=portfolio"><i class="icon-briefcase"></i>Photos</a></li>
 					<li><a class="" href="#page=reviews"><i class="icon-comments-alt"></i>Reviews</a></li>
 					<li><a class="" href="#page=blog"><i class="icon-file"></i>Blog</a></li>
-					<li><a href="#page=contacts"><i class="icon-phone"></i>Contacts</a></li>
+					<li><a href="#page=contacts"><i class="icon-phone"></i>Proches</a></li>
 				</ul>
 			</div>
 			<!--/ nav item -->
@@ -64,7 +64,7 @@
 			<!-- portfolio item (1) -->
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 280px) scale(1); opacity: 1;" class="item item-visible item-portfolio isotope-item">
 				<div>
-					<img class="" src="Fichiers_Web/port1-1.jpg" data-src="pics/port1-1.jpg" alt="">
+					<img class="" src="Fichiers_Web/port1-1.jpg" data-src="Fichiers_Web/port1-1.jpg" alt="">
 					<img class="" src="Fichiers_Web/port1-2.jpg" data-src="pics/port1-2.jpg" alt="">
 					<img src="Fichiers_Web/port1-3.jpg" alt="" class="active">
 				</div>
