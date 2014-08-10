@@ -83,7 +83,6 @@
     }
 
     function update_location($bdd) {
-      $date = date('Y-m-d H:i:s');
       $req = $bdd->prepare('UPDATE `utilisateur` SET `longitude` = ?, `latitude` = ? WHERE `pseudo` = ?');
       $req->execute(array($this->longitude, $this->latitude, $this->pseudo));
     }

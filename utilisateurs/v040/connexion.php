@@ -515,7 +515,7 @@
 		$user->update_date_de_connexion($bdd);
 
 		if($user->longitude!='0' && $user->latitude!='0')
-			$user->update_location();
+			$user->update_location($bdd);
 
 		echo $res;
 	}
