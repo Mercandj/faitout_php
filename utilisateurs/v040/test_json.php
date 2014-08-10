@@ -7,9 +7,11 @@
 	else {
 		foreach ($phpArray as $key => $value) {
 		    echo "utilisateur : $key<br />";
-		    foreach ($value as $k => $v) {
-		        echo "$k | $v <br />";
-		    }
+		    if($key=="utilisateur") {
+			    foreach ($value as $k => $v) {
+			        echo "$k | $v <br />";
+			    }
+			}
 		}
 	}
 ?>
