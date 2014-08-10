@@ -16,13 +16,18 @@
     private $clic_best;
     private $clic_total;
     private $date_de_creation;
-    private $date_de_connexion;    
+    private $date_de_connexion;
+
+    public $longitude;
+    public $latitude;    
 
     public function __construct() {
       $this->xp = '0';
       $this->admin = 'non';
       $this->clic_best = '0';
       $this->clic_total = '0';
+      $this->longitude = '0';
+      $this->latitude = '0';
     }
 
     public function fill_insctiption($ppseudo, $pmot_de_passe, $psexe, $pdate_de_creation) {
@@ -69,6 +74,18 @@
           :date_de_creation,
           :date_de_connexion
         )';
+    }
+
+    function update_date_de_connexion($bdd) {
+      $date = date('Y-m-d H:i:s');
+      $req = $bdd->prepare('UPDATE `utilisateur` SET `date_de_connexion` = ? WHERE `pseudo` = ?');
+      $req->execute(array($date, $this->pseudo));
+    }
+
+    function update_location($bdd) {
+      $date = date('Y-m-d H:i:s');
+      $req = $bdd->prepare('UPDATE `utilisateur` SET `longitude` = ?, `latitude` = ? WHERE `pseudo` = ?');
+      $req->execute(array($this->longitude, $this->latitude, $this->pseudo));
     }
   }
 ?>

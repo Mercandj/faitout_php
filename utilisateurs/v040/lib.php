@@ -84,7 +84,6 @@
 	/*
 		END : Requête de rang
 	*/
-					
 
 	function difference_date($date1, $date2) {
 		$diff_temps_sec = abs(strtotime($date1) - strtotime($date2));

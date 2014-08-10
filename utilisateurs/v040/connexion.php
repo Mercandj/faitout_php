@@ -2,10 +2,9 @@
 	include_once 'lib.php';
 	include_once 'classe_Utilisateur.php';
 	include_once 'serveur_ouvert.php';
-	include_once 'changer_date_de_connexion.php';
 
 	/*
-		Récupération des paramètres
+		START : Récupération des paramètres
 	*/
 
 	$user = new Utilisateur;
@@ -13,7 +12,7 @@
 	if(isset($_GET['pseudo']))
 		$user->pseudo = $_GET['pseudo'];
 	if(isset($_GET['mot_de_passe']))
-		$mot_de_passe = $_GET['mot_de_passe'];
+		$user->mot_de_passe = $_GET['mot_de_passe'];
 
 	$request_body = file_get_contents('php://input');
 	$phpArray = json_decode($request_body, true);
@@ -24,11 +23,19 @@
 			    	if($k=="pseudo")
 			    		$user->pseudo = $v;
 			    	else if($k=="mot_de_passe")
-			    		$mot_de_passe = $v;
+			    		$user->mot_de_passe = $v;
+			    	else if($k=="longitude")
+			    		$user->longitude = $v;
+			    	else if($k=="latitude")
+			    		$user->latitude = $v; 
 			    }
 			}
 		}
 	}
+
+	/*
+		END : Récupération des paramètres
+	*/
 
 	try {
 		$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
@@ -45,7 +52,7 @@
 	$res .= '"utilisateur" : [';
 
 	$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ? AND `mot_de_passe` = ?');
-	$req->execute(array($user->pseudo, $mot_de_passe));
+	$req->execute(array($user->pseudo, $user->mot_de_passe));
 	if($donnees = $req->fetch()) {
 
 		$x = 0;
@@ -505,7 +512,10 @@
 		$res.=']';
 		$res.='}';
 
-		update_user_date_de_connexion($bdd, $user->pseudo);
+		$user->update_date_de_connexion($bdd);
+
+		if($user->longitude!='0' && $user->latitude!='0')
+			$user->update_location();
 
 		echo $res;
 	}
