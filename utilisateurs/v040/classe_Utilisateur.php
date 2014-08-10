@@ -29,6 +29,7 @@
       $this->clic_total = '0';
       $this->longitude = '0';
       $this->latitude = '0';
+      $this->langue = 'fr';
     }
 
     public function getarray() {
