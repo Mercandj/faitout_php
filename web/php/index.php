@@ -65,7 +65,7 @@
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 280px) scale(1); opacity: 1;" class="item item-visible item-portfolio isotope-item">
 				<div>
 					<img class="" src="Fichiers_Web/port1-1.jpg" data-src="Fichiers_Web/port1-1.jpg" alt="">
-					<img class="" src="Fichiers_Web/port1-2.jpg" data-src="pics/port1-2.jpg" alt="">
+					<img class="" src="Fichiers_Web/port1-2.jpg" data-src="Fichiers_Web/port1-2.jpg" alt="">
 					<img src="Fichiers_Web/port1-3.jpg" alt="" class="active">
 				</div>
 				<span class="prev icon-chevron-left"></span>
@@ -77,9 +77,9 @@
 			<div style="position: absolute; left: 0px; top: 0px; opacity: 0; transform: translate(240px, 280px) scale(0.001);" id="item-portfolio1" class="item item-large item-portfolio-details isotope-item isotope-hidden">
 				<div class="slideshow">
 					<div>
-						<img src="Fichiers_Web/port1-1.jpg" data-src="pics/port1-1.jpg" alt="">
-						<img src="Fichiers_Web/port1-2.jpg" data-src="pics/port1-2.jpg" alt="">
-						<img src="Fichiers_Web/port1-3.jpg" data-src="pics/port1-3.jpg" alt="" class="active">
+						<img src="Fichiers_Web/port1-1.jpg" data-src="Fichiers_Web/port1-1.jpg" alt="">
+						<img src="Fichiers_Web/port1-2.jpg" data-src="Fichiers_Web/port1-2.jpg" alt="">
+						<img src="Fichiers_Web/port1-3.jpg" data-src="Fichiers_Web/port1-3.jpg" alt="" class="active">
 					</div>
 					<span class="prev icon-chevron-left"></span>
 					<span class="next icon-chevron-right"></span>
@@ -186,9 +186,9 @@ lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(960px, 280px) scale(1); opacity: 1;" class="item item-visible item-small item-color-red item-skill isotope-item">
 				<div>
 					<em class="value100"></em>
-					<span>100%</span>
+					<span><?php echo $_SESSION['rang_chat']; ?>%</span>
 				</div>
-				<p>HTML4 &amp; HTML5</p>
+				<p>Chat Rang</p>
 			</div>
 			<!--/ skill item (html) -->
 			
