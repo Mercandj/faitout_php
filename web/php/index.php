@@ -23,12 +23,7 @@
 		<div style="position: relative; overflow: hidden; height: 2170px;" id="page" class="page isotope loaded">
 			<!-- avatar item -->
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 30px);" data-sort="1" class="item item-small item-avatar isotope-item">
-
-				<?php
-					print '<img src="./../../script.php?url='.urlencode($_SESSION['url_image_profil']).'" />';
-				?>
-
-				<!-- <img src="http://jonathan:nexus5@mercandalli.com/faitout/images/jon/2014-07-30-09-10-34_Image-Photo.jpg" alt=""> -->
+				<?php print '<img src="'.$_SESSION['url_image_profil'].'" alt="" />'; ?>
 			</div>
 			<!-- avatar item -->
 			
