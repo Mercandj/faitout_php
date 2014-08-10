@@ -2,7 +2,8 @@
 	include_once './../../utilisateurs/v040/classe_Utilisateur.php';
 
 	session_start();
-	$utilisateur = $_SESSION['utilisateur'];
+	$utilisateur = new Utilisateur();
+	$utilisateur = $_SESSION['user'];
 ?>
 <!DOCTYPE html>
 <html class="csstransforms no-csstransforms3d csstransitions"><head>
