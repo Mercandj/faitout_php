@@ -139,7 +139,7 @@
 					$res.='"rang_ami":"'.$donnees3['total'].'", ';
 			}
 
-			if($donnees['clic_best']=='0') {
+			if($donnees2['clic_best']=='0') {
 				$res.='"rang_jeu_clic":"'.$donnees3['total'].'", ';
 			}
 			else {
