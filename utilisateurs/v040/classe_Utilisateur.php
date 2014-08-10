@@ -30,13 +30,6 @@
       $this->latitude = '0';
     }
 
-    public function fill_insctiption($ppseudo, $pmot_de_passe, $psexe, $pdate_de_creation) {
-      $this->pseudo = $ppseudo;
-      $this->mot_de_passe = $pmot_de_passe;
-      $this->sexe = $psexe;
-      $this->date_de_creation = $pdate_de_creation;
-    }
-
     public function getarray() {
       return array(
         'pseudo' => $this->pseudo,
@@ -47,7 +40,7 @@
         'clic_best' => $this->clic_best,
         'clic_total' => $this->clic_total,
         'date_de_creation' => $this->date_de_creation,
-        'date_de_connexion' => $this->date_de_creation
+        'date_de_connexion' => $this->date_de_connexion
       );
     }
 
@@ -85,6 +78,15 @@
     function update_location($bdd) {
       $req = $bdd->prepare('UPDATE `utilisateur` SET `longitude` = ?, `latitude` = ? WHERE `pseudo` = ?');
       $req->execute(array($this->longitude, $this->latitude, $this->pseudo));
+    }
+
+    function exist($bdd) {
+      $req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+      $req->execute(array($this->pseudo));
+      if($donnees = $req->fetch())
+        return true;
+      else
+        return false;
     }
   }
 ?>

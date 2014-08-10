@@ -1,11 +1,37 @@
 <?php
 	include_once 'classe_Utilisateur.php';
+	
+	$user = new Utilisateur;
 
-	$pseudo = $_GET['pseudo'];
-	$mot_de_passe = $_GET['mot_de_passe'];
-	$sexe = $_GET['sexe'];
+	if(isset($_GET['pseudo']))
+		$user->pseudo = $_GET['pseudo'];
+	if(isset($_GET['mot_de_passe']))
+		$user->mot_de_passe = $_GET['mot_de_passe'];
+	if(isset($_GET['sexe']))
+		$user->sexe = $_GET['sexe'];
 
-	if($pseudo!='null') {
+	$request_body = file_get_contents('php://input');
+	$phpArray = json_decode($request_body, true);
+	if($phpArray!=null) {
+		foreach ($phpArray as $key => $value) {
+		    if($key=="utilisateur") {
+			    foreach ($value as $k => $v) {
+			    	if($k=="pseudo")
+			    		$user->pseudo = $v;
+			    	else if($k=="mot_de_passe")
+			    		$user->mot_de_passe = $v;
+			    	else if($k=="sexe")
+			    		$user->sexe = $v;
+			    	else if($k=="longitude")
+			    		$user->longitude = $v;
+			    	else if($k=="latitude")
+			    		$user->latitude = $v; 
+			    }
+			}
+		}
+	}
+
+	if($user->pseudo!='null') {
 		// Connexion à la base de données
 		try {
 			$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
@@ -16,32 +42,21 @@
 
 		$res = '';
 
-		if(utilisateur_existant($bdd, $pseudo)) {
+		if($user->exist($bdd)) {
 			$res.='Ce nom d\'utilisateur est deja pris.';
 		}
 		else {
 			$date = date('Y-m-d H:i:s');
-		 	$us = new Utilisateur();
-		 	$us->fill_insctiption($pseudo, $mot_de_passe, $sexe, $date);
-			$req = $bdd->prepare($us->getinsert());
-			$req->execute($us->getarray());
+		 	$user->date_de_creation = $date;
+		 	$user->date_de_connexion = $date;
+			$req = $bdd->prepare($user->getinsert());
+			$req->execute($user->getarray());
 			$res.='OK';
 		}
 	}
 	else {
 		$res ='Ce nom d\'utilisateur est deja pris.';
-	}
-
-	function utilisateur_existant($bdd, $pseudo) {
-		$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
-		$req->execute(array($pseudo));
-		if($donnees = $req->fetch()) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+	}	
 
 	echo $res;
 ?>
