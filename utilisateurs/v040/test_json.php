@@ -1,4 +1,5 @@
 <?php
-	$value = json_decode($_POST['json']);
-	echo $value->page;
+	$request_body = file_get_contents('php://input');
+	$json = json_decode($request_body);
+	echo $json;
 ?>
