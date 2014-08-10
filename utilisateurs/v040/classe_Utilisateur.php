@@ -20,7 +20,9 @@
     public $langue;
 
     public $longitude;
-    public $latitude;    
+    public $latitude;   
+
+    public $rang_chat; 
 
     public function __construct() {
       $this->xp = '0';

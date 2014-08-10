@@ -1,5 +1,8 @@
 <?php
+	include_once './../../utilisateurs/v040/classe_Utilisateur.php';
+
 	session_start();
+	$utilisateur = $_SESSION['utilisateur'];
 ?>
 <!DOCTYPE html>
 <html class="csstransforms no-csstransforms3d csstransitions"><head>
@@ -23,14 +26,14 @@
 		<div style="position: relative; overflow: hidden; height: 2170px;" id="page" class="page isotope loaded">
 			<!-- avatar item -->
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 30px);" data-sort="1" class="item item-small item-avatar isotope-item">
-				<?php print '<img src="'.$_SESSION['url_image_profil'].'" alt="" />'; ?>
+				<?php print '<img src="'.$utilisateur->url_image_profil.'" alt="" />'; ?>
 			</div>
 			<!-- avatar item -->
 			
 			<!-- wellcome item -->
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(240px, 30px);" data-sort="2" class="item item-large item-wellcome isotope-item">
-				<h1>Salut <strong><?php echo $_SESSION['pseudo']; ?></strong> !</h1>
-				<p>Description : <?php echo $_SESSION['description']; ?></p>
+				<h1>Salut <strong><?php $utilisateur->pseudo; ?></strong> !</h1>
+				<p>Description : <?php $utilisateur->description; ?></p>
 			</div>
 			<!--/ wellcome item -->
 			
@@ -186,7 +189,7 @@ lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(960px, 280px) scale(1); opacity: 1;" class="item item-visible item-small item-color-red item-skill isotope-item">
 				<div>
 					<em class="value100"></em>
-					<span><?php echo $_SESSION['chat']; ?>%</span>
+					<span><?php $utilisateur->rang_chat; ?>%</span>
 				</div>
 				<p>Chat Rang</p>
 			</div>

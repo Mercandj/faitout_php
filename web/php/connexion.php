@@ -1,4 +1,6 @@
 <?php
+	include_once './../../utilisateurs/v040/classe_Utilisateur.php';
+
 	try {
 		$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');
 	}
@@ -13,10 +15,15 @@
 	$req->execute(array($user, $pass));
 	if($donnees = $req->fetch()) {
 		session_start();
-		$_SESSION['pseudo'] = $donnees['pseudo'];
-		$_SESSION['url_image_profil'] = $donnees['url_image_profil'];
-		$_SESSION['description'] = $donnees['description'];
-		$_SESSION['chat'] = $donnees['pseudo'];
+
+		$utilisateur = new Utilisateur();
+
+		$utilisateur->pseudo = $donnees['pseudo'];
+		$utilisateur->url_image_profil = $donnees['url_image_profil'];
+		$utilisateur->description = $donnees['description'];
+		$utilisateur->rang_chat = '10';
+
+		$_SESSION['utilisateur'] = $utilisateur;
 
 		/*
 		$req2 = $bdd->prepare('SELECT COUNT(*) as total FROM `utilisateur`');
