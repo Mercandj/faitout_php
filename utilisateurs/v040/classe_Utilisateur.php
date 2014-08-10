@@ -17,6 +17,7 @@
     public $clic_total;
     public $date_de_creation;
     public $date_de_connexion;
+    public $langue;
 
     public $longitude;
     public $latitude;    

@@ -24,6 +24,8 @@
 			    		$user->pseudo = $v;
 			    	else if($k=="mot_de_passe")
 			    		$user->mot_de_passe = $v;
+			    	else if($k=="langue")
+			    		$user->langue = $v;
 			    	else if($k=="longitude")
 			    		$user->longitude = $v;
 			    	else if($k=="latitude")
@@ -347,7 +349,7 @@
 			}
 			$res.='"message": "'.str_replace('"', '\"', $donnees['message']).'", ';
 			$date = date('Y-m-d H:i:s');
-			$date_relative = difference_date($date, date($donnees['date_de_creation']));
+			$date_relative = difference_date_nat($date, date($donnees['date_de_creation'], $user->langue));
 			
 			$res.='"date": "'.$date_relative.'", ';
 			$res.='"date_de_creation": "'.$donnees['date_de_creation'].'"';
@@ -508,7 +510,7 @@
 			$res.='"Image_url": "'.$donnees['Image_url'].'", ';
 
 			$date = date('Y-m-d H:i:s');
-			$date_relative = difference_date($date, date($donnees['date_de_creation']));
+			$date_relative = difference_date_nat($date, date($donnees['date_de_creation'], $user->langue));
 
 			$res.='"date_de_creation": "'.$donnees['date_de_creation'].'", ';
 			$res.='"date": "'.$date_relative.'"';

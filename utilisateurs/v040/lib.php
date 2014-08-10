@@ -85,47 +85,82 @@
 		END : Requête de rang
 	*/
 
-	function difference_date($date1, $date2) {
+	function difference_date_nat($date1, $date2, $langue) {
 		$diff_temps_sec = abs(strtotime($date1) - strtotime($date2));
+		$fr = (strpos($langue,'fr') !== false);
 
 		if( $diff_temps_sec < 60) {
-		    $date_relative = 'il y a '.$diff_temps_sec.'s';
+			if($fr)
+		    	$date_relative = 'il y a '.$diff_temps_sec.'s';
+		    else
+		    	$date_relative = $diff_temps_sec.'s ago';
 		}
 		else {
 			$diff_temps_min = intval($diff_temps_sec / 60);
 
-			if($diff_temps_min < 60) {
-				$date_relative = 'il y a '.$diff_temps_min.'mn';
+			if($diff_temps_min < 60) {				
+				if($fr)
+			    	$date_relative = 'il y a '.$diff_temps_min.'mn';
+			    else
+			    	$date_relative = $diff_temps_min.'mn ago';
 			}
 			else {
 				$diff_temps_h = intval($diff_temps_min / 60);
 
 				if($diff_temps_h < 24) {
-					if(($diff_temps_min-$diff_temps_h*60)<10)
-						$date_relative = 'il y a '.$diff_temps_h.'h0'.($diff_temps_min-$diff_temps_h*60);
-					else
-						$date_relative = 'il y a '.$diff_temps_h.'h'.($diff_temps_min-$diff_temps_h*60);
+					if(($diff_temps_min-$diff_temps_h*60)<10) {						
+						if($fr)
+					    	$date_relative = 'il y a '.$diff_temps_h.'h0'.($diff_temps_min-$diff_temps_h*60);
+					    else
+					    	$date_relative = $diff_temps_h.'h0'.($diff_temps_min-$diff_temps_h*60).' ago';
+					}
+					else {
+						if($fr)
+					    	$date_relative = 'il y a '.$diff_temps_h.'h'.($diff_temps_min-$diff_temps_h*60);
+					    else
+					    	$date_relative = $diff_temps_h.'h'.($diff_temps_min-$diff_temps_h*60).' ago';
+					}
 				}
 				else {
 					$diff_temps_j = intval($diff_temps_h / 24);
 
 					if($diff_temps_j < 30) {
-						$date_relative = 'il y a '.$diff_temps_j.'j';
+						if($fr)
+					    	$date_relative = 'il y a '.$diff_temps_j.'j';
+					    else
+					    	$date_relative = $diff_temps_j.'d ago';
 					}
 					else {
 						$diff_temps_mois = intval($diff_temps_j / 30);
 
 						if($diff_temps_mois < 12) {
-							$date_relative = 'il y a '.$diff_temps_mois.' mois';
+							if($diff_temps_mois==1) {								
+								if($fr)
+						    		$date_relative = 'il y a '.$diff_temps_mois.' moi';
+							    else
+							    	$date_relative = $diff_temps_mois.' month ago';
+							}
+							else {
+								if($fr)
+						    	$date_relative = 'il y a '.$diff_temps_mois.' mois';
+							    else
+							    	$date_relative = $diff_temps_mois.' months ago';
+							}
 						}
 						else {
 							$diff_temps_ans = intval($diff_temps_mois / 12);
 
-							if($diff_temps_ans==1) {
-								$date_relative = 'il y a '.$diff_temps_ans.' an';
+							if($diff_temps_ans==1) {								
+								if($fr)
+							    	$date_relative = 'il y a '.$diff_temps_ans.' an';
+							    else
+							    	$date_relative = $diff_temps_ans.' year ago';
 							}
 							else {
-								$date_relative = 'il y a '.$diff_temps_ans.' ans';
+								if($fr)
+							    	$date_relative = 'il y a '.$diff_temps_ans.' ans';
+							    else
+							    	$date_relative = $diff_temps_ans.' years ago';
 							}
 						}
 					}
@@ -133,5 +168,9 @@
 			}
 		}
 		return $date_relative;
+	}
+
+	function difference_date($date1, $date2) {
+		return difference_date($date1, $date2, 'fr');
 	}
 ?>
