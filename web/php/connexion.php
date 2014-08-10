@@ -17,6 +17,9 @@
 		$_SESSION['url_image_profil'] = $donnees['url_image_profil'];
 		$_SESSION['description'] = $donnees['description'];
 
+		$_SESSION['rang_chat'] = 0;
+
+		/*
 		$req2 = $bdd->prepare('SELECT COUNT(*) as total FROM `utilisateur`');
 		$req2->execute(array());
 		if($donnees2 = $req2->fetch())
@@ -44,12 +47,12 @@
 				$req3 = $bdd->prepare($req_rang_message);
 				$req3->execute(array($user));
 				if($donnees3 = $req3->fetch())
-					$_SESSION['rang_chat'] = ''.((intval($donnees6['rang'])/intval($nb_utilisateur))*100);
+					$_SESSION['rang_chat'] = ((intval($donnees6['rang'])/intval($nb_utilisateur))*100);
 			}
 			else
-				$_SESSION['rang_chat'] = '0';
+				$_SESSION['rang_chat'] = 0;
 		}
-
+		*/
 
 		header("Location: ./index.php");
 	}
