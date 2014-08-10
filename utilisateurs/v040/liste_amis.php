@@ -56,7 +56,7 @@
 		else if($donnees['pseudo_ami'] != $pseudo)
 			$pseudo_ami = $donnees['pseudo_ami'];
 		else
-			die('Erreur : Utilisateur_pseudo == pseudo_ami == $pseudo';
+			die('Erreur : Utilisateur_pseudo == pseudo_ami == $pseudo');
 		
 		$req2 = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
 		$req2->execute(array($pseudo_ami));
