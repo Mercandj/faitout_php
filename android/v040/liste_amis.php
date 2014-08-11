@@ -30,7 +30,7 @@
 		}
 	}
 	if($user->langue!=null)
-		$fr = (strpos($user->langue,'fr') !== false):
+		$fr = (strpos($user->langue,'fr') !== false);
 	else
 		$fr = true;
 
