@@ -166,7 +166,6 @@
 
             $tmp_res .= '<div style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 1960px) scale(1); opacity: 1;" class="item item-visible item-small item-review isotope-item">';
             $tmp_res .= '<i class="icon-quote-right"></i>';
-            $tmp_res .= '<img src="'.$tmp_donnees2['url_image_profil'].'" alt="">';
             $tmp_res .= '<dl>';
             $tmp_res .= '<dt>'.$tmp_donnees2['pseudo'].'</dt>';
             $tmp_res .= '<dt>Description :</dt><dd>'.$tmp_donnees2['description'].'</dd>'; 
@@ -174,21 +173,8 @@
             $tmp_res .= '</dl>';
             $tmp_res .= '<p>'.str_replace('"', '\"', $tmp_donnees['message']).'</p>';
             $tmp_res .= '</div>';
-            
+
           }
-
-          
-        <i class="icon-quote-right"></i>
-        <dl>
-          <dt>Bob Smith</dt>
-          <dt>Project:</dt>
-          <dd><a href="#">logo design</a></dd>
-          <dt>Company:</dt>
-          <dd><a href="#" class="external">websurfers</a></dd>
-        </dl>
-        <p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.</p>
-      </div>
-
         }
       }
       return $tmp_res;
