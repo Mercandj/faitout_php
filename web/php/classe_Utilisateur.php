@@ -27,8 +27,6 @@
     public $nombre_mes_messages;
     public $rang_chat;
     public $rang_chat_pourcent;
-    public $rang_chat_pourcent_round;
-
 
     public function __construct() {
       $this->xp = '0';
@@ -97,6 +95,28 @@
         return true;
       else
         return false;
+    }
+
+    function exist($bdd) {
+      $req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+      $req->execute(array($this->pseudo));
+      if($donnees = $req->fetch())
+        return true;
+      else
+        return false;
+    }
+
+    function round_rang_chat_pourcent() {
+      if($utilisateur->rang_chat_pourcent>82)
+        return 100;
+      else if($utilisateur->rang_chat_pourcent>63)
+        return 75;
+      else if($utilisateur->rang_chat_pourcent>38)
+        return 50;
+      else if($utilisateur->rang_chat_pourcent>15)
+        return 25;
+      else
+        return 0;
     }
   }
 ?>

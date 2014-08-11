@@ -84,34 +84,13 @@
 				<div class="text">
 					<h1>Project with 3 previews and 3 images</h1>
 					<h4>Working demo: <a href="#">www.projectwith3images.com</a></h4>
-					<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi
- neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit 
-non est sollicitudin facilisis. Nullam viverra vestibulum interdum. 
-Suspendisse augue tellus, sollicitudin ut tristique ac, ornare in leo. 
-Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae nunc 
-lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.</p>
+					<p>Donec aliquam feugiat tincidunt.</p>
 					<h2>Example of h2 header</h2>
-					<p>Proin nisi neque, facilisis semper rutrum a, fermentum ut 
-sapien. Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae
- nunc lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut 
-sapien.</p>
-					<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi
- neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit 
-non est sollicitudin facilisis. Nullam viverra vestibulum interdum. 
-Suspendisse augue tellus, sollicitudin ut tristique ac, ornare in leo. 
-Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae nunc 
-lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.</p>
+					<p>Proin nisi neque.</p>
+					<p>Donec aliquam feugiat tincidunt.</p>
 					<h3>Example of h3 header</h3>
-					<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi
- neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit 
-non est sollicitudin facilisis. Nullam viverra vestibulum interdum. 
-Suspendisse augue tellus, sollicitudin ut tristique ac, ornare in leo. 
-Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae nunc 
-lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.</p>
-					<p>Proin nisi neque, facilisis semper rutrum a, fermentum ut 
-sapien. Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae
- nunc lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut 
-sapien.</p>
+					<p>Donec aliquam feugiat tincidunt.</p>
+					<p>Proin nisi neque.</p>
 				</div>
 			</div>
 			<!--/ portfolio item (1) -->
@@ -127,21 +106,11 @@ sapien.</p>
 				<div class="pic"><img src="Fichiers_Web/post1.jpg" data-src="pics/post1.jpg" alt=""></div>
 				<div class="text">
 				<h1>Blog post with image and comments</h1>
-					<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi
- neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit 
-non est sollicitudin facilisis. Nullam viverra vestibulum interdum. 
-Suspendisse augue tellus, sollicitudin ut tristique ac, ornare in leo. 
-Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae nunc 
-lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.</p>
+					<p>Donec aliquam feugiat tincidunt.</p>
 					<h2>Example of h2 header</h2>
-					<p>Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae
- nunc lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut 
-sapien.</p>
+					<p>Aliquam ipsum justo.</p>
 					<h3>Example of h3 header</h3>
-					<p>Proin nisi neque, facilisis semper rutrum a, fermentum ut 
-sapien. Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae
- nunc lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut 
-sapien.</p>
+					<p>Proin nisi neque.</p>
 				</div>
 				<dl>
 					<dt>
@@ -149,25 +118,19 @@ sapien.</p>
 						Jenna Williams
 						<span>5 days ago</span>
 					</dt>
-					<dd>Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In 
-vitae nunc lacus. Proin nisi neque, facilisis semper rutrum a, fermentum
- ut sapien. Proin nisi neque, facilisis semper rutrum.</dd>
+					<dd>Aliquam ipsum justo.</dd>
 					<dt class="lv2">
 						<img src="Fichiers_Web/review3.jpg" alt="">
 						Mark Klarkson
 						<span>3 hours ago</span>
 					</dt>
-					<dd class="lv2">Justo, rutrum eu ornare a, mattis ut leo. In vitae 
-nunc lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut 
-sapien. Proin nisi neque, facilisis semper.</dd>
+					<dd class="lv2">Justo, rutrum eu ornare a.</dd>
 					<dt>
 						<img src="Fichiers_Web/review2.jpg" alt="">
 						Jonh Richards
 						<span>13 days ago</span>
 					</dt>
-					<dd>Ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae nunc 
-lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.
- Proin nisi neque.</dd>
+					<dd>Ipsum justo, rutrum eu ornare a.</dd>
 				</dl>
 				<form action="">
 					<h3>Leave a comment</h3>
@@ -182,7 +145,7 @@ lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.
 			<!-- skill item (html) -->
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(960px, 280px) scale(1); opacity: 1;" class="item item-visible item-small item-color-red item-skill isotope-item">
 				<div>
-					<em class=<?php echo '"value'.$utilisateur->rang_chat_pourcent_round.'"';?>></em>
+					<em class=<?php echo '"value'.$utilisateur->round_rang_chat_pourcent().'"';?>></em>
 					<span><?php echo $utilisateur->rang_chat_pourcent;?>%</span>
 				</div>
 				<p>Chat Rang</p>
@@ -226,12 +189,7 @@ tellus, sollicitudin ut tristique ac, ornare in leo.</p>
 				<div class="pic"><img src="Fichiers_Web/post4.jpg" data-src="pics/post4.jpg" alt=""></div>
 				<div class="text">
 					<h1>Blog post with image and columns</h1>
-					<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi
- neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit 
-non est sollicitudin facilisis. Nullam viverra vestibulum interdum. 
-Suspendisse augue tellus, sollicitudin ut tristique ac, ornare in leo. 
-Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae nunc 
-lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.</p>				
+					<p>Donec aliquam feugiat tincidunt.</p>				
 					<div class="columns">
 						<div class="column column2">
 							<h3>Column 2/6</h3>
@@ -423,34 +381,13 @@ sapien. Proin nisi neque, facilisis semper.</dd>
 				<div class="text">
 					<h1>Project with 5 previews and 5 images</h1>
 					<h4>Working demo: <a href="#">www.projectwith5images.com</a></h4>
-					<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi
- neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit 
-non est sollicitudin facilisis. Nullam viverra vestibulum interdum. 
-Suspendisse augue tellus, sollicitudin ut tristique ac, ornare in leo. 
-Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae nunc 
-lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.</p>
+					<p>Donec aliquam feugiat tincidunt.</p>
 					<h2>Example of h2 header</h2>
-					<p>Proin nisi neque, facilisis semper rutrum a, fermentum ut 
-sapien. Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae
- nunc lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut 
-sapien.</p>
-					<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi
- neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit 
-non est sollicitudin facilisis. Nullam viverra vestibulum interdum. 
-Suspendisse augue tellus, sollicitudin ut tristique ac, ornare in leo. 
-Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae nunc 
-lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.</p>
+					<p>Proin nisi neque.</p>
+					<p>Donec aliquam feugiat tincidunt.</p>
 					<h3>Example of h3 header</h3>
-					<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi
- neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit 
-non est sollicitudin facilisis. Nullam viverra vestibulum interdum. 
-Suspendisse augue tellus, sollicitudin ut tristique ac, ornare in leo. 
-Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae nunc 
-lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.</p>
-					<p>Proin nisi neque, facilisis semper rutrum a, fermentum ut 
-sapien. Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae
- nunc lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut 
-sapien.</p>
+					<p>Donec aliquam feugiat tincidunt.</p>
+					<p>Proin nisi neque.</p>
 				</div>
 			</div>
 			<!--/ portfolio item (2) -->
