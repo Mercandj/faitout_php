@@ -1,6 +1,3 @@
-<?php
-	session_start();
-?>
 <!DOCTYPE html>
 <html class="csstransforms no-csstransforms3d csstransitions"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">.gm-style .gm-style-mtc label,.gm-style .gm-style-mtc div{font-weight:400}</style><style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}</style><link href="Fichiers_Web/css.css" rel="stylesheet" type="text/css"><style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style type="text/css">.gm-style{font-family:Roboto,Arial,sans-serif;font-size:11px;font-weight:400;text-decoration:none}</style>
@@ -23,14 +20,14 @@
 		<div style="position: relative; overflow: hidden; height: 2170px;" id="page" class="page isotope loaded">
 			<!-- avatar item -->
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 30px);" data-sort="1" class="item item-small item-avatar isotope-item">
-				<?php print '<img src="'.$_SESSION['url_image_profil'].'" alt="" />'; ?>
+				<?php print '<img src="'.$utilisateur->url_image_profil.'" alt="" />'; ?>
 			</div>
 			<!-- avatar item -->
 			
 			<!-- wellcome item -->
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(240px, 30px);" data-sort="2" class="item item-large item-wellcome isotope-item">
-				<h1>Salut <strong><?php echo $_SESSION['pseudo']; ?></strong> !</h1>
-				<p>Description : <?php echo $_SESSION['description']; ?></p>
+				<h1>Salut <strong><?php echo $utilisateur->pseudo; ?></strong> !</h1>
+				<p>Description : <?php echo $utilisateur->description; ?></p>
 			</div>
 			<!--/ wellcome item -->
 			
@@ -186,7 +183,7 @@ lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(960px, 280px) scale(1); opacity: 1;" class="item item-visible item-small item-color-red item-skill isotope-item">
 				<div>
 					<em class="value100"></em>
-					<span><?php echo $_SESSION['chat']; ?>%</span>
+					<span>100%</span>
 				</div>
 				<p>Chat Rang</p>
 			</div>
