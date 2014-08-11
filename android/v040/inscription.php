@@ -22,6 +22,8 @@
 			    		$user->mot_de_passe = $v;
 			    	else if($k=="sexe")
 			    		$user->sexe = $v;
+			    	else if($k=="langue")
+			    		$user->langue = $v;
 			    	else if($k=="longitude")
 			    		$user->longitude = $v;
 			    	else if($k=="latitude")
@@ -41,9 +43,13 @@
 		}
 
 		$res = '';
+		$fr = (strpos($user->langue,'fr') !== false);
 
 		if($user->exist($bdd)) {
-			$res.='Ce nom d\'utilisateur est deja pris.';
+			if($fr)
+				$res.='Ce pseudo est déjà utilisé.';
+			else
+				$res.='Login already used.';
 		}
 		else {
 			$date = date('Y-m-d H:i:s');
@@ -55,7 +61,10 @@
 		}
 	}
 	else {
-		$res ='Ce nom d\'utilisateur est deja pris.';
+		if($fr)
+			$res.='Ce pseudo est déjà utilisé.';
+		else
+			$res.='Login already used.';
 	}	
 
 	echo $res;
