@@ -119,12 +119,12 @@
 
       $array_amis = array();
 
-      array_push($array_amis, $user->pseudo);
+      array_push($array_amis, $this->pseudo);
 
       while($donnees = $req->fetch()) {       
-        if($donnees['Utilisateur_pseudo'] != $user->pseudo)
+        if($donnees['Utilisateur_pseudo'] != $this->pseudo)
           array_push($array_amis, $donnees['Utilisateur_pseudo']);
-        else if($donnees['pseudo_ami'] != $user->pseudo)
+        else if($donnees['pseudo_ami'] != $this->pseudo)
           array_push($array_amis, $donnees['pseudo_ami']);
       }
 
