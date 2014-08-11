@@ -42,6 +42,18 @@
 				$utilisateur->rang_chat = $utilisateur->nombre_utilisateurs;
 
 			$utilisateur->rang_chat_pourcent = round(((intval($utilisateur->nombre_utilisateurs)-intval($utilisateur->rang_chat)+1)/intval($utilisateur->nombre_utilisateurs))*100);
+		
+			if($utilisateur->rang_chat_pourcent>82)
+				$utilisateur->rang_chat_pourcent_round = 100;
+			else if($utilisateur->rang_chat_pourcent>63)
+				$utilisateur->rang_chat_pourcent_round = 75;
+			else if($utilisateur->rang_chat_pourcent>38)
+				$utilisateur->rang_chat_pourcent_round = 50;
+			else if($utilisateur->rang_chat_pourcent>15)
+				$utilisateur->rang_chat_pourcent_round = 25;
+			else
+				$utilisateur->rang_chat_pourcent_round = 0;
+
 		}
 
 		include_once 'vue.php';

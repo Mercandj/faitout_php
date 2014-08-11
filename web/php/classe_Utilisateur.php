@@ -27,6 +27,7 @@
     public $nombre_mes_messages;
     public $rang_chat;
     public $rang_chat_pourcent;
+    public $rang_chat_pourcent_round;
 
 
     public function __construct() {

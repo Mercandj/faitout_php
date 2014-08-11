@@ -908,6 +908,8 @@ noindex:-o-prefocus, .item-skill span:after { /* Opera hack */
 	content: '';
 	position: absolute;	
 }
+.item-skill .value0 {
+}
 .item-skill .value25 {
 	top: 0;
 	right: 0;
