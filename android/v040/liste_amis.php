@@ -1,7 +1,35 @@
 <?php
 	include_once 'lib.php';
+	include_once 'classe_Utilisateur.php';
 
-	$pseudo = $_GET['pseudo'];
+	$user = new Utilisateur;
+
+	if(isset($_GET['pseudo']))
+		$user->pseudo = $_GET['pseudo'];
+	if(isset($_GET['langue']))
+		$user->langue = $_GET['langue'];
+
+	$request_body = file_get_contents('php://input');
+	$phpArray = json_decode($request_body, true);
+	if($phpArray!=null) {
+		foreach ($phpArray as $key => $value) {
+		    if($key=="utilisateur") {
+			    foreach ($value as $k => $v) {
+			    	if($k=="pseudo")
+			    		$user->pseudo = $v;
+			    	else if($k=="mot_de_passe")
+			    		$user->mot_de_passe = $v;
+			    	else if($k=="langue")
+			    		$user->langue = $v;
+			    	else if($k=="longitude")
+			    		$user->longitude = $v;
+			    	else if($k=="latitude")
+			    		$user->latitude = $v; 
+			    }
+			}
+		}
+	}
+	$fr = (strpos($user->langue,'fr') !== false):
 
 	// Connexion à la base de données
 	try {
@@ -63,7 +91,12 @@
 		if($donnees2 = $req2->fetch()) {
 			$res.='{';
 			$res.='"pseudo": "'.str_replace('"', '\"', $donnees2['pseudo']).'", ';
-			$res.='"sexe":"'.$donnees2['sexe'].'", ';
+			if($fr)
+				$res.='"sexe":"'.$donnees2['sexe'].'", ';
+			else if(strpos($donnees2['sexe'],'omme')!== false)
+				$res.='"sexe":"Man", ';
+			else
+				$res.='"sexe":"Woman", ';
 			$res.='"xp":"'.$donnees2['xp'].'", ';
 			$res.='"url_image_profil":"'.$donnees2['url_image_profil'].'", ';
 			$res.='"description":"'.$donnees2['description'].'", ';
