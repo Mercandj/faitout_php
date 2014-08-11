@@ -486,21 +486,6 @@ neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit.</p>
 			</div>
 			<!--/ skill item (fireworks) -->
 			
-			<!-- review item -->
-			<div style="position: absolute; left: 0px; top: 0px; transform: translate(720px, 1240px) scale(1); opacity: 1;" class="item item-visible item-review isotope-item">
-				<i class="icon-quote-right"></i>
-				<img src="Fichiers_Web/review1.jpg" alt="">
-				<dl>
-					<dt>Jenna Williams</dt>
-					<dt>Project:</dt>
-					<dd><a href="#">corporate website</a></dd>
-					<dt>Company:</dt>
-					<dd><a href="#" class="external">industrial media</a></dd>
-				</dl>
-				<p>Donec aliquam feugiat tincidunt.</p>
-			</div>
-			<!--/ review item -->
-			
 			<!-- skill item (illustrator) -->
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 1480px) scale(1); opacity: 1;" class="item item-visible item-small item-color-orange item-skill isotope-item">
 				<div>
@@ -580,20 +565,6 @@ neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit.</p>
 				<p>Phone number</p>
 			</a>
 			<!--/ social item (phone) -->
-			
-			<!-- review item (small, Bob Smith) -->
-			<div style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 1960px) scale(1); opacity: 1;" class="item item-visible item-small item-review isotope-item">
-				<i class="icon-quote-right"></i>
-				<dl>
-					<dt>Bob Smith</dt>
-					<dt>Project:</dt>
-					<dd><a href="#">logo design</a></dd>
-					<dt>Company:</dt>
-					<dd><a href="#" class="external">websurfers</a></dd>
-				</dl>
-				<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.</p>
-			</div>
-			<!--/ review item -->
 			
 			<!-- social item (map) -->
 			<a style="position: absolute; left: 0px; top: 0px; transform: translate(240px, 1960px) scale(1); opacity: 1;" id="item-map" class="item item-visible item item-color-orange item-social item-map isotope-item">
