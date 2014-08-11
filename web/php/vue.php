@@ -39,7 +39,7 @@
 					<li><a class="" href="#page=portfolio"><i class="icon-briefcase"></i>Photos</a></li>
 					<li><a class="" href="#page=reviews"><i class="icon-comments-alt"></i>Messages</a></li>
 					<li><a class="" href="#page=blog"><i class="icon-file"></i>Blog</a></li>
-					<li><a href="#page=contacts"><i class="icon-phone"></i>Proches</a></li>
+					<li><a href="#page=contacts"><i class="icon-link"></i>Proches</a></li>
 				</ul>
 			</div>
 			<!--/ nav item -->
