@@ -109,5 +109,34 @@
       else
         return 0;
     }
+
+    function get_message_vue($bdd) {
+      $tmp_res = '';
+      $tmp_requete = 'SELECT * FROM `message` WHERE `Utilisateur_pseudo` = ? AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT 10';
+      $tmp_req = $bdd->prepare($tmp_requete);
+      $tmp_req->execute(array($this->pseudo));
+      while($tmp_donnees = $tmp_req->fetch()) {
+        $tmp_res .= '\n<!-- review item -->';
+        $tmp_res .= '<div style="position: absolute; left: 0px; top: 0px; transform: translate(240px, 520px) scale(1); opacity: 1;" class="item item-visible item-review isotope-item">';
+        $tmp_res .= '<i class="icon-quote-right"></i>';
+
+        $tmp_req2 = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+        $tmp_req2->execute(array($tmp_donnees['Utilisateur_pseudo']));
+        if($tmp_donnees2 = $tmp_req2->fetch()) {
+          $tmp_res .= '<img src="'.$tmp_donnees2['url_image_profil'].'" alt="">';
+          $tmp_res .= '<dl>';
+          $tmp_res .= '<dt>'.$tmp_donnees2['pseudo'].'</dt>';
+          $tmp_res .= '<dt>Project:</dt><dd><a href="#">brand design</a></dd>';
+          $tmp_res .= '<dt>Company:</dt><dd><a href="#" class="external">TMS international</a></dd>';
+          $tmp_res .= '</dl>';
+        }
+        $tmp_res .= '<p>'.str_replace('"', '\"', $tmp_donnees['message']).'</p>';
+        $tmp_res .= '</div>';
+        $tmp_res .= '<!--/ review item -->\n';
+      }
+      return $tmp_res;
+    }
+
+
   }
 ?>

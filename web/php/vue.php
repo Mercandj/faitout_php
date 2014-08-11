@@ -59,28 +59,7 @@
 			<!--/ back item -->
 
 
-
-
-
-
-			<!-- review item -->
-			<div style="position: absolute; left: 0px; top: 0px; transform: translate(240px, 520px) scale(1); opacity: 1;" class="item item-visible item-review isotope-item">
-				<i class="icon-quote-right"></i>
-				<img src="Fichiers_Web/review2.jpg" alt="">
-				<dl>
-					<dt>Jonathan</dt>
-					<dt>Project:</dt><dd><a href="#">brand design</a></dd>
-					<dt>Company:</dt><dd><a href="#" class="external">TMS international</a></dd>
-				</dl>
-				<p>Salut voici mon message.</p>
-			</div>
-			<!--/ review item -->
-
-
-
-
-
-
+			<?php echo $utilisateur->get_message_vue($bdd); ?>
 
 			
 			<!-- portfolio item (1) -->
