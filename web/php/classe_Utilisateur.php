@@ -110,11 +110,35 @@
         return 0;
     }
 
-    function get_message_vue($bdd) {
+    function get_message_mur_vue($bdd) {
+
       $tmp_res = '';
-      $tmp_requete = 'SELECT * FROM `message` WHERE `Utilisateur_pseudo` = ? AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT 10';
-      $tmp_req = $bdd->prepare($tmp_requete);
-      $tmp_req->execute(array($this->pseudo));
+
+      $req = $bdd->prepare('SELECT * FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?');
+      $req->execute(array($this->pseudo, $this->pseudo));
+
+      $array_amis = array();
+
+      array_push($array_amis, $user->pseudo);
+
+      while($donnees = $req->fetch()) {       
+        if($donnees['Utilisateur_pseudo'] != $user->pseudo)
+          array_push($array_amis, $donnees['Utilisateur_pseudo']);
+        else if($donnees['pseudo_ami'] != $user->pseudo)
+          array_push($array_amis, $donnees['pseudo_ami']);
+      }
+
+      $tmp_requete = 'SELECT * FROM `message` WHERE (`Utilisateur_pseudo` = \'';
+      $x = 0;
+      foreach($array_amis as $element) {
+        if($x!=0) $tmp_requete.= '\' OR `Utilisateur_pseudo` = \'';
+        $tmp_requete.=$element;
+        $x+=1;
+      }
+      $tmp_requete .='\') AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT 15';
+      
+      $tmp_req = $bdd->prepare($requete);
+      $tmp_req->execute(array());
       while($tmp_donnees = $tmp_req->fetch()) {
         $tmp_res .= '<div style="position: absolute; left: 0px; top: 0px; transform: translate(240px, 520px) scale(1); opacity: 1;" class="item item-visible item-review isotope-item">';
         $tmp_res .= '<i class="icon-quote-right"></i>';

@@ -59,7 +59,7 @@
 			<!--/ back item -->
 
 
-			<?php echo $utilisateur->get_message_vue($bdd); ?>
+			<?php echo $utilisateur->get_message_mur_vue($bdd); ?>
 
 			
 			<!-- portfolio item (1) -->
