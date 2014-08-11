@@ -264,12 +264,7 @@ vestibulum interdum. Suspendisse augue tellus, sollicitudin ut tristique
 				<div class="pic"><img src="Fichiers_Web/post2.jpg" data-src="Fichiers_Web/post2.jpg" alt=""></div>
 				<div class="text">
 					<h1>Blog post with lists</h1>
-					<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi
- neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit 
-non est sollicitudin facilisis. Nullam viverra vestibulum interdum. 
-Suspendisse augue tellus, sollicitudin ut tristique ac, ornare in leo. 
-Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae nunc 
-lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.</p>
+					<p>Donec aliquam feugiat tincidunt.</p>
 					<div class="columns">
 						<div class="column column3">
 							<h3>Simple unordered list</h3>
@@ -413,11 +408,7 @@ sapien. Proin nisi neque, facilisis semper.</dd>
 					<dt>Company:</dt>
 					<dd><a href="#" class="external">Lina and Co</a></dd>
 				</dl>
-				<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi 
-neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit 
-non est sollicitudin facilisis. Suspendisse augue tellus, sollicitudin 
-ut tristique, nullam viverra vestibulum interdum. Suspendisse augue 
-tellus, sollicitudin ut tristique ac, ornare in leo.</p>
+				<p>Donec aliquam feugiat tincidunt.</p>
 			</div>
 			<!--/ review item -->
 			
@@ -457,34 +448,13 @@ neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit.</p>
 				<div class="text">
 					<h1>Project with single image</h1>
 					<h4>Working demo: <a href="#">www.projectwith1image.com</a></h4>
-					<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi
- neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit 
-non est sollicitudin facilisis. Nullam viverra vestibulum interdum. 
-Suspendisse augue tellus, sollicitudin ut tristique ac, ornare in leo. 
-Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae nunc 
-lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.</p>
+					<p>Donec aliquam feugiat tincidunt.</p>
 					<h2>Example of h2 header</h2>
-					<p>Proin nisi neque, facilisis semper rutrum a, fermentum ut 
-sapien. Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae
- nunc lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut 
-sapien.</p>
-					<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi
- neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit 
-non est sollicitudin facilisis. Nullam viverra vestibulum interdum. 
-Suspendisse augue tellus, sollicitudin ut tristique ac, ornare in leo. 
-Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae nunc 
-lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.</p>
+					<p>Proin nisi neque.</p>
+					<p>Donec aliquam feugiat tincidunt.</p>
 					<h3>Example of h3 header</h3>
-					<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi
- neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit 
-non est sollicitudin facilisis. Nullam viverra vestibulum interdum. 
-Suspendisse augue tellus, sollicitudin ut tristique ac, ornare in leo. 
-Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae nunc 
-lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.</p>
-					<p>Proin nisi neque, facilisis semper rutrum a, fermentum ut 
-sapien. Aliquam ipsum justo, rutrum eu ornare a, mattis ut leo. In vitae
- nunc lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut 
-sapien.</p>
+					<p>Donec aliquam feugiat tincidunt.</p>
+					<p>Proin nisi neque.</p>
 				</div>
 			</div>
 			<!--/ portfolio item (small, single image) -->
@@ -527,11 +497,7 @@ sapien.</p>
 					<dt>Company:</dt>
 					<dd><a href="#" class="external">industrial media</a></dd>
 				</dl>
-				<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi 
-neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit 
-non est sollicitudin facilisis. Suspendisse augue tellus, sollicitudin 
-ut tristique, nullam viverra vestibulum interdum. Suspendisse augue 
-tellus, sollicitudin ut tristique ac, ornare in leo.</p>
+				<p>Donec aliquam feugiat tincidunt.</p>
 			</div>
 			<!--/ review item -->
 			
@@ -563,11 +529,7 @@ tellus, sollicitudin ut tristique ac, ornare in leo.</p>
 					<dt>Company:</dt>
 					<dd><a href="#" class="external">Klarkson promotions</a></dd>
 				</dl>
-				<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi 
-neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit 
-non est sollicitudin facilisis. Suspendisse augue tellus, sollicitudin 
-ut tristique, nullam viverra vestibulum interdum. Suspendisse augue 
-tellus, sollicitudin ut tristique ac, ornare in leo.</p>
+				<p>Donec aliquam feugiat tincidunt.</p>
 			</div>
 			<!--/ review item -->
 			

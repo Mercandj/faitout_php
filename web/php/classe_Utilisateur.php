@@ -107,13 +107,13 @@
     }
 
     function round_rang_chat_pourcent() {
-      if($utilisateur->rang_chat_pourcent>82)
+      if($this->rang_chat_pourcent>82)
         return 100;
-      else if($utilisateur->rang_chat_pourcent>63)
+      else if($this->rang_chat_pourcent>63)
         return 75;
-      else if($utilisateur->rang_chat_pourcent>38)
+      else if($this->rang_chat_pourcent>38)
         return 50;
-      else if($utilisateur->rang_chat_pourcent>15)
+      else if($this->rang_chat_pourcent>15)
         return 25;
       else
         return 0;
