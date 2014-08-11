@@ -97,15 +97,6 @@
         return false;
     }
 
-    function exist($bdd) {
-      $req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
-      $req->execute(array($this->pseudo));
-      if($donnees = $req->fetch())
-        return true;
-      else
-        return false;
-    }
-
     function round_rang_chat_pourcent() {
       if($this->rang_chat_pourcent>82)
         return 100;
