@@ -155,7 +155,8 @@
             $tmp_res .= '<img src="'.$tmp_donnees2['url_image_profil'].'" alt="">';
             $tmp_res .= '<dl>';
             $tmp_res .= '<dt>'.$tmp_donnees2['pseudo'].'</dt>';
-            $tmp_res .= '<dt>Description :</dt><dd>'.$tmp_donnees2['description'].'</dd>'; 
+            if($tmp_donnees2['description']!=null)
+              $tmp_res .= '<dt>Description :</dt><dd>'.$tmp_donnees2['description'].'</dd>'; 
             $tmp_res .= '<dt>Date :</dt><dd>'.$date_relative.'</dd>';
             $tmp_res .= '</dl>';
             $tmp_res .= '<p>'.str_replace('"', '\"', $tmp_donnees['message']).'</p>';
@@ -168,7 +169,8 @@
             $tmp_res .= '<i class="icon-quote-right"></i>';
             $tmp_res .= '<dl>';
             $tmp_res .= '<dt>'.$tmp_donnees2['pseudo'].'</dt>';
-            $tmp_res .= '<dt>Description :</dt><dd>'.$tmp_donnees2['description'].'</dd>'; 
+            if($tmp_donnees2['description']!=null)
+              $tmp_res .= '<dt>Description :</dt><dd>'.$tmp_donnees2['description'].'</dd>'; 
             $tmp_res .= '<dt>Date :</dt><dd>'.$date_relative.'</dd>';
             $tmp_res .= '</dl>';
             $tmp_res .= '<p>'.str_replace('"', '\"', $tmp_donnees['message']).'</p>';
