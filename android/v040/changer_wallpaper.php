@@ -11,9 +11,9 @@
 	}
 
 	$req = $bdd->prepare('UPDATE `utilisateur` SET `wallpaper` = ? WHERE `pseudo` = ?');
-	$req->execute(array($xp, $pseudo));
+	$req->execute(array($wallpaper, $pseudo));
 
-	$res = 'wallpaper est mise à jour.';
+	$res = 'Wallpaper est mise à jour.';
 
 	echo $res;
 ?>
