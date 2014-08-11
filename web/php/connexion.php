@@ -1,6 +1,6 @@
 <?php
 
-	include_once 'classe_Utilisateur';
+	include_once 'classe_Utilisateur.php';
 
 
 	try {
