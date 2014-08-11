@@ -397,36 +397,6 @@ sapien. Proin nisi neque, facilisis semper.</dd>
 			</div>
 			<!--/ skill item (javascript) -->
 			
-			<!-- review item -->
-			<div style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 1000px) scale(1); opacity: 1;" class="item item-visible item-visible item-review isotope-item">
-				<i class="icon-quote-right"></i>
-				<img src="Fichiers_Web/review4.jpg" alt="">
-				<dl>
-					<dt>Lina Newman</dt>
-					<dt>Project:</dt>
-					<dd><a href="#">front-end development</a></dd>
-					<dt>Company:</dt>
-					<dd><a href="#" class="external">Lina and Co</a></dd>
-				</dl>
-				<p>Donec aliquam feugiat tincidunt.</p>
-			</div>
-			<!--/ review item -->
-			
-			<!-- review item -->
-			<div style="position: absolute; left: 0px; top: 0px; transform: translate(480px, 1000px) scale(1); opacity: 1;" class="item item-visible item-small item-review isotope-item">
-				<i class="icon-quote-right"></i>
-				<dl>
-					<dt>Top Summer</dt>
-					<dt>Project:</dt>
-					<dd><a href="#">package design</a></dd>
-					<dt>Company:</dt>
-					<dd><a href="#" class="external">undesputed</a></dd>
-				</dl>
-				<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi 
-neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit.</p>
-			</div>
-			<!--/ review item -->
-			
 			<!-- social item (facebook) -->
 			<a style="position: absolute; left: 0px; top: 0px; transform: translate(720px, 1000px) scale(1); opacity: 1;" href="http://www.facebook.com/voky.com.ua" target="_blank" class="item item-visible item-small item-color-blue item-social isotope-item">
 				<i class="icon-facebook"></i>
