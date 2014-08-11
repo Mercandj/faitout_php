@@ -22,7 +22,12 @@
     public $longitude;
     public $latitude;   
 
-    public $rang_chat; 
+    public $nombre_utilisateurs;
+
+    public $nombre_mes_messages;
+    public $rang_chat;
+    public $rang_chat_pourcent;
+
 
     public function __construct() {
       $this->xp = '0';
