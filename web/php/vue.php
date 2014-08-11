@@ -37,7 +37,7 @@
 					<li><a href="#page=home" class="active"><i class="icon-home"></i>TouT</a></li>
 					<li><a class="" href="#page=skills"><i class="icon-magic"></i>Rangs</a></li>
 					<li><a class="" href="#page=portfolio"><i class="icon-briefcase"></i>Photos</a></li>
-					<li><a class="" href="#page=reviews"><i class="icon-comments-alt"></i>Reviews</a></li>
+					<li><a class="" href="#page=reviews"><i class="icon-comments-alt"></i>Messages</a></li>
 					<li><a class="" href="#page=blog"><i class="icon-file"></i>Blog</a></li>
 					<li><a href="#page=contacts"><i class="icon-phone"></i>Proches</a></li>
 				</ul>
@@ -303,7 +303,7 @@ vestibulum interdum. Suspendisse augue tellus, sollicitudin ut tristique
 			</a>
 			
 			<div style="position: absolute; left: 0px; top: 0px; opacity: 0; transform: scale(0.001);" id="item-post2" class="item item-large item-post-details isotope-item isotope-hidden">
-				<div class="pic"><img src="Fichiers_Web/post2.jpg" data-src="pics/post2.jpg" alt=""></div>
+				<div class="pic"><img src="Fichiers_Web/post2.jpg" data-src="Fichiers_Web/post2.jpg" alt=""></div>
 				<div class="text">
 					<h1>Blog post with lists</h1>
 					<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi
@@ -397,10 +397,10 @@ sapien. Proin nisi neque, facilisis semper.</dd>
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(480px, 760px) scale(1); opacity: 1;" class="item item-visible item-portfolio isotope-item">
 				<div>
 					<img src="Fichiers_Web/port2-1.jpg" alt="" class="active">
-					<img src="Fichiers_Web/port2-2.jpg" data-src="pics/port2-2.jpg" alt="">
-					<img src="Fichiers_Web/port2-3.jpg" data-src="pics/port2-3.jpg" alt="">
-					<img src="Fichiers_Web/port2-4.jpg" data-src="pics/port2-4.jpg" alt="">
-					<img src="Fichiers_Web/port2-5.jpg" data-src="pics/port2-5.jpg" alt="">
+					<img src="Fichiers_Web/port2-2.jpg" data-src="Fichiers_Web/port2-2.jpg" alt="">
+					<img src="Fichiers_Web/port2-3.jpg" data-src="Fichiers_Web/port2-3.jpg" alt="">
+					<img src="Fichiers_Web/port2-4.jpg" data-src="Fichiers_Web/port2-4.jpg" alt="">
+					<img src="Fichiers_Web/port2-5.jpg" data-src="Fichiers_Web/port2-5.jpg" alt="">
 				</div>
 				<span class="prev icon-chevron-left"></span>
 				<a href="#page=portfolio&amp;id=2" class="zoom icon-fullscreen"></a>
@@ -412,10 +412,10 @@ sapien. Proin nisi neque, facilisis semper.</dd>
 				<div class="slideshow">
 					<div>
 						<img src="Fichiers_Web/port2-1.jpg" alt="" class="active">
-						<img src="Fichiers_Web/port2-2.jpg" data-src="pics/port2-2.jpg" alt="">
-						<img src="Fichiers_Web/port2-3.jpg" data-src="pics/port2-3.jpg" alt="">
-						<img src="Fichiers_Web/port2-4.jpg" data-src="pics/port2-4.jpg" alt="">
-						<img src="Fichiers_Web/port2-5.jpg" data-src="pics/port2-5.jpg" alt="">
+						<img src="Fichiers_Web/port2-2.jpg" data-src="Fichiers_Web/port2-2.jpg" alt="">
+						<img src="Fichiers_Web/port2-3.jpg" data-src="Fichiers_Web/port2-3.jpg" alt="">
+						<img src="Fichiers_Web/port2-4.jpg" data-src="Fichiers_Web/port2-4.jpg" alt="">
+						<img src="Fichiers_Web/port2-5.jpg" data-src="Fichiers_Web/port2-5.jpg" alt="">
 					</div>
 					<span class="prev icon-chevron-left"></span>
 					<span class="next icon-chevron-right"></span>
