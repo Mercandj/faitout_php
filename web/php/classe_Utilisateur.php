@@ -137,7 +137,7 @@
       }
       $tmp_requete .='\') AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT 15';
       
-      $tmp_req = $bdd->prepare($requete);
+      $tmp_req = $bdd->prepare($tmp_requete);
       $tmp_req->execute(array());
       while($tmp_donnees = $tmp_req->fetch()) {
         $tmp_res .= '<div style="position: absolute; left: 0px; top: 0px; transform: translate(240px, 520px) scale(1); opacity: 1;" class="item item-visible item-review isotope-item">';
