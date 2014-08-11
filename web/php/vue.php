@@ -57,6 +57,31 @@
 				<p>Back to blog items list</p>
 			</a>
 			<!--/ back item -->
+
+
+
+
+
+
+			<!-- review item -->
+			<div style="position: absolute; left: 0px; top: 0px; transform: translate(240px, 520px) scale(1); opacity: 1;" class="item item-visible item-review isotope-item">
+				<i class="icon-quote-right"></i>
+				<img src="Fichiers_Web/review2.jpg" alt="">
+				<dl>
+					<dt>Jonathan</dt>
+					<dt>Project:</dt><dd><a href="#">brand design</a></dd>
+					<dt>Company:</dt><dd><a href="#" class="external">TMS international</a></dd>
+				</dl>
+				<p>Salut voici mon message.</p>
+			</div>
+			<!--/ review item -->
+
+
+
+
+
+
+
 			
 			<!-- portfolio item (1) -->
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 280px) scale(1); opacity: 1;" class="item item-visible item-portfolio isotope-item">
@@ -170,11 +195,7 @@
 					<dt>Company:</dt>
 					<dd><a href="#" class="external">TMS international</a></dd>
 				</dl>
-				<p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi 
-neque, facilisis semper rutrum a, fermentum ut sapien. Nulla ac velit 
-non est sollicitudin facilisis. Suspendisse augue tellus, sollicitudin 
-ut tristique, nullam viverra vestibulum interdum. Suspendisse augue 
-tellus, sollicitudin ut tristique ac, ornare in leo.</p>
+				<p>Donec aliquam feugiat tincidunt.</p>
 			</div>
 			<!--/ review item -->
 			
