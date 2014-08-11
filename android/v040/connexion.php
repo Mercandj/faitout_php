@@ -71,6 +71,8 @@
 		$res.='"xp":"'.$donnees['xp'].'", ';
 		$res.='"url_image_profil":"'.$donnees['url_image_profil'].'", ';
 		$res.='"description":"'.$donnees['description'].'", ';
+		if($donnees['wallpaper']!=null)
+			$res.='"wallpaper":"'.$donnees['wallpaper'].'", ';
 
 		$res.='"images":[';
 		$req3 = $bdd->prepare('SELECT * FROM `image` WHERE `Utilisateur_pseudo` = ? ORDER BY date_de_creation DESC LIMIT 40');
