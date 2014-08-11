@@ -34,7 +34,7 @@
 
 			if($donnees['total']!=0) {
 				$req2 = $bdd->prepare($req_rang_message);
-				$req2->execute(array($user->pseudo));
+				$req2->execute(array($utilisateur->pseudo));
 				if($donnees2 = $req2->fetch())
 					$utilisateur->rang_chat = $donnees2['rang'].'", ';
 			}
