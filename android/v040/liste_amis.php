@@ -56,22 +56,22 @@
 		if(isset($_GET['recherche_pseudo'])) {
 			$recherche_pseudo = $_GET['recherche_pseudo'];
 			$req = $bdd->prepare( 'SELECT * FROM `ami` WHERE (`Utilisateur_pseudo` = ? OR `pseudo_ami` = ?) AND ( (`pseudo_ami` = ? AND `Utilisateur_pseudo` LIKE "%'.$recherche_pseudo.'%") OR (`Utilisateur_pseudo` = ? AND `pseudo_ami` LIKE "%'.$recherche_pseudo.'%")) LIMIT '.$per_page );
-			$req->execute(array($pseudo, $pseudo, $pseudo, $pseudo));
+			$req->execute(array($user->pseudo, $user->pseudo, $user->pseudo, $user->pseudo));
 		}
 		else {
 			$req = $bdd->prepare( 'SELECT * FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ? LIMIT '.$per_page );
-			$req->execute(array($pseudo, $pseudo));
+			$req->execute(array($user->pseudo, $user->pseudo));
 		}
 	}
 	else {
 		if(isset($_GET['recherche_pseudo'])) {
 			$recherche_pseudo = $_GET['recherche_pseudo'];
 			$req = $bdd->prepare( 'SELECT * FROM `ami` WHERE (`Utilisateur_pseudo` = ? OR `pseudo_ami` = ?) AND ( (`pseudo_ami` = ? AND `Utilisateur_pseudo` LIKE "%'.$recherche_pseudo.'%") OR (`Utilisateur_pseudo` = ? AND `pseudo_ami` LIKE "%'.$recherche_pseudo.'%")) LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page));
-			$req->execute(array($pseudo, $pseudo, $pseudo, $pseudo));
+			$req->execute(array($user->pseudo, $user->pseudo, $user->pseudo, $user->pseudo));
 		}
 		else {
 			$req = $bdd->prepare('SELECT * FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ? LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page));
-			$req->execute(array($pseudo, $pseudo));
+			$req->execute(array($user->pseudo, $user->pseudo));
 		}
 	}
 
@@ -82,9 +82,9 @@
 		if($id!=0)
 			$res.=',';
 		
-		if($donnees['Utilisateur_pseudo'] != $pseudo)
+		if($donnees['Utilisateur_pseudo'] != $user->pseudo)
 			$pseudo_ami = $donnees['Utilisateur_pseudo'];
-		else if($donnees['pseudo_ami'] != $pseudo)
+		else if($donnees['pseudo_ami'] != $user->pseudo)
 			$pseudo_ami = $donnees['pseudo_ami'];
 		else
 			die('Erreur : Utilisateur_pseudo == pseudo_ami == $pseudo');
