@@ -163,21 +163,6 @@
 			</a>
 			<!--/ social item (twitter) -->
 			
-			<!-- review item -->
-			<div style="position: absolute; left: 0px; top: 0px; transform: translate(240px, 520px) scale(1); opacity: 1;" class="item item-visible item-review isotope-item">
-				<i class="icon-quote-right"></i>
-				<img src="Fichiers_Web/review2.jpg" alt="">
-				<dl>
-					<dt>Jonh Richards</dt>
-					<dt>Project:</dt>
-					<dd><a href="#">brand design</a></dd>
-					<dt>Company:</dt>
-					<dd><a href="#" class="external">TMS international</a></dd>
-				</dl>
-				<p>Donec aliquam feugiat tincidunt.</p>
-			</div>
-			<!--/ review item -->
-			
 			<!-- post item (with image and columns) -->
 			<a style="position: absolute; left: 0px; top: 0px; transform: translate(720px, 520px) scale(1); opacity: 1;" href="#page=blog&amp;id=4" class="item item-visible item-post isotope-item">
 				<h3>Blog post with image and columns</h3>
