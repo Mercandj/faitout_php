@@ -458,21 +458,6 @@ sapien. Proin nisi neque, facilisis semper.</dd>
 			</a>
 			<!--/ social item (rss) -->
 			
-			<!-- review item -->
-			<div style="position: absolute; left: 0px; top: 0px; transform: translate(480px, 1480px) scale(1); opacity: 1;" class="item item-visible item-review isotope-item">
-				<i class="icon-quote-right"></i>
-				<img src="Fichiers_Web/review3.jpg" alt="">
-				<dl>
-					<dt>Mark Klarkson</dt>
-					<dt>Project:</dt>
-					<dd><a href="#">website design</a></dd>
-					<dt>Company:</dt>
-					<dd><a href="#" class="external">Klarkson promotions</a></dd>
-				</dl>
-				<p>Donec aliquam feugiat tincidunt.</p>
-			</div>
-			<!--/ review item -->
-			
 			<!-- social item (youtube) -->
 			<a style="position: absolute; left: 0px; top: 0px; transform: translate(960px, 1480px) scale(1); opacity: 1;" href="#" class="item item-visible item-small item-color-red item-social isotope-item">
 				<i class="foundicon-youtube"></i>
