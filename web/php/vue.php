@@ -182,7 +182,7 @@ lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.
 			<!-- skill item (html) -->
 			<div style="position: absolute; left: 0px; top: 0px; transform: translate(960px, 280px) scale(1); opacity: 1;" class="item item-visible item-small item-color-red item-skill isotope-item">
 				<div>
-					<em class="value100" top="0" right="0" bottom="0" left="50%"></em>
+					<em top="0" right="0" bottom="0" left="50%"></em>
 					<span><?php echo $utilisateur->rang_chat_pourcent;?>%</span>
 				</div>
 				<p>Chat Rang</p>
