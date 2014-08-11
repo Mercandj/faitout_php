@@ -140,27 +140,59 @@
       $tmp_req = $bdd->prepare($tmp_requete);
       $tmp_req->execute(array());
       while($tmp_donnees = $tmp_req->fetch()) {
-        $tmp_res .= '<div style="position: absolute; left: 0px; top: 0px; transform: translate(240px, 520px) scale(1); opacity: 1;" class="item item-visible item-review isotope-item">';
-        $tmp_res .= '<i class="icon-quote-right"></i>';
+        
+        $date = date('Y-m-d H:i:s');
+        $date_relative = difference_date($date, date($tmp_donnees['date_de_creation']));
 
         $tmp_req2 = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
         $tmp_req2->execute(array($tmp_donnees['Utilisateur_pseudo']));
         if($tmp_donnees2 = $tmp_req2->fetch()) {
-          $tmp_res .= '<img src="'.$tmp_donnees2['url_image_profil'].'" alt="">';
-          $tmp_res .= '<dl>';
-          $tmp_res .= '<dt>'.$tmp_donnees2['pseudo'].'</dt>';
-          $tmp_res .= '<dt>Description :</dt><dd>'.$tmp_donnees2['description'].'</dd>';          
+
+          if($tmp_donnees2['url_image_profil']!=null) {
+          
+            $tmp_res .= '<div style="position: absolute; left: 0px; top: 0px; transform: translate(240px, 520px) scale(1); opacity: 1;" class="item item-visible item-review isotope-item">';
+            $tmp_res .= '<i class="icon-quote-right"></i>';
+            $tmp_res .= '<img src="'.$tmp_donnees2['url_image_profil'].'" alt="">';
+            $tmp_res .= '<dl>';
+            $tmp_res .= '<dt>'.$tmp_donnees2['pseudo'].'</dt>';
+            $tmp_res .= '<dt>Description :</dt><dd>'.$tmp_donnees2['description'].'</dd>'; 
+            $tmp_res .= '<dt>Date :</dt><dd>'.$date_relative.'</dd>';
+            $tmp_res .= '</dl>';
+            $tmp_res .= '<p>'.str_replace('"', '\"', $tmp_donnees['message']).'</p>';
+            $tmp_res .= '</div>';
+
+          }
+          else {
+
+            $tmp_res .= '<div style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 1960px) scale(1); opacity: 1;" class="item item-visible item-small item-review isotope-item">';
+            $tmp_res .= '<i class="icon-quote-right"></i>';
+            $tmp_res .= '<img src="'.$tmp_donnees2['url_image_profil'].'" alt="">';
+            $tmp_res .= '<dl>';
+            $tmp_res .= '<dt>'.$tmp_donnees2['pseudo'].'</dt>';
+            $tmp_res .= '<dt>Description :</dt><dd>'.$tmp_donnees2['description'].'</dd>'; 
+            $tmp_res .= '<dt>Date :</dt><dd>'.$date_relative.'</dd>';
+            $tmp_res .= '</dl>';
+            $tmp_res .= '<p>'.str_replace('"', '\"', $tmp_donnees['message']).'</p>';
+            $tmp_res .= '</div>';
+            
+          }
+
+          
+        <i class="icon-quote-right"></i>
+        <dl>
+          <dt>Bob Smith</dt>
+          <dt>Project:</dt>
+          <dd><a href="#">logo design</a></dd>
+          <dt>Company:</dt>
+          <dd><a href="#" class="external">websurfers</a></dd>
+        </dl>
+        <p>Donec aliquam feugiat tincidunt. In vitae nunc lacus. Proin nisi neque, facilisis semper rutrum a, fermentum ut sapien.</p>
+      </div>
+
         }
-        $date = date('Y-m-d H:i:s');
-        $date_relative = difference_date($date, date($tmp_donnees['date_de_creation']));
-        $tmp_res .= '<dt>Date :</dt><dd>'.$date_relative.'</dd>';
-        $tmp_res .= '</dl>';
-        $tmp_res .= '<p>'.str_replace('"', '\"', $tmp_donnees['message']).'</p>';
-        $tmp_res .= '</div>';
       }
       return $tmp_res;
     }
-
 
   }
 ?>
