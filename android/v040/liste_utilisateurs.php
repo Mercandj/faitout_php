@@ -29,7 +29,10 @@
 			}
 		}
 	}
-	$fr = (strpos($user->langue,'fr') !== false):
+	if($user->langue!=null)
+		$fr = (strpos($user->langue,'fr') !== false):
+	else
+		$fr = true;
 	
 	try {
 		$bdd = new PDO('mysql:host=localhost;dbname=faitout', 'root', '');

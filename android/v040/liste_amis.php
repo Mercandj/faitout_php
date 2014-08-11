@@ -29,7 +29,10 @@
 			}
 		}
 	}
-	$fr = (strpos($user->langue,'fr') !== false):
+	if($user->langue!=null)
+		$fr = (strpos($user->langue,'fr') !== false):
+	else
+		$fr = true;
 
 	// Connexion à la base de données
 	try {
