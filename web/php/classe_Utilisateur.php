@@ -116,7 +116,6 @@
       $tmp_req = $bdd->prepare($tmp_requete);
       $tmp_req->execute(array($this->pseudo));
       while($tmp_donnees = $tmp_req->fetch()) {
-        $tmp_res .= '\n<!-- review item -->';
         $tmp_res .= '<div style="position: absolute; left: 0px; top: 0px; transform: translate(240px, 520px) scale(1); opacity: 1;" class="item item-visible item-review isotope-item">';
         $tmp_res .= '<i class="icon-quote-right"></i>';
 
@@ -126,13 +125,14 @@
           $tmp_res .= '<img src="'.$tmp_donnees2['url_image_profil'].'" alt="">';
           $tmp_res .= '<dl>';
           $tmp_res .= '<dt>'.$tmp_donnees2['pseudo'].'</dt>';
-          $tmp_res .= '<dt>Project:</dt><dd><a href="#">brand design</a></dd>';
-          $tmp_res .= '<dt>Company:</dt><dd><a href="#" class="external">TMS international</a></dd>';
-          $tmp_res .= '</dl>';
+          $tmp_res .= '<dt>Description :</dt><dd>'.$tmp_donnees2['description'].'</dd>';          
         }
+        $date = date('Y-m-d H:i:s');
+        $date_relative = difference_date($date, date($tmp_donnees['date_de_creation']));
+        $tmp_res .= '<dt>Date :</dt><dd>'.$date_relative.'</dd>';
+        $tmp_res .= '</dl>';
         $tmp_res .= '<p>'.str_replace('"', '\"', $tmp_donnees['message']).'</p>';
         $tmp_res .= '</div>';
-        $tmp_res .= '<!--/ review item -->\n';
       }
       return $tmp_res;
     }
