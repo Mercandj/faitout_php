@@ -55,8 +55,6 @@
 	if(!isset($_GET['page'])) {
 		if(isset($_GET['recherche_pseudo'])) {
 			$recherche_pseudo = $_GET['recherche_pseudo'];
-			//$req = $bdd->prepare( 'SELECT * FROM `ami` WHERE (`Utilisateur_pseudo` = ? OR `pseudo_ami` = ?) AND ( (`pseudo_ami` = ? AND `Utilisateur_pseudo` LIKE "%'.$recherche_pseudo.'%") OR (`Utilisateur_pseudo` = ? AND `pseudo_ami` LIKE "%'.$recherche_pseudo.'%")) LIMIT '.$per_page );
-			//$req->execute(array($user->pseudo, $user->pseudo, $user->pseudo, $user->pseudo));
 			$req_sql = 
 			'SELECT *
 			FROM(
@@ -72,8 +70,6 @@
 			$req->execute(array($user->pseudo, $user->pseudo, $user->pseudo, $user->pseudo, $user->pseudo));
 		}
 		else {
-			//$req = $bdd->prepare( 'SELECT `Utilisateur_pseudo` AS `pseudo` FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ? LIMIT '.$per_page );
-			//$req->execute(array($user->pseudo, $user->pseudo));
 			$req_sql = 
 			'SELECT *
 			FROM(
@@ -92,8 +88,6 @@
 	else {
 		if(isset($_GET['recherche_pseudo'])) {
 			$recherche_pseudo = $_GET['recherche_pseudo'];
-			//$req = $bdd->prepare( 'SELECT * FROM `ami` WHERE (`Utilisateur_pseudo` = ? OR `pseudo_ami` = ?) AND ( (`pseudo_ami` = ? AND `Utilisateur_pseudo` LIKE "%'.$recherche_pseudo.'%") OR (`Utilisateur_pseudo` = ? AND `pseudo_ami` LIKE "%'.$recherche_pseudo.'%")) LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page));
-			//$req->execute(array($user->pseudo, $user->pseudo, $user->pseudo, $user->pseudo));
 			$req_sql = 
 			'SELECT *
 			FROM(
@@ -109,8 +103,6 @@
 			$req->execute(array($user->pseudo, $user->pseudo, $user->pseudo, $user->pseudo, $user->pseudo));
 		}
 		else {
-			//$req = $bdd->prepare('SELECT * FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ? LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page));
-			//$req->execute(array($user->pseudo, $user->pseudo));
 			$req_sql = 
 			'SELECT *
 			FROM(
