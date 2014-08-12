@@ -104,7 +104,7 @@
 			WHERE (`pseudo` != ? AND `pseudo` LIKE "%'.$recherche_pseudo.'%")
 			GROUP BY `pseudo`
 			ORDER BY `pseudo` ASC
-			LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page));
+			LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page);
 			$req = $bdd->prepare($req_sql);
 			$req->execute(array($user->pseudo, $user->pseudo, $user->pseudo, $user->pseudo, $user->pseudo));
 		}
@@ -121,7 +121,7 @@
 			WHERE `pseudo` != ?
 			GROUP BY `pseudo`
 			ORDER BY `pseudo` ASC
-			LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page));
+			LIMIT '.$per_page.' OFFSET '.(($page-1)*$per_page);
 			$req = $bdd->prepare($req_sql);
 			$req->execute(array($user->pseudo, $user->pseudo, $user->pseudo, $user->pseudo, $user->pseudo));
 		}
