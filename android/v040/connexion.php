@@ -500,7 +500,7 @@
 				}
 				else {
 					$req9 = $bdd->prepare($req_rang_jeu_best);
-					$req9->execute(array($user->pseudo));
+					$req9->execute(array($pseudo_tmp));
 					if($donnees9 = $req9->fetch())
 						$res.='"rang_jeu_clic":"'.$donnees9['rang'].'"';
 				}
