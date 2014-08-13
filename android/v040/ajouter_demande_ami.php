@@ -33,6 +33,18 @@
 					$res.='KO';
 				}
 				else {
+					$req3 = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+					$req3->execute(array($pseudo));
+					if(!$req3->fetch()) {
+						die('401 Erreur : '.$pseudo.' inconnu');
+					}
+
+					$req3 = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+					$req3->execute(array($pseudo_ami));
+					if(!$req3->fetch()) {
+						die('401 Erreur : '.$pseudo_ami.' inconnu');
+					}
+
 					$date = date('Y-m-d H:i:s');
 
 					$us = new DemandeAmi($pseudo, $date, $pseudo_ami);

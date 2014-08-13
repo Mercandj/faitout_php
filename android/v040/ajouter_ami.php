@@ -24,6 +24,18 @@
 				
 			}
 			else {
+				$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+				$req->execute(array($pseudo));
+				if(!$req->fetch()) {
+					die('401 Erreur : '.$pseudo.' inconnu');
+				}
+
+				$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+				$req->execute(array($pseudo_ami));
+				if(!$req->fetch()) {
+					die('401 Erreur : '.$pseudo_ami.' inconnu');
+				}
+
 				$date = date('Y-m-d H:i:s');
 
 				$us = new Ami($pseudo, $date, $pseudo_ami);

@@ -49,6 +49,12 @@
 				die('Erreur : '.$e->getMessage());
 			}
 
+			$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+			$req->execute(array($pseudo));
+			if(!$req->fetch()) {
+				die('401 Erreur : '.$pseudo.' inconnu');
+			}
+
 			$url = "http://mercandalli.com/faitout/images/".$pseudo.'/'.$date_heure.'_'.$_FILES['image']['name'];
 
 			/*

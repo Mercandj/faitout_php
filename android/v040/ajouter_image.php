@@ -13,6 +13,12 @@
 			die('Erreur : '.$e->getMessage());
 		}
 
+		$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+		$req->execute(array($pseudo));
+		if(!$req->fetch()) {
+			die('401 Erreur : '.$pseudo.' inconnu');
+		}
+
 		$res = '';
 
 		$date = date('Y-m-d H:i:s');

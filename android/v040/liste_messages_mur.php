@@ -1,6 +1,6 @@
 <?php
-
-	$pseudo = $_GET['pseudo'];
+	if(isset($_GET['pseudo']))
+		$pseudo = $_GET['pseudo'];
 
 	// Connexion à la base de données
 	try {
@@ -10,8 +10,13 @@
 		die('Erreur : '.$e->getMessage());
 	}
 
-	$res = '{ "messages" : [';
+	$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+	$req->execute(array($pseudo));
+	if(!$req->fetch()) {
+		die('401 Erreur : '.$pseudo.' inconnu');
+	}
 
+	$res = '{ "messages" : [';
 
 	if(isset($_GET['me'])) {
 		$requete = 'SELECT * FROM `message` WHERE `Utilisateur_pseudo` = ? AND `destinataire` = \'Mur\' ORDER BY date_de_creation DESC LIMIT 50';

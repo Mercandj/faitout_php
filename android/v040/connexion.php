@@ -29,7 +29,7 @@
 			    	else if($k=="longitude")
 			    		$user->longitude = $v;
 			    	else if($k=="latitude")
-			    		$user->latitude = $v; 
+			    		$user->latitude = $v;
 			    }
 			}
 		}

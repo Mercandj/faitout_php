@@ -17,7 +17,13 @@
 		}
 		catch(Exception $e) {
 			die('Erreur : '.$e->getMessage());
-		}		
+		}
+
+		$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+		$req->execute(array($pseudo));
+		if(!$req->fetch()) {
+			die('401 Erreur : '.$pseudo.' inconnu');
+		}
 
 		include_once './../../notifications_push_android/notifier_user.php';
 		sendUserGCM($bdd, $pseudo.' à '.$destinataire.' : '.$message, $destinataire);

@@ -18,7 +18,7 @@
 	$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
 	$req->execute(array($pseudo));
 	if(!$req->fetch()) {
-		die('Erreur : '.$pseudo.' inconnu');
+		die('401 Erreur : '.$pseudo.' inconnu');
 	}
 
 	$res = '';
