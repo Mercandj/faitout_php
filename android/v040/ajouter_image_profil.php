@@ -6,7 +6,8 @@
 	$maxwidth = 200000;
 	$maxheight = 200000;
 
-	$pseudo = $_GET['pseudo'];
+	if(isset($_GET['pseudo']))
+		$pseudo = $_GET['pseudo'];
 
 	if ($_FILES['image']['error'] > 0) {
 		$erreur = "Erreur lors du transfert";

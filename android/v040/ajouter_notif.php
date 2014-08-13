@@ -2,7 +2,8 @@
 	include_once 'classe_Message.php';
 	include_once 'classe_DemandeAmi.php';
 
-	$pseudo = $_GET['pseudo'];
+	if(isset($_GET['pseudo']))
+		$pseudo = $_GET['pseudo'];
 	$destinataire = $_GET['destinataire'];
 	$message = $_GET['message'];
 

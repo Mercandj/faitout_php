@@ -2,7 +2,8 @@
 	include_once 'classe_Message.php';
 	include_once 'classe_Image.php';
 
-	$pseudo = $_GET['pseudo'];
+	if(isset($_GET['pseudo']))
+		$pseudo = $_GET['pseudo'];
 	$message = $_GET['message'];
 	$destinataire = $_GET['destinataire'];
 
@@ -12,6 +13,12 @@
 	}
 	catch(Exception $e) {
 		die('Erreur : '.$e->getMessage());
+	}
+
+	$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ?');
+	$req->execute(array($pseudo));
+	if(!$req->fetch()) {
+		die('Erreur : '.$pseudo.' inconnu');
 	}
 
 	$res = '';
