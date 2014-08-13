@@ -33,7 +33,7 @@
 		die('Erreur : '.$e->getMessage());
 	}
 
-	$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ? AND `mot_de_passe` = ? AND (`admin` = true OR `admin` = oui OR `admin` = admin OR `admin` = True OR `admin` = TRUE)');
+	$req = $bdd->prepare('SELECT * FROM `utilisateur` WHERE `pseudo` = ? AND `mot_de_passe` = ? AND (`admin` = `true` OR `admin` = `oui` OR `admin` = `admin` OR `admin` = `True` OR `admin` = `TRUE`)');
 	$req->execute(array($user->pseudo, $user->mot_de_passe));
 	if($donnees = $req->fetch()) {
 		$req = $bdd->prepare('DELETE FROM `groupe` WHERE `Utilisateur_pseudo` = ?');
