@@ -45,8 +45,8 @@
 		$req = $bdd->prepare('DELETE FROM `image` WHERE `Utilisateur_pseudo` = ?');
 		$req->execute(array($pseudosupp));
 
-		$req = $bdd->prepare('DELETE FROM `message` WHERE `Utilisateur_pseudo` = ?');
-		$req->execute(array($pseudosupp));
+		$req = $bdd->prepare('DELETE FROM `message` WHERE `Utilisateur_pseudo` = ? OR `destinataire` = ?');
+		$req->execute(array($pseudosupp, $pseudosupp));
 
 		$req = $bdd->prepare('DELETE FROM `ami` WHERE `Utilisateur_pseudo` = ? OR `pseudo_ami` = ?');
 		$req->execute(array($pseudosupp, $pseudosupp));
